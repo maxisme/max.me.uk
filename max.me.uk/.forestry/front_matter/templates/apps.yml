@@ -11,15 +11,6 @@ fields:
     schema:
       format: markdown
   label: Description
-- name: areas_of_expertise
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: false
-    schema:
-      format: markdown
-  label: Areas of expertise
 - name: projects
   type: field_group_list
   fields:
@@ -40,6 +31,15 @@ fields:
     max: 
     labelField: 
   label: Projects
+- name: areas_of_expertise
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Areas of expertise
 - name: extra_areas_of_interest
   type: text
   config:
