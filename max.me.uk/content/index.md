@@ -4,7 +4,9 @@ blurb = "I have experience with many frameworks and tools which I have shared on
 description = "Python Developer @ Octopus Labs. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. Passionate about developing technology, Juventus, traveling and my bike."
 draft = true
 extra_areas_of_interest = "App Development, Web Development, Networks, Computer Vision and Machine Learning."
-languages_and_tools_i_m_good_with = []
+[[languages_and_tools_i_m_good_with]]
+devicon = "devicon-mysql-plain"
+language_or_tool = "Go"
 [meta]
 description = "Maximilian Mitchell - Software Engineer."
 keywords = []
