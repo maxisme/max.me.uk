@@ -89,5 +89,3 @@ fields:
     default: []
     label: keywords
   label: Meta
-pages:
-- max.me.uk/content/index.md
