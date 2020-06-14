@@ -1,19 +1,65 @@
 ---
-label: Projects
+label: Nav Bar
 hide_body: true
 fields:
 - name: projects
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: Projects
+  description: List of selected projects
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+- name: areas_of_expertise
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Areas of expertise
+- name: extra_areas_of_interest
+  type: text
+  config:
+    required: false
+  label: Extra areas of interest
+- name: languages_and_tools_i_m_good_with
   type: field_group_list
   fields:
-  - name: project_url
+  - name: language_or_tool
+    type: text
+    config:
+      required: true
+    label: Language or Tool
+    description: e.g Go
+  - name: devicon
     type: text
     config:
       required: false
-    label: Project URL
-    description: URL of project (e.g. <strong>https://notifi.it</strong>)
+    label: devicon
+    description: From <a href="https://konpa.github.io/devicon/" title="https://konpa.github.io/devicon/"
+      target="_blank">https://konpa.github.io/devicon/</a> (e.g <strong>devicon-mysql-plain</strong>)
   config:
     min: 
     max: 
     labelField: 
-  label: Projects
-  description: List of personal projects
+  label: Languages & Tools I'm good with
+- name: blurb
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: blurb
