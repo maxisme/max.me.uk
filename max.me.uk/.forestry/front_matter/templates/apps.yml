@@ -9,7 +9,7 @@ fields:
     min: 
     max: 
   label: Projects
-  description: List of selected projects
+  description: List of selected project URLs (e.g <strong>https://notifi.it</strong>)
 - name: description
   type: textarea
   default: ''
@@ -45,7 +45,7 @@ fields:
   - name: devicon
     type: text
     config:
-      required: false
+      required: true
     label: devicon
     description: From <a href="https://konpa.github.io/devicon/" title="https://konpa.github.io/devicon/"
       target="_blank">https://konpa.github.io/devicon/</a> (e.g <strong>devicon-mysql-plain</strong>)
