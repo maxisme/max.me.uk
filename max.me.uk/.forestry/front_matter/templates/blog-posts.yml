@@ -47,3 +47,5 @@ fields:
     labelField: 
   label: Content
   description: Images and text fields
+pages:
+- max.me.uk/content/Blog Posts/blog1.md
