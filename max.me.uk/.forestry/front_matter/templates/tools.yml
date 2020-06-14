@@ -1,4 +1,14 @@
 ---
 label: Tools
 hide_body: false
-fields: []
+fields:
+- name: languages_or_tool
+  type: text
+  config:
+    required: false
+  label: Languages or Tool
+- name: devicon
+  type: text
+  config:
+    required: false
+  label: devicon
