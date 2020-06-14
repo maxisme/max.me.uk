@@ -7,7 +7,7 @@ extra_areas_of_interest = "Security, Finance, Hardware, AI, UI and UX."
 projects = ["https://notifi.it", "https://transferme.it"]
 [meta]
 description = ""
-keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex"]
+keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex", "software", "engineer", "software engineer", "england"]
 [[languages_and_tools_i_m_good_with]]
 devicon = "devicon-mysql-plain"
 language_or_tool = "Go"
