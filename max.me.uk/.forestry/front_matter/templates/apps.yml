@@ -63,3 +63,5 @@ fields:
     schema:
       format: markdown
   label: blurb
+pages:
+- max.me.uk/content/nav.md
