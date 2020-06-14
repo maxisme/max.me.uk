@@ -48,134 +48,34 @@
             <div class="row valign-wrapper">
                 <div class="col s2 valign">
                     <a target="_blank" href="<?php echo $url?>"><img class="ico"
-                                                                     src="{{ . }}/images/icon.ico"></a>
+                                                                     src="{{ .url }}/images/icon.ico"></a>
                 </div>
                 <div class="col s10 valign">
-                    <a class="valign" target="_blank" href="<?php echo $url?>"><?php echo $name?></a>
+                    <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
                 </div>
             </div>
         {{ end }}
         <h2>My areas of expertise</h2>
         <p>
-            App Development, Web Development, Networks, Computer Vision and Machine Learning.
+            {{ .areas_of_expertise }}
         </p>
         <h2>My extra areas of interest</h2>
         <p>
-            Security, Finance, Hardware, AI, UI and UX.
+            {{ .extra_areas_of_interest }}
         </p>
 
         <h2>Languages & Tools I'm good with</h2>
         <div class="good">
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-python-plain"></i>
+        	{{ range .languages_and_tools_i_m_good_with }}
+                <div class="row valign-wrapper">
+                    <div class="col s2">
+                        <i class="ico {{ .devicon }}"></i>
+                    </div>
+                    <div class="col s10 valign">
+                        {{ .language_or_tool }}
+                    </div>
                 </div>
-                <div class="col s10 valign">
-                    Python
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-go-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Go
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-c-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Objective-C
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-linux-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Bash/Shell - .*n[u,i]x
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-mysql-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    SQL
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-javascript-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Javascript
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-jquery-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    jQuery
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-nginx-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    NGINX
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-html5-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    HTML
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-css3-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    CSS
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-docker-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Docker
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-git-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Git
-                </div>
-            </div>
+            {{ end }}
         </div>
 
         <h2>Languages & Tools I know</h2>
