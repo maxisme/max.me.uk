@@ -2,14 +2,6 @@
 label: Nav Bar
 hide_body: true
 fields:
-- name: projects
-  type: list
-  config:
-    use_select: false
-    min: 
-    max: 
-  label: Projects
-  description: List of selected project URLs (e.g <strong>https://notifi.it</strong>)
 - name: description
   type: textarea
   default: ''
@@ -19,6 +11,26 @@ fields:
     schema:
       format: markdown
   label: Description
+- name: projects
+  type: field_group_list
+  fields:
+  - name: url
+    type: text
+    config:
+      required: false
+    label: url
+    description: Project URL (e.g <strong>https://notifi.it</strong>)
+  - name: name
+    type: text
+    config:
+      required: false
+    label: name
+    description: Project name (e.g <strong>notifi</strong>)
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Projects
 - name: areas_of_expertise
   type: textarea
   default: ''
