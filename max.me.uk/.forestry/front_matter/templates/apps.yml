@@ -49,18 +49,13 @@ fields:
   type: field_group_list
   fields:
   - name: language_or_tool
-    type: text
+    type: blocks
+    label: Language Or Tool
+    template_types:
+    - tools
     config:
-      required: true
-    label: Language or Tool
-    description: e.g Go
-  - name: devicon
-    type: text
-    config:
-      required: true
-    label: devicon
-    description: From <a href="https://konpa.github.io/devicon/" title="https://konpa.github.io/devicon/"
-      target="_blank">https://konpa.github.io/devicon/</a> (e.g <strong>devicon-mysql-plain</strong>)
+      min: 
+      max: 
   config:
     min: 
     max: 
@@ -70,22 +65,13 @@ fields:
   type: field_group_list
   fields:
   - name: language_or_tool
-    type: text
-    config:
-      required: false
-    label: Language or Tool
-  - name: devicon
-    type: text
-    config:
-      required: false
-    label: devicon
-  - name: b
     type: blocks
-    label: b
-    template_types: []
+    template_types:
+    - tools
     config:
       min: 
       max: 
+    label: Language or Tool
   config:
     min: 
     max: 
