@@ -17,5 +17,3 @@ fields:
     labelField: 
   label: Projects
   description: List of personal projects
-pages:
-- max.me.uk/content/projects.md
