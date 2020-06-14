@@ -7,6 +7,10 @@ fields:
   config:
     required: true
   label: Blog Title
+- name: tags
+  type: tag_list
+  default: []
+  label: tags
 - name: blog_image
   type: file
   config:
