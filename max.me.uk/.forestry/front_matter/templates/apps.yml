@@ -63,5 +63,20 @@ fields:
     schema:
       format: markdown
   label: blurb
+- name: meta
+  type: field_group
+  config: {}
+  fields:
+  - name: keywords
+    type: text
+    config:
+      required: false
+    label: keywords
+  - name: description
+    type: text
+    config:
+      required: false
+    label: description
+  label: Meta
 pages:
 - max.me.uk/content/nav.md
