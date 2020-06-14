@@ -1,4 +1,45 @@
 ---
 label: Blog Posts
 hide_body: true
-fields: []
+fields:
+- name: blog_title
+  type: text
+  config:
+    required: true
+  label: Blog Title
+- name: blog_image
+  type: file
+  config:
+    maxSize: 64
+  label: Blog Image
+- name: content
+  type: field_group_list
+  fields:
+  - name: headers
+    type: text
+    config:
+      required: false
+    label: Headers
+    description: Optional Header
+  - name: content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Content
+    description: Optional content
+  - name: image
+    type: file
+    config:
+      maxSize: 64
+    label: Image
+    description: Optional image
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Content
+  description: Images and text fields
