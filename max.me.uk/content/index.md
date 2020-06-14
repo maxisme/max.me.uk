@@ -45,5 +45,14 @@ url = "https://notifi.it"
 [[projects]]
 name = "Transfer Me It"
 url = "https://transferme.it"
+[[projects]]
+name = "Crypter"
+url = "https://crypter.co.uk"
+[[projects]]
+name = "Pass For It"
+url = "https://passfor.it"
+[[projects]]
+name = "iPee"
+url = "https://ipee.it"
 
 +++
