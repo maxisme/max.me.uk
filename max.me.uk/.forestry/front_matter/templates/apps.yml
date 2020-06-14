@@ -67,16 +67,15 @@ fields:
   type: field_group
   config: {}
   fields:
-  - name: keywords
-    type: text
-    config:
-      required: false
-    label: keywords
   - name: description
     type: text
     config:
       required: false
     label: description
+  - name: keywords
+    type: tag_list
+    default: []
+    label: keywords
   label: Meta
 pages:
 - max.me.uk/content/nav.md
