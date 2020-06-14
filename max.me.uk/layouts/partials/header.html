@@ -1,7 +1,7 @@
 <head>
     <!-- custom meta -->
     <meta name="keywords"
-          content="{{.Meta.keywords}}">
+          content="{{ range $index, $element := .Meta.keywords}}{{if $index}}, {{end}}{{$element}}{{end}}">
     <meta name="description" content="{{.Meta.description}}">
     <title>Maximilian Mitchell</title>
 
@@ -12,7 +12,6 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" href="/css/materialize.min.css">
     <link rel="stylesheet" href="/css/style.min.css">
-
 </head>
 
 <body>
@@ -29,7 +28,7 @@
             <!-- using https://maxwellito.github.io/vivus-instant/ -->
             <a class="col s6" href="mailto:max@max.me.uk"><img class="ico" src="/images/mail_animated.svg"><br>Email</a>
             <a class="col s6" target="_blank" href="https://github.com/maxisme">
-                <img class="ico"src="/images/github_animated.svg">
+                <img class="ico" src="/images/github_animated.svg">
                 <br>GitHub</a>
         </div>
         <div class="row">
@@ -66,7 +65,7 @@
 
         <h2>Languages & Tools I'm good with</h2>
         <div class="good">
-        	{{ range .languages_and_tools_i_m_good_with }}
+            {{ range .languages_and_tools_i_m_good_with }}
                 <div class="row valign-wrapper">
                     <div class="col s2">
                         <i class="ico {{ .devicon }}"></i>
