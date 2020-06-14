@@ -1,4 +1,19 @@
 ---
 label: Apps
 hide_body: true
-fields: []
+fields:
+- name: projects
+  type: field_group_list
+  fields:
+  - name: project_url
+    type: text
+    config:
+      required: false
+    label: Project URL
+    description: URL of project (e.g. <strong>https://notifi.it</strong>)
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Projects
+  description: List of personal projects
