@@ -61,13 +61,6 @@ fields:
     label: devicon
     description: From <a href="https://konpa.github.io/devicon/" title="https://konpa.github.io/devicon/"
       target="_blank">https://konpa.github.io/devicon/</a> (e.g <strong>devicon-mysql-plain</strong>)
-  - name: tools
-    type: blocks
-    label: tools
-    template_types: []
-    config:
-      min: 
-      max: 
   config:
     min: 
     max: 
