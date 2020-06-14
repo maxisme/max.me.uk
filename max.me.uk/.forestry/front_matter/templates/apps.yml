@@ -66,6 +66,31 @@ fields:
     max: 
     labelField: 
   label: Languages & Tools I'm good with
+- name: languages_and_tools_i_know
+  type: field_group_list
+  fields:
+  - name: language_or_tool
+    type: text
+    config:
+      required: false
+    label: Language or Tool
+  - name: devicon
+    type: text
+    config:
+      required: false
+    label: devicon
+  - name: b
+    type: blocks
+    label: b
+    template_types: []
+    config:
+      min: 
+      max: 
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Languages & Tools I know
 - name: blurb
   type: textarea
   default: ''
