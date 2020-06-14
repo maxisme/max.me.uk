@@ -7,9 +7,6 @@ extra_areas_of_interest = "Security, Finance, Hardware, AI, UI and UX."
 description = "Maximilian Mitchell - Software Engineer."
 keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex", "software", "engineer", "software engineer", "england"]
 [[languages_and_tools_i_m_good_with]]
-devicon = "devicon-linux-plain"
-language_or_tool = "Bash/Shell - .*n[u,i]x"
-[[languages_and_tools_i_m_good_with]]
 devicon = "devicon-go-plain"
 language_or_tool = "Go"
 [[languages_and_tools_i_m_good_with]]
@@ -21,6 +18,9 @@ language_or_tool = "SQL"
 [[languages_and_tools_i_m_good_with]]
 devicon = "devicon-javascript-plain"
 language_or_tool = "Javascript"
+[[languages_and_tools_i_m_good_with]]
+devicon = "devicon-linux-plain"
+language_or_tool = "Bash/Shell - .*n[u,i]x"
 [[languages_and_tools_i_m_good_with]]
 devicon = "devicon-jquery-plain"
 language_or_tool = "jQuery"
