@@ -13,7 +13,7 @@ fields:
   description: ''
   config:
     required: false
-    date_format: DD/MM/YYYY
+    date_format: YYYY-MM-DD
     time_format: 
     display_utc: false
     export_format: ''
