@@ -5,7 +5,7 @@ on:
     branches:
       - master
     ignore-paths:
-      - "max.me.uk/**"
+      - ".forestry/**"
 
 jobs:
   deploy:
