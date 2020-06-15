@@ -7,7 +7,7 @@ fields:
   config:
     required: true
   label: title
-- name: date
+- name: datestamp
   type: datetime
   label: date
   description: ''
