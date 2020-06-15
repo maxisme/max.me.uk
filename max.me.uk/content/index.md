@@ -6,6 +6,18 @@ extra_areas_of_interest = "Security, Finance, Hardware, AI, UI and UX."
 [meta]
 description = "Maximilian Mitchell - Software Engineer."
 keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex", "software", "engineer", "software engineer", "england"]
+[[bad_tools]]
+devicon = "devicon-windows8-plain"
+languages_or_tool = "Windows"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-go-plain"
+languages_or_tool = "Go"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-php-plain"
+languages_or_tool = "PHP"
+template = "tools"
 [[languages_and_tools_i_m_good_with]]
 devicon = "devicon-go-plain"
 language_or_tool = "Go"
@@ -39,6 +51,10 @@ language_or_tool = "Docker"
 [[languages_and_tools_i_m_good_with]]
 devicon = "devicon-git-plain"
 language_or_tool = "Git"
+[[learning_tools]]
+devicon = "devicon-c-plain"
+languages_or_tool = "C"
+template = "tools"
 [[projects]]
 name = "notifi"
 url = "https://notifi.it"
