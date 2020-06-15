@@ -13,9 +13,10 @@ fields:
   description: ''
   config:
     required: false
-    date_format: Monday, Jan 2, 2006
+    date_format: DD/MM/YYYY
     time_format: 
     display_utc: false
+    export_format: Monday, Jan 2, 2006
   default: now
 - name: tags
   type: tag_list
