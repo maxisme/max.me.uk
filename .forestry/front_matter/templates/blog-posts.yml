@@ -25,5 +25,3 @@ fields:
     schema:
       format: markdown
   label: content
-pages:
-- content/blog/test-blog.md
