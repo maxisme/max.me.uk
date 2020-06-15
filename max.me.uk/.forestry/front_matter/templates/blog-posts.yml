@@ -25,3 +25,5 @@ fields:
     schema:
       format: markdown
   label: content
+pages:
+- max.me.uk/content/blog/blog-title.md
