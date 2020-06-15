@@ -16,7 +16,7 @@ fields:
     date_format: DD/MM/YYYY
     time_format: 
     display_utc: false
-    export_format: Monday, Jan 2, 2006
+    export_format: ''
   default: now
 - name: tags
   type: tag_list
