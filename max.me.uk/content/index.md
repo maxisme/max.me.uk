@@ -14,6 +14,10 @@ template = "tools"
 devicon = "devicon-go-plain"
 languages_or_tool = "Go"
 template = "tools"
+[[good_tools]]
+devicon = "devicon-python-plain"
+languages_or_tool = "Python"
+template = "tools"
 [[know_tools]]
 devicon = "devicon-php-plain"
 languages_or_tool = "PHP"
