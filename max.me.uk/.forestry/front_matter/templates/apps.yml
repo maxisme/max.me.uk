@@ -45,38 +45,38 @@ fields:
   config:
     required: false
   label: Extra areas of interest
-- name: languages_and_tools_i_m_good_with
-  type: field_group_list
-  fields:
-  - name: language_or_tool
-    type: blocks
-    label: Language Or Tool
-    template_types:
-    - tools
-    config:
-      min: 
-      max: 
+- name: good_tools
+  type: blocks
+  template_types:
+  - tools
   config:
     min: 
     max: 
-    labelField: 
-  label: Languages & Tools I'm good with
-- name: languages_and_tools_i_know
-  type: field_group_list
-  fields:
-  - name: language_or_tool
-    type: blocks
-    template_types:
-    - tools
-    config:
-      min: 
-      max: 
-    label: Language or Tool
+  label: Good tools
+- name: know_tools
+  type: blocks
+  label: Know tools
+  template_types:
+  - tools
   config:
     min: 
     max: 
-    labelField: 
-  label: Languages & Tools I know
+- name: learning_tools
+  type: blocks
+  label: Learning tools
+  template_types:
+  - tools
+  config:
+    min: 
+    max: 
+- name: bad_tools
+  type: blocks
+  label: Bad tools
+  template_types:
+  - tools
+  config:
+    min: 
+    max: 
 - name: blurb
   type: textarea
   default: ''
