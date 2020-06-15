@@ -65,13 +65,13 @@
 
         <h2>Languages & Tools I'm good with</h2>
         <div class="good">
-            {{ range .languages_and_tools_i_m_good_with }}
+            {{ range .good_tools }}
                 <div class="row valign-wrapper">
                     <div class="col s2">
                         <i class="ico {{ .devicon }}"></i>
                     </div>
                     <div class="col s10 valign">
-                        {{ .language_or_tool }}
+                        {{ .languages_or_tool }}
                     </div>
                 </div>
             {{ end }}
@@ -79,88 +79,44 @@
 
         <h2>Languages & Tools I know</h2>
         <div class="average">
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-php-plain"></i>
+            {{ range .know_tools }}
+                <div class="row valign-wrapper">
+                    <div class="col s2">
+                        <i class="ico {{ .devicon }}"></i>
+                    </div>
+                    <div class="col s10 valign">
+                        {{ .languages_or_tool }}
+                    </div>
                 </div>
-                <div class="col s10 valign">
-                    PHP
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-java-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    Java
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-google-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    GCP
-                </div>
-            </div>
+            {{ end }}
         </div>
 
         <h2>Languages & Tools I'm learning</h2>
         <div class="learning">
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-c-line-wordmark"></i>
+            {{ range .learning_tools }}
+                <div class="row valign-wrapper">
+                    <div class="col s2">
+                        <i class="ico {{ .devicon }}"></i>
+                    </div>
+                    <div class="col s10 valign">
+                        {{ .languages_or_tool }}
+                    </div>
                 </div>
-                <div class="col s10 valign">
-                    C
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-cplusplus-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    C++
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-amazonwebservices-original"></i>
-                </div>
-                <div class="col s10 valign">
-                    AWS
-                </div>
-            </div>
-
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-docker-plain"></i>
-                </div>
-                <div class="col s10 valign">
-                    K8s
-                </div>
-            </div>
+            {{ end }}
         </div>
 
         <h2>Languages & Tools I'm not good with</h2>
         <div class="row">
-            <div class="row valign-wrapper">
-                <div class="col s2">
-                    <i class="ico devicon-windows8-plain"></i>
+            {{ range .bad_tools }}
+                <div class="row valign-wrapper">
+                    <div class="col s2">
+                        <i class="ico {{ .devicon }}"></i>
+                    </div>
+                    <div class="col s10 valign">
+                        {{ .languages_or_tool }}
+                    </div>
                 </div>
-                <div class="col s10 valign">
-                    Windows 😴 ... 😉
-                </div>
-            </div>
+            {{ end }}
         </div>
 
         <hr>
