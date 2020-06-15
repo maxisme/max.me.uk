@@ -8,7 +8,7 @@ description = "Maximilian Mitchell - Software Engineer."
 keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex", "software", "engineer", "software engineer", "england"]
 [[bad_tools]]
 devicon = "devicon-windows8-plain"
-languages_or_tool = "Windows"
+languages_or_tool = "Windows 😴 ... 😉"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-python-plain"
@@ -52,7 +52,7 @@ languages_or_tool = "CSS"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-docker-plain"
-languages_or_tool = "Docker"
+languages_or_tool = "Docker & Swarm"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-git-plain"
@@ -62,9 +62,33 @@ template = "tools"
 devicon = "devicon-php-plain"
 languages_or_tool = "PHP"
 template = "tools"
+[[know_tools]]
+devicon = "devicon-php-plain"
+languages_or_tool = "PHP"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-java-plain"
+languages_or_tool = "Java"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-google-plain"
+languages_or_tool = "GCP"
+template = "tools"
 [[learning_tools]]
 devicon = "devicon-c-plain"
 languages_or_tool = "C"
+template = "tools"
+[[learning_tools]]
+devicon = "devicon-cplusplus-plain"
+languages_or_tool = "C++"
+template = "tools"
+[[learning_tools]]
+devicon = "devicon-amazonwebservices-plain"
+languages_or_tool = "AWS"
+template = "tools"
+[[learning_tools]]
+devicon = "devicon-docker-plain"
+languages_or_tool = "K8s"
 template = "tools"
 [[projects]]
 name = "notifi"
