@@ -11,50 +11,57 @@ devicon = "devicon-windows8-plain"
 languages_or_tool = "Windows"
 template = "tools"
 [[good_tools]]
+devicon = "devicon-python-plain"
+languages_or_tool = "Python"
+template = "tools"
+[[good_tools]]
 devicon = "devicon-go-plain"
 languages_or_tool = "Go"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-python-plain"
-languages_or_tool = "Python"
+devicon = "devicon-c-plain"
+languages_or_tool = "Objective-C"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-mysql-plain"
+languages_or_tool = "SQL"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-javascript-plain"
+languages_or_tool = "Javascript"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-jquery-plain"
+languages_or_tool = "jQuery"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-linux-plain"
+languages_or_tool = "Bash/Shell - .*n[u,i]x"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-nginx-plain"
+languages_or_tool = "NGINX"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-html5-plain"
+languages_or_tool = "HTML"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-css3-plain"
+languages_or_tool = "CSS"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-docker-plain"
+languages_or_tool = "Docker"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-git-plain"
+languages_or_tool = "Git"
 template = "tools"
 [[know_tools]]
 devicon = "devicon-php-plain"
 languages_or_tool = "PHP"
 template = "tools"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-go-plain"
-language_or_tool = "Go"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-c-plain"
-language_or_tool = "Objective-C"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-mysql-plain"
-language_or_tool = "SQL"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-javascript-plain"
-language_or_tool = "Javascript"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-linux-plain"
-language_or_tool = "Bash/Shell - .*n[u,i]x"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-jquery-plain"
-language_or_tool = "jQuery"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-nginx-plain"
-language_or_tool = "NGINX"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-html5-plain"
-language_or_tool = "HTML"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-css3-plain"
-language_or_tool = "CSS"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-docker-plain"
-language_or_tool = "Docker"
-[[languages_and_tools_i_m_good_with]]
-devicon = "devicon-git-plain"
-language_or_tool = "Git"
 [[learning_tools]]
 devicon = "devicon-c-plain"
 languages_or_tool = "C"
