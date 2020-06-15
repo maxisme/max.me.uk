@@ -1,6 +1,6 @@
 +++
 areas_of_expertise = "App Development, Web Development, Networks, Computer Vision and Machine Learning."
-blurb = "I have experience with many frameworks and tools which I have shared on Stachshare.\n\nMy Development Dock: PyCharm, GoLand, PhpStorm, Sequel Pro, Xcode, Terminal, SourceTree, Photoshop and Sketch.\n\nImage taken on my way to Machu Picchu."
+blurb = "<p class=\"subinfo\">I have experience with many frameworks and tools which I have shared on <a href=\"https://stackshare.io/maxisme/my-stack\" target=\"_blank\">Stachshare</a>.</p><p class=\"subinfo\">My Development Dock: PyCharm, GoLand, PhpStorm, Sequel Pro, Xcode, Terminal, SourceTree, Photoshop and Sketch.</p><p class=\"subinfo hide-on-small-and-down\"><em>Image taken on my way to Machu Picchu</em></p>"
 description = "Python Developer @ Octopus Labs. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. Passionate about developing technology, Juventus, traveling and my bike."
 extra_areas_of_interest = "Security, Finance, Hardware, AI, UI and UX."
 [meta]
