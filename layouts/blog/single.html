@@ -6,16 +6,19 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <h1>
-    {{.Params.title}} {{ .Section }}
+    {{ .Params.title }}
 </h1>
+
 <div class="date">
     {{ dateFormat "Monday, Jan 2, 2006" .Params.datestamp }}
 </div>
+
 <div class="tags">
     {{ range .Params.tags }}
-        <div class="tag"><a href="">{{.}}</a></div>
+        <div class="tag"><a href="/tags/{{ . | urlize }}/">{{.}}</a></div>
     {{ end }}
 </div>
+
 <div class="content">
     {{ .Params.content | markdownify }}
 </div>

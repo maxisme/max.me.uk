@@ -3,7 +3,7 @@ content = "# h1\n\n## h2\n\n### h3\n\n    * {\n        font-size: 1em;\n        
 date = "2020-06-14T23:00:00+00:00"
 datestamp = 2020-06-14T23:00:00Z
 image = "/uploads/nasa-q1p7bh3shj8-unsplash.jpg"
-tags = ["IoT", "Raspberry Pi"]
-title = "Test Blog"
+tags = ["Hugo", "", "NGINX", "Docker"]
+title = "Creating My Blog"
 
 +++

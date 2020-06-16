@@ -139,11 +139,12 @@ a
   li
     padding-bottom: 10px
     list-style-type: none
+    font-size: 0.7em /* for time */
 
     a
       color: $grey !important
       font-weight: 800
-      font-size: 1.3em
+      font-size: 2em
 
       &:hover
         color: $red !important
@@ -151,8 +152,8 @@ a
     &:before
       @include image-bg
       color: #fff
-      content: '>>'
-      margin-right: 10px
+      content: '~'
+      margin-right: 5px
 
 .posts
   margin-bottom: 0.5em
@@ -210,6 +211,12 @@ a
       border: 1px solid $grey
       display: inline
       color: #6b6b6b
+      &:hover
+        cursor: pointer
+        background: $grey
+      a
+        &:hover
+          color: $white
 
   .date
     margin-left: 0.5em

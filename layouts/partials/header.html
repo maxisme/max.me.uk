@@ -1,9 +1,7 @@
 <head>
     <!-- custom meta -->
-    <meta name="keywords"
-          content="{{ range $index, $element := .Params.Meta.keywords}}{{if $index}}, {{end}}{{$element}}{{end}}">
     <meta name="description" content="{{ .Params.Meta.description }}">
-    <title>Maximilian Mitchell</title>
+    <title>{{ if .Title }}{{.Title}} | Max{{else}}Maximilian{{end}} Mitchell</title>
 
     <!-- mobile meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -12,6 +10,9 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" href="/css/materialize.min.css">
     <link rel="stylesheet" href="/css/style.min.css">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="preload stylesheet">
 </head>
 
 <body>
@@ -48,7 +49,7 @@
         <h2><a href="/blog/">Blog Posts</a></h2>
 
         {{ range where .Site.RegularPages "Section" "blog" }}
-            <li><a href="{{ .Permalink }}">{{ .Params.title | humanize | title }} ({{.Params.datestamp}})</a></li>
+            <li><a href="{{ .Permalink }}">{{ .Params.title | humanize | title }}</a></li>
         {{ end }}
         <li><a href="/blog/">More...</a></li>
 
