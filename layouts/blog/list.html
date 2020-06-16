@@ -1,0 +1,7 @@
+{{ partial "header.html" . }}
+
+{{ range where .Site.RegularPages "Section" .Section }}
+    <li><a href="{{ .Permalink }}">{{ .Params.title | humanize | title }} ({{.Params.datestamp}})</a></li>
+{{ end }}
+
+{{ partial "footer.html" }}

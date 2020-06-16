@@ -1,3 +1,10 @@
 baseURL = "http://example.org/"
 languageCode = "en-gb"
 title = "My New Hugo Site"
+disqusShortname = "disqus_j00DDUi8D7"
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

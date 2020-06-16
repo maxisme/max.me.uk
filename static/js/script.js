@@ -25,7 +25,7 @@
 $(document).ready(function(){
 
 	setTimeout(function(){
-		if($(".content").css("padding-left") != "14px") {
+		if($(".sidebar").css("padding-left") != "14px") {
 			// not small screen
 			var img = new Image();
 			var el = $("#newim");

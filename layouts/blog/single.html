@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+
+<!-- code block highlighting -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<h1>
+    {{.Params.title}} {{ .Section }}
+</h1>
+<div class="date">
+    {{ dateFormat "Monday, Jan 2, 2006" .Params.datestamp }}
+</div>
+<div class="tags">
+    {{ range .Params.tags }}
+        <div class="tag">{{.}}</div>
+    {{ end }}
+</div>
+<div class="content">
+    {{ .Params.content | markdownify }}
+</div>
+
+{{ template "_internal/disqus.html" . }}
+
+{{ partial "footer.html" }}

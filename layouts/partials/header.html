@@ -1,8 +1,8 @@
 <head>
     <!-- custom meta -->
     <meta name="keywords"
-          content="{{ range $index, $element := .Meta.keywords}}{{if $index}}, {{end}}{{$element}}{{end}}">
-    <meta name="description" content="{{.Meta.description}}">
+          content="{{ range $index, $element := .Params.Meta.keywords}}{{if $index}}, {{end}}{{$element}}{{end}}">
+    <meta name="description" content="{{ .Params.Meta.description }}">
     <title>Maximilian Mitchell</title>
 
     <!-- mobile meta -->
@@ -19,109 +19,122 @@
     <div id='newim' class='full-image'></div>
 </div>
 <div class="row" style="margin-bottom: 0">
-    <div class="col s12 m5 l4 content">
+    <div class="col s12 m5 l4 sidebar">
         <div align="center">
             <h1>Maximilian<br>Mitchell</h1>
         </div>
-        <p class="info">{{ .description }}</p>
+        <p class="info">{{ .Params.description }}</p>
         <div class="row">
             <!-- using https://maxwellito.github.io/vivus-instant/ -->
             <a class="col s6" href="mailto:max@max.me.uk"><img class="ico" src="/images/mail_animated.svg"><br>Email</a>
             <a class="col s6" target="_blank" href="https://github.com/maxisme">
                 <img class="ico" src="/images/github_animated.svg">
-                <br>GitHub</a>
+                <br>GitHub
+            </a>
         </div>
         <div class="row">
-            <a class="col s6" target="_blank" href="https://www.linkedin.com/in/maxisme"><img class="ico"
-                                                                                              src="/images/linkedin_animated.svg"><br>Linked
-                In</a>
-            <a class="col s6" target="_blank" href="https://stackoverflow.com/story/maxisme"><img class="ico"
-                                                                                                  src="/images/stackoverflow_animated.svg"><br>Stack
-                Overflow</a>
+            <a class="col s6" target="_blank" href="https://www.linkedin.com/in/maxisme">
+                <img class="ico"
+                     src="/images/linkedin_animated.svg">
+                <br>Linked In
+            </a>
+            <a class="col s6" target="_blank" href="https://stackoverflow.com/story/maxisme">
+                <img class="ico"
+                     src="/images/stackoverflow_animated.svg">
+                <br>StackOverflow
+            </a>
         </div>
 
-        <h2>Selected Projects</h2>
+        <h2>Posts</h2>
 
-        <!--- projects -->
-        {{ range .projects}}
-            <div class="row valign-wrapper">
-                <div class="col s2 valign">
-                    <a target="_blank" href="<?php echo $url?>"><img class="ico"
-                                                                     src="{{ .url }}/images/icon.ico"></a>
-                </div>
-                <div class="col s10 valign">
-                    <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
-                </div>
-            </div>
+        {{ range where .Site.RegularPages "Section" "blog" }}
+            <li><a href="{{ .Permalink }}">{{ .Params.title | humanize | title }} ({{.Params.datestamp}})</a></li>
         {{ end }}
-        <h2>My areas of expertise</h2>
-        <p>
-            {{ .areas_of_expertise }}
-        </p>
-        <h2>My extra areas of interest</h2>
-        <p>
-            {{ .extra_areas_of_interest }}
-        </p>
 
-        <h2>Languages & Tools I'm good with</h2>
-        <div class="good">
-            {{ range .good_tools }}
+        {{ if .Params.projects }}
+            <h2>Selected Projects</h2>
+
+            <!--- projects -->
+            {{ range .Params.projects }}
                 <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <i class="ico {{ .devicon }}"></i>
+                    <div class="col s2 valign">
+                        <a target="_blank" href="<?php echo $url?>"><img class="ico"
+                                                                         src="{{ .url }}/images/icon.ico"></a>
                     </div>
                     <div class="col s10 valign">
-                        {{ .languages_or_tool }}
+                        <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
                     </div>
                 </div>
             {{ end }}
-        </div>
+            <h2>My areas of expertise</h2>
+            <p>
+                {{ .Params.areas_of_expertise }}
+            </p>
+            <h2>My extra areas of interest</h2>
+            <p>
+                {{ .Params.extra_areas_of_interest }}
+            </p>
 
-        <h2>Languages & Tools I know</h2>
-        <div class="average">
-            {{ range .know_tools }}
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <i class="ico {{ .devicon }}"></i>
+            <h2>Languages & Tools I'm good with</h2>
+            <div class="good">
+                {{ range .Params.good_tools }}
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <i class="ico {{ .devicon }}"></i>
+                        </div>
+                        <div class="col s10 valign">
+                            {{ .languages_or_tool }}
+                        </div>
                     </div>
-                    <div class="col s10 valign">
-                        {{ .languages_or_tool }}
-                    </div>
-                </div>
-            {{ end }}
-        </div>
+                {{ end }}
+            </div>
 
-        <h2>Languages & Tools I'm learning</h2>
-        <div class="learning">
-            {{ range .learning_tools }}
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <i class="ico {{ .devicon }}"></i>
+            <h2>Languages & Tools I know</h2>
+            <div class="average">
+                {{ range .Params.know_tools }}
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <i class="ico {{ .devicon }}"></i>
+                        </div>
+                        <div class="col s10 valign">
+                            {{ .languages_or_tool }}
+                        </div>
                     </div>
-                    <div class="col s10 valign">
-                        {{ .languages_or_tool }}
-                    </div>
-                </div>
-            {{ end }}
-        </div>
+                {{ end }}
+            </div>
 
-        <h2>Languages & Tools I'm not good with</h2>
-        <div class="row">
-            {{ range .bad_tools }}
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <i class="ico {{ .devicon }}"></i>
+            <h2>Languages & Tools I'm learning</h2>
+            <div class="learning">
+                {{ range .Params.learning_tools }}
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <i class="ico {{ .devicon }}"></i>
+                        </div>
+                        <div class="col s10 valign">
+                            {{ .languages_or_tool }}
+                        </div>
                     </div>
-                    <div class="col s10 valign">
-                        {{ .languages_or_tool }}
-                    </div>
-                </div>
-            {{ end }}
-        </div>
+                {{ end }}
+            </div>
 
-        <hr>
-        {{ safeHTML .blurb }}
-        <p>&nbsp;</p>
+            <h2>Languages & Tools I'm not good with</h2>
+            <div class="row">
+                {{ range .Params.bad_tools }}
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <i class="ico {{ .devicon }}"></i>
+                        </div>
+                        <div class="col s10 valign">
+                            {{ .languages_or_tool }}
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+
+            <hr>
+            {{ safeHTML .Params.blurb }}
+            <p>&nbsp;</p>
+        {{ end }}
     </div> <!-- .content -->
 
     <!--- blog post -->
