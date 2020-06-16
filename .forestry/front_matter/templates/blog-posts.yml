@@ -32,5 +32,5 @@ fields:
       format: markdown
   label: content
 pages:
-- content/blog/test-blog.md
+- content/blog/creating-my-blog.md
 - content/blog/test-blog2.md
