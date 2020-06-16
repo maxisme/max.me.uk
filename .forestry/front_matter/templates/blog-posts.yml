@@ -40,6 +40,8 @@ fields:
   type: text
   config:
     required: false
+    max: 150
+    min: 10
   label: meta-description
   description: Short description for meta tags
 pages:
