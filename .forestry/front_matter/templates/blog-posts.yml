@@ -32,4 +32,5 @@ fields:
       format: markdown
   label: content
 pages:
+- content/_index.md
 - content/blog/test-blog.md
