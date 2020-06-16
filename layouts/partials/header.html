@@ -21,7 +21,7 @@
 <div class="row" style="margin-bottom: 0">
     <div class="col s12 m5 l4 sidebar">
         <div align="center">
-            <h1>Maximilian<br>Mitchell</h1>
+            <h1><a href="/">Maximilian<br>Mitchell</a></h1>
         </div>
         <p class="info">{{ .Params.description }}</p>
         <div class="row">
@@ -45,11 +45,12 @@
             </a>
         </div>
 
-        <h2>Posts</h2>
+        <h2><a href="/blog/">Blog Posts</a></h2>
 
         {{ range where .Site.RegularPages "Section" "blog" }}
             <li><a href="{{ .Permalink }}">{{ .Params.title | humanize | title }} ({{.Params.datestamp}})</a></li>
         {{ end }}
+        <li><a href="/blog/">More...</a></li>
 
         {{ if .Params.projects }}
             <h2>Selected Projects</h2>

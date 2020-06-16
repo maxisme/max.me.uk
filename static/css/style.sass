@@ -6,10 +6,26 @@ $border: $white 5px solid
 $small-screen: 600px !default
 $small-and-down: "only screen and (max-width : #{$small-screen})" !default
 
+@mixin image-bg
+  -webkit-text-fill-color: transparent
+  background: url("/images/bg.jpg") repeat center
+  color: $grey
+  -webkit-background-clip: text
+  background-size: 100px
+
 *
   font-size: 1em
   font-family: 'Inconsolata', monospace
   -webkit-font-smoothing: antialiased
+  transition: 0.1s
+  ::-moz-selection
+    -webkit-text-fill-color: $white
+    background: $grey
+    color: $white
+  ::selection
+    -webkit-text-fill-color: $white
+    background: $grey
+    color: $white
 
 html
   height: 100vh
@@ -23,10 +39,16 @@ h1
   border: $border
   padding: 0.5em
   margin-bottom: 1em
-  color: $white
   text-transform: uppercase
   font-weight: 600
   letter-spacing: 0.15em
+  transition: none
+  a
+    transition: none
+    color: $white
+    &:hover
+      color: $white !important
+      @include image-bg
 
 h2
   margin-top: 2.5em
@@ -105,6 +127,32 @@ a
   overflow-y: scroll
   max-height: 100vh
 
+  a
+    &:hover
+      color: $red
+
+  li
+    list-style-type: circle
+
+
+.post-list
+  li
+    padding-bottom: 10px
+    list-style-type: none
+
+    a
+      color: $grey !important
+      font-weight: 800
+      font-size: 1.3em
+
+      &:hover
+        color: $red !important
+
+    &:before
+      @include image-bg
+      color: #fff
+      content: '>>'
+      margin-right: 10px
 
 .posts
   margin-bottom: 0.5em
@@ -135,6 +183,7 @@ a
     padding: initial
     color: $grey
     margin-bottom: 0.2em
+    @include image-bg
 
   h2
     margin-top: 1em

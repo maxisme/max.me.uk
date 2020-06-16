@@ -1,4 +1,4 @@
-name: github pages
+name: push
 
 on:
   push:
@@ -11,22 +11,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+     - uses: actions/checkout@master
         with:
-          fetch-depth: 0
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+          fetch-depth: '0'
+      - name: Publish to Docker Registry
+        uses: docker/build-push-action@v1
         with:
-          hugo-version: '0.71.1'
-          # extended: true
+          repository: ${{ github.repository }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tag_with_ref: true
+          tag_with_sha: true
 
-      - name: Build
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: max.me.uk
