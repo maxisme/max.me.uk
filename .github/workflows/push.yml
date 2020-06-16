@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-          with:
-            fetch-depth: '0'
+        with:
+          fetch-depth: '0'
       - name: Publish to Docker Registry
         uses: docker/build-push-action@v1
         with:
