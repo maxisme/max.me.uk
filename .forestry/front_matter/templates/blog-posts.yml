@@ -7,6 +7,11 @@ fields:
   config:
     required: true
   label: title
+- name: banner
+  type: file
+  config:
+    maxSize: 64
+  label: banner
 - name: datestamp
   type: datetime
   label: date
