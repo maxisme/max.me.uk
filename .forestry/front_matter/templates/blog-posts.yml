@@ -42,7 +42,7 @@ fields:
     required: true
     max: 150
     min: 10
-  label: meta-description
+  label: meta description
   description: Short description for meta tags
 pages:
 - content/blog/creating-my-blog.md
