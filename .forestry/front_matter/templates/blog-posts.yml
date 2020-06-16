@@ -36,6 +36,12 @@ fields:
     schema:
       format: markdown
   label: content
+- name: meta-description
+  type: text
+  config:
+    required: false
+  label: meta-description
+  description: Short description for meta tags
 pages:
 - content/blog/creating-my-blog.md
 - content/blog/test-blog2.md
