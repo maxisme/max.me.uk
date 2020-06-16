@@ -4,6 +4,7 @@ content = "What better topic to write about in my first post than talking about 
 date = "2020-06-14T23:00:00+00:00"
 datestamp = 2020-06-15T23:00:00Z
 image = "/uploads/nasa-q1p7bh3shj8-unsplash.jpg"
+meta-description = "How to create a blog using Hugo and Forestry"
 tags = ["Hugo", "Forestry", "NGINX", "Docker", "Actions"]
 title = "Creating My Blog"
 
