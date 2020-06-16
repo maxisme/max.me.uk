@@ -7,20 +7,26 @@ fields:
   config:
     required: true
   label: title
+- name: datestamp
+  type: datetime
+  label: date
+  description: ''
+  config:
+    required: true
+    date_format: YYYY-MM-DD
+    time_format: 
+    display_utc: false
+    export_format: ''
+  default: now
 - name: tags
   type: tag_list
   default: []
   label: tags
-- name: image
-  type: file
-  config:
-    maxSize: 64
-  label: image
 - name: content
   type: textarea
   default: ''
   config:
-    required: false
+    required: true
     wysiwyg: true
     schema:
       format: markdown
