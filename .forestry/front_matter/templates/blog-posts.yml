@@ -36,14 +36,14 @@ fields:
     schema:
       format: markdown
   label: content
-- name: meta-description
+- name: meta_description
   type: text
   config:
     required: true
     max: 150
     min: 10
   label: meta description
-  description: Short description for meta tags
+  description: A one to two sentence description of the post.
 pages:
 - content/blog/creating-my-blog.md
 - content/blog/test-blog2.md
