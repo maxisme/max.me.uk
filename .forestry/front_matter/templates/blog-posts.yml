@@ -39,7 +39,7 @@ fields:
 - name: meta-description
   type: text
   config:
-    required: false
+    required: true
     max: 150
     min: 10
   label: meta-description
