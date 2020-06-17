@@ -43,7 +43,8 @@ jobs:
       - name: Update Swarm
         if: github.ref == 'refs/heads/master'
         run: |
-          echo "sha-${github.sha:0:7}"
+          export sha="${{ github.sha }}"
+          echo "sha-${sha:0:7}"
           curl -f -X POST ${{ secrets.SWARM_HOOK }} \
           -H 'Content-Type: application/x-www-form-urlencoded' \
           -d 'service=maxmeuk_draft' \
