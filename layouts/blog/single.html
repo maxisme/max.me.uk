@@ -5,22 +5,48 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<h1>
-    {{ .Params.title }}
-</h1>
+<div align="center">
+    <title>
+        {{ .Params.title }}
+    </title>
 
-<div class="date">
-    {{ dateFormat "Monday, Jan 2, 2006" .Params.datestamp }}
-</div>
+    <div class="date">
+        {{ dateFormat "Monday, Jan 2, 2006" .Params.datestamp }}
+    </div>
 
-<div class="tags">
-    {{ range .Params.tags }}
-        <div class="tag"><a href="/tags/{{ . | urlize }}/">{{.}}</a></div>
-    {{ end }}
+    <div class="tags">
+        {{ range .Params.tags }}
+            <div class="tag"><a href="/tags/{{ . | urlize }}/">{{.}}</a></div>
+        {{ end }}
+    </div>
+
+    <div class="banner">
+        <img width="90%" src="{{.Params.image}}">
+    </div>
 </div>
 
 <div class="content">
     {{ .Params.content | markdownify }}
+
+    <div align="center" class="tilde">~</div>
+
+    <div align="center" class="share">
+        Feel free to share ❤️
+        <p>
+{{/*            {{ $url := htmlEscape .Permalink | absURL }}*/}}
+            {{ $url :="https://max.me.uk/" }}
+            {{ $title := htmlEscape .Title }}
+            <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ $url }}&p[title]={{ $title }}">
+                <img src="/images/social/fb.svg"/>
+            </a>
+            <a target="_blank" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}">
+                <img src="/images/social/tw.svg"/>
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ $url }}&title={{ $title }}">
+                <img src="/images/social/li.svg"/>
+            </a>
+        </p>
+    </div>
 </div>
 
 {{ template "_internal/disqus.html" . }}

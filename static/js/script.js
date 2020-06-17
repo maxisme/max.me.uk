@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $('.sidenav').sidenav();
+    $('.sidenav-trigger').click();
+
     // only load high quality image if root
     if (location.pathname === "/") {
         setTimeout(function () {
@@ -15,4 +18,7 @@ $(document).ready(function () {
             }
         }, 500);
     }
+    $("h1, h2, h3, h4, h5").click(function () {
+        window.location.href = location.protocol + '//' + location.host + location.pathname + "#" + $(this).attr("id")
+    })
 });

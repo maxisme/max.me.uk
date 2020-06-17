@@ -18,10 +18,12 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default
   font-family: 'Inconsolata', monospace
   -webkit-font-smoothing: antialiased
   transition: 0.1s
+
   ::-moz-selection
     -webkit-text-fill-color: $white
     background: $grey
     color: $white
+
   ::selection
     -webkit-text-fill-color: $white
     background: $grey
@@ -30,6 +32,14 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default
 html
   height: 100vh
   max-height: 100vh
+
+.all-content
+  margin-bottom: 0px !important
+
+  .sidenav-trigger
+    position: absolute
+    top: 20px
+    left: 20px
 
 h1
   //margin-left: -0.5em
@@ -43,9 +53,11 @@ h1
   font-weight: 600
   letter-spacing: 0.15em
   transition: none
+
   a
     transition: none
     color: $white
+
     &:hover
       color: $white !important
       @include image-bg
@@ -133,13 +145,13 @@ a
 
   li
     list-style-type: circle
-
+    float: none
 
 .post-list
   li
     padding-bottom: 10px
     list-style-type: none
-    font-size: 0.7em /* for time */
+    font-size: 0.7em
 
     a
       color: $grey !important
@@ -174,31 +186,80 @@ a
   width: 100%
 
 #post
+  box-shadow: 5px 5px 40px rgba(0,0,0,.3)
   padding-left: 5em
   background: $white
   overflow-x: hidden
   overflow-y: scroll
   max-height: 100vh
+  min-height: 100vh
 
-  h1
+  title
+    display: table
+    position: relative
+    border: $border
+    text-transform: uppercase
+    font-weight: 600
+    letter-spacing: 0.15em
     padding: initial
+    margin-top: 1em
     color: $grey
     margin-bottom: 0.2em
+    font-size: 3em
     @include image-bg
 
-  h2
-    margin-top: 1em
-    font-size: 2.5em
-    border-bottom: 5px #fff solid
+  .banner
+    padding-top: 20px
+  .content
+    .tilde
+      font-size: 5em
+      line-height: 0
+      color: #fff
+      padding: 30px 30px 50px
+      @include image-bg
 
-  h3
-    display: table
-    font-size: 2em
-    border-bottom: 2px #fff solid
+    blockquote
+      border-left: 3px solid $lgrey
+      font-size: 1.5em
+      font-style: italic
+      font-weight: 800
 
-  .hljs
-    background: white
-    font-size: 0.8em
+      p
+        margin: 0
+
+    ul li
+      list-style-type: circle
+      margin-left: 35px
+
+    code
+      background: #fff
+
+    h1
+      margin: 1.5em 0 0
+      -webkit-text-fill-color: $grey
+      font-size: 2.5em
+      border-bottom: 5px #fff solid
+
+    h2
+      margin-top: 1.5em
+      display: table
+      font-size: 2em
+      border-bottom: 2px #fff solid
+
+    h3
+      margin-top: 1em
+      display: table
+      font-size: 1.5em
+      border-bottom: 2px #fff solid
+
+    hr
+      border-top: #fff 2px dashed !important
+      margin-top: 30px
+      padding-bottom: 25px
+
+    .hljs
+      background: white
+      font-size: 0.8em
 
   .tags
     margin-top: 0.5em
@@ -211,17 +272,20 @@ a
       border: 1px solid $grey
       display: inline
       color: #6b6b6b
+
       &:hover
         cursor: pointer
         background: $grey
+
       a
         &:hover
           color: $white
 
   .date
-    margin-left: 0.5em
-    margin-top: -0.5em
+    margin-top: -0.8em
+    padding-bottom: 0.5em
     color: $grey
+    font-size: 0.8em
 
   a
     color: #bc2122
