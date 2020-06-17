@@ -22,6 +22,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           tag_with_ref: true
           tag_with_sha: true
+
+  deploy-drafts:
+    name: "Deploy with drafts"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: '0'
       - name: Publish with drafts to Docker Registry
         uses: docker/build-push-action@v1
         with:
