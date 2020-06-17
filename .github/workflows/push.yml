@@ -37,7 +37,7 @@ jobs:
           repository: ${{ github.repository }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          build_args: HUGOFLAGS=-D
+          build_args: HUGOFLAGS=-D -b https://draft.max.me.uk
           tags: "drafts"
 
       # TODO tweet if a new file is added to the `/content/blog/` directory

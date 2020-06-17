@@ -33,8 +33,7 @@
     <div align="center" class="share">
         Feel free to share ❤️
         <p>
-{{/*            {{ $url := htmlEscape .Permalink | absURL }}*/}}
-            {{ $url :="https://max.me.uk/" }}
+            {{ $url := htmlEscape .Permalink | absURL }}
             {{ $title := htmlEscape .Title }}
             <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ $url }}&p[title]={{ $title }}">
                 <img src="/images/social/fb.svg"/>
