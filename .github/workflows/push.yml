@@ -43,12 +43,12 @@ jobs:
       - name: Update Swarm
         if: github.ref == 'refs/heads/master'
         run: |
-          echo "sha-${{ github.sha:0:7 }}"
+          echo "sha-${github.sha:0:7}"
           curl -f -X POST ${{ secrets.SWARM_HOOK }} \
           -H 'Content-Type: application/x-www-form-urlencoded' \
           -d 'service=maxmeuk_draft' \
-          -d "image=${{ github.repository }}" \
           -d "tag=drafts" \
+          -d "image=${{ github.repository }}" \
           -d "token=${{ secrets.HOOK_TOKEN }}"
 
       # TODO tweet if a new file is added to the `/content/blog/` directory
