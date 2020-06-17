@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           tag_with_ref: true
           tag_with_sha: true
-          build_args: HUGOFLAGS="-D"
+          build_args: HUGOFLAGS=-D
           tags: "drafts"
 
       # TODO tweet if a new file is added to the `/content/blog/` directory
