@@ -2,8 +2,6 @@ version: '3.2'
 services:
   latest:
     image: maxisme/max.me.uk:latest
-    env_file:
-      - ".env"
     deploy:
       mode: global
       labels:
@@ -17,8 +15,6 @@ services:
 
   draft:
     image: maxisme/max.me.uk:drafts
-    env_file:
-      - ".env"
     deploy:
       mode: global
       labels:
