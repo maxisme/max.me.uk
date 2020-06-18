@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<h2>{{.Title}}</h2>
+<h1 class="tag-header">{{.Title}}</h1>
 <div class="post-list">
     {{ range .Site.RegularPages.RelatedTo (keyVals "tags" .Title) }}
         <li>

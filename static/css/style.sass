@@ -41,6 +41,10 @@ html
     top: 20px
     left: 20px
 
+
+.tag-header
+  color: $red
+  font-style: italic
 h1
   //margin-left: -0.5em
   font-size: 2.3em
@@ -185,8 +189,13 @@ a
 .posts:hover::after
   width: 100%
 
+@media only screen and (max-width: 992px)
+  .slide-in-on-mobile
+    -webkit-transform: translateX(-105%)
+    transform: translateX(-105%)
+
 #post
-  box-shadow: 5px 5px 40px rgba(0,0,0,.3)
+  box-shadow: 5px 5px 40px rgba(0, 0, 0, .3)
   padding-left: 5em
   background: $white
   overflow-x: hidden
@@ -210,6 +219,7 @@ a
 
   .banner
     padding-top: 20px
+
   .content
     .tilde
       font-size: 5em
@@ -239,6 +249,7 @@ a
       -webkit-text-fill-color: $grey
       font-size: 2.5em
       border-bottom: 5px #fff solid
+      display: inherit
 
     h2
       margin-top: 1.5em

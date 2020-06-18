@@ -1,7 +1,9 @@
 <head>
     {{ $isHome := false }}
-    {{ if eq .Page.File.Path "_index.md" }}
-        {{ $isHome = true }}
+    {{ with .Page.File }}
+        {{ if eq .Path "_index.md" }}
+            {{ $isHome = true }}
+        {{ end }}
     {{ end }}
     <!-- custom meta -->
     <meta name="description"
@@ -49,7 +51,7 @@
     <div id='newim' class='full-image'></div>
 </div>
 <div class="row all-content">
-    <div id="nav-mobile" class="col sidenav-fixed sidebar {{ if $isHome }}l4 m5 s12{{else}}sidenav l4 s8{{end}}">
+    <div id="slide-out" class="col sidenav-fixed sidebar {{ if $isHome }}l4 m5 s12{{else}}slide-in-on-mobile sidenav l4 s8{{end}}">
         <div align="center">
             <h1><a href="/">Maximilian<br>Mitchell </a></h1>
         </div>
@@ -90,11 +92,11 @@
             <!--- projects -->
             {{ range .Params.projects }}
                 <div class="row valign-wrapper">
-                    <div class="col s1 valign">
+                    <div class="col s2 valign">
                         <a target="_blank" href="<?php echo $url?>"><img class="ico"
                                                                          src="{{ .url }}/images/icon.ico"></a>
                     </div>
-                    <div class="col s11 valign">
+                    <div class="col s10 valign">
                         <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
                     </div>
                 </div>
@@ -112,10 +114,10 @@
             <div class="good">
                 {{ range .Params.good_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s1">
+                        <div class="col s2">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s11 valign">
+                        <div class="col s10 valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -126,10 +128,10 @@
             <div class="average">
                 {{ range .Params.know_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s1">
+                        <div class="col s2">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s11 valign">
+                        <div class="col s10 valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -140,10 +142,10 @@
             <div class="learning">
                 {{ range .Params.learning_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s1">
+                        <div class="col s2">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s11 valign">
+                        <div class="col s10 valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -154,10 +156,10 @@
             <div>
                 {{ range .Params.bad_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s1">
+                        <div class="col s2">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s11 valign">
+                        <div class="col s10 valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -172,7 +174,7 @@
     <!--- blog post -->
     <div id="post" class="col l8 offset-l4 m12">
         {{ if not $isHome }}
-            <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only">
+            <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only">
                 <i class="material-icons">menu</i>
             </a>
         {{end}}

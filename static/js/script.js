@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
-    $('.sidenav-trigger').click();
 
     // only load high quality image if root
     if (location.pathname === "/") {
