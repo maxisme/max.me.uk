@@ -67,10 +67,6 @@ devicon = "devicon-php-plain"
 languages_or_tool = "PHP"
 template = "tools"
 [[know_tools]]
-devicon = "devicon-php-plain"
-languages_or_tool = "PHP"
-template = "tools"
-[[know_tools]]
 devicon = "devicon-java-plain"
 languages_or_tool = "Java"
 template = "tools"
