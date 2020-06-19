@@ -1,7 +1,7 @@
 baseURL = "https://max.me.uk/"
 languageCode = "en-gb"
 title = "My New Hugo Site"
-disqusShortname = "disqus_j00DDUi8D7"
+disqusShortname = "max-me-uk"
 [sitemap]
   changefreq = "monthly"
   filename = "sitemap.xml"
