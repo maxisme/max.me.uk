@@ -18,7 +18,7 @@ fields:
   description: ''
   config:
     required: true
-    date_format: YYYY-MM-DD
+    date_format: ''
     time_format: 
     display_utc: false
     export_format: YYYY-MM-DD
@@ -46,6 +46,10 @@ fields:
   description: A one to two sentence description of the post.
 pages:
 - content/blog/8-emojis.md
+- content/blog/8-emojis.md
+- content/blog/creating-my-blog.md
 - content/blog/creating-my-blog.md
 - content/blog/test-blog-this-is-now-on-docker-copy.md
+- content/blog/test-blog-this-is-now-on-docker-copy.md
+- content/blog/test-blog2.md
 - content/blog/test-blog2.md
