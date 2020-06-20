@@ -5,7 +5,7 @@
     {{ range where .Site.RegularPages "Section" .Section }}
         <li>
             <a href="{{ .Permalink }}">{{ .Params.title | humanize | title }}</a>
-            <br>{{ dateFormat "Monday, Jan 2, 2006" .Params.datestamp }}
+            <br>{{ dateFormat "Monday, Jan 2, 2006" .Params.date }}
         </li>
     {{ end }}
 </div>
