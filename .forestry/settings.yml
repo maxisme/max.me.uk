@@ -7,7 +7,7 @@ sections:
 - type: directory
   path: blog
   label: Blogs
-  create: documents
+  create: all
   match: "**/*"
   templates:
   - blog-posts
