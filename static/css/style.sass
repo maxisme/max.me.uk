@@ -1,4 +1,5 @@
-$white: #e3e3e3 /* keep in sync with disqus icon  */
+$white: #e3e3e3
+/* keep in sync with disqus icon  */
 $grey: #3a3a3a
 $lgrey: #636363
 $red: #bc2122
@@ -34,7 +35,7 @@ html
   max-height: 100vh
 
 .all-content
-  margin-bottom: 0px !important
+  margin-bottom: 0 !important
 
   .sidenav-trigger
     position: absolute
@@ -71,6 +72,9 @@ h1
     &:hover
       color: $white !important
       @include image-bg
+
+.centre
+  text-align: center
 
 h2
   margin-top: 2.5em
@@ -225,6 +229,7 @@ a
 
   .banner
     padding-top: 20px
+
     img
       max-height: 400px
       max-width: 90%
@@ -233,6 +238,7 @@ a
     p
       font-size: 1.2em
       text-align: justify
+
     .tilde
       font-size: 5em
       line-height: 0
@@ -340,8 +346,6 @@ a
   transition: background 0.5s linear
   min-width: 100% !important
   min-height: 100% !important
-  background-position: center center
-  background-repeat: no-repeat
   -webkit-background-size: cover
   -moz-background-size: cover
   background-size: cover

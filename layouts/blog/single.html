@@ -5,8 +5,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<div align="center">
-    <title>
+<div class="center">
+    <title class="center">
         {{ .Params.title }}
     </title>
 
@@ -21,33 +21,33 @@
     </div>
 
     <div class="banner">
-        <img src="{{.Params.banner}}">
+        <img alt="banner image" src="{{.Params.banner}}">
     </div>
 </div>
 
 <div class="content">
     {{ .Params.content | markdownify }}
 
-    <div align="center" class="tilde">~</div>
+    <div class="tilde center">~</div>
 
-    <div align="center" class="share">
-        Feel free to share ❤️
-        <p>
-            {{ $url := htmlEscape .Permalink | absURL }}
-            {{ $title := htmlEscape .Title }}
-            <div align="center">
-                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ $url }}&p[title]={{ $title }}">
-                    <img src="/images/social/fb.svg"/>
-                </a>
-                <a target="_blank" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}">
-                    <img src="/images/social/tw.svg"/>
-                </a>
-                <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url }}">
-                    <img src="/images/social/li.svg"/>
-                </a>
-            </div>
-        </p>
+    <div class="share centre">
+        Please share the ️💻
+        {{ $url := htmlEscape .Permalink | absURL }}
+        {{ $title := htmlEscape .Title }}
+        <div class="center">
+            <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ $url }}&p[title]={{ $title }}">
+                <img alt="fb logo" src="/images/social/fb.svg"/>
+            </a>
+            <a target="_blank" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}">
+                <img alt="twitter logo" src="/images/social/tw.svg"/>
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url }}">
+                <img alt="linkedin logo" src="/images/social/li.svg"/>
+            </a>
+        </div>
     </div>
+
+    <div class="centre tilde">~</div>
 </div>
 
 {{ template "_internal/disqus.html" . }}
