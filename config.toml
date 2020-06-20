@@ -1,10 +1,10 @@
 baseURL = "https://max.me.uk/"
+disqusShortname = "max-me-uk"
 languageCode = "en-gb"
 title = "My New Hugo Site"
-disqusShortname = "max-me-uk"
-[sitemap]
-  changefreq = "monthly"
-  filename = "sitemap.xml"
-  priority = 0.5
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
+[sitemap]
+changefreq = "monthly"
+filename = "sitemap.xml"
+priority = 0.5
