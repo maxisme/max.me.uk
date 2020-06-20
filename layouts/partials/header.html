@@ -5,24 +5,12 @@
             {{ $isHome = true }}
         {{ end }}
     {{ end }}
+
     <!-- custom meta -->
     <meta name="description"
           content="{{ if .Params.meta_description }}{{.Params.meta_description}}{{else}}{{ .Params.Meta.description }}{{end}}">
     <title>{{ if .Title }}{{.Title}} | Max{{else}}Maximilian{{end}} Mitchell</title>
-
-    <!-- mobile meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;600;900&display=swap" rel="preload stylesheet">
-
-    <!-- favicon -->
-    <link rel="shortcut icon" href="/images/favicon.ico">
-
-    <!-- css -->
-    <link rel="stylesheet" href="/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/style.min.css">
-
+    <meta charset="UTF-8">
     {{ if not $isHome }}
         <!-- Open Graph data -->
         <meta property="og:title" content="{{ .Params.title }}"/>
@@ -46,6 +34,19 @@
         <meta name="twitter:site" content="@maxisme">
         <meta name="twitter:creator" content="@maxisme">
     {{ end }}
+
+    <!-- mobile meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;600;900&display=swap" rel="preload stylesheet">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
 </head>
 
 <body>
