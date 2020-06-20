@@ -8,7 +8,7 @@ sections:
   path: ''
   label: Blogs
   create: documents
-  match: "/blogs/**"
+  match: blog/**
   templates:
   - blog-posts
 - type: directory
