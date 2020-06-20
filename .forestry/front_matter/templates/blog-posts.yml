@@ -46,4 +46,5 @@ fields:
   description: A one to two sentence description of the post.
 pages:
 - content/blog/creating-my-blog.md
+- content/blog/my-8-emojis.md
 - content/blog/test-blog2.md
