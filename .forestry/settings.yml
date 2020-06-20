@@ -8,7 +8,7 @@ sections:
   path: ''
   label: Blogs
   create: all
-  match: "**/*"
+  match: "/layouts/blog/*"
   templates:
   - blog-posts
 - type: directory
