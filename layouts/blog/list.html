@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<h1>All Posts</h1>
+<h1 class="list-header">Blog Posts</h1>
 <div class="post-list">
     {{ range where .Site.RegularPages "Section" .Section }}
         <li>

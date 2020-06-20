@@ -1,4 +1,4 @@
-$white: #efefef
+$white: #e3e3e3
 $grey: #3a3a3a
 $lgrey: #636363
 $red: #bc2122
@@ -16,7 +16,7 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default
 *
   font-size: 1em
   font-family: 'Inconsolata', monospace
-  -webkit-font-smoothing: antialiased
+  font-weight: 400
   transition: 0.1s
 
   ::-moz-selection
@@ -42,9 +42,15 @@ html
     left: 20px
 
 
-.tag-header
+.list-header
   color: $red
-  font-style: italic
+  font-weight: lighter
+  padding: 2em 0 0
+  margin: 0
+
+sub
+  font-weight: lighter
+
 h1
   //margin-left: -0.5em
   font-size: 2.3em
@@ -168,7 +174,6 @@ a
     &:before
       @include image-bg
       color: #fff
-      content: '~'
       margin-right: 5px
 
 .posts
@@ -189,8 +194,9 @@ a
 .posts:hover::after
   width: 100%
 
+
 @media only screen and (max-width: 992px)
-  .slide-in-on-mobile
+  #slide-out, .slide-in-on-mobile
     -webkit-transform: translateX(-105%)
     transform: translateX(-105%)
 
@@ -208,19 +214,21 @@ a
     position: relative
     border: $border
     text-transform: uppercase
-    font-weight: 600
+    font-weight: 800
     letter-spacing: 0.15em
     padding: initial
-    margin-top: 1em
-    color: $grey
+    color: $white
     margin-bottom: 0.2em
-    font-size: 3em
-    @include image-bg
+    font-size: 4em
+    text-shadow: -3px 3px 0 #fff
 
   .banner
     padding-top: 20px
 
   .content
+    p
+      font-size: 1.2em
+      text-align: justify
     .tilde
       font-size: 5em
       line-height: 0
@@ -243,25 +251,28 @@ a
 
     code
       background: #fff
+      color: $grey
 
     h1
-      margin: 1.5em 0 0
-      -webkit-text-fill-color: $grey
+      text-align: center
+      margin: 1.7em 0 0
+      color: #fff
       font-size: 2.5em
-      border-bottom: 5px #fff solid
+      border-bottom: 1px #fff solid
+      border-top: 1px #fff solid
       display: inherit
+      font-weight: 900
 
     h2
       margin-top: 1.5em
       display: table
       font-size: 2em
-      border-bottom: 2px #fff solid
 
     h3
-      margin-top: 1em
+      font-weight: lighter
+      margin-top: 2em
       display: table
-      font-size: 1.5em
-      border-bottom: 2px #fff solid
+      font-size: 1.8em
 
     hr
       border-top: #fff 2px dashed !important

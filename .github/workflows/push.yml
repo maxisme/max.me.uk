@@ -43,7 +43,7 @@ jobs:
       - name: Update Swarm
         if: github.ref == 'refs/heads/master'
         run: |
-          curl -f -X POST ${{ secrets.SWARM_HOOK }} \
+          curl -fs -X POST ${{ secrets.SWARM_HOOK }} \
           -H 'Content-Type: application/x-www-form-urlencoded' \
           -d 'service=maxmeuk_draft' \
           -d "tag=drafts" \

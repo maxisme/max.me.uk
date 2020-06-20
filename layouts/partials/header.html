@@ -13,8 +13,13 @@
     <!-- mobile meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;600;900&display=swap" rel="preload stylesheet">
+
     <!-- favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <!-- css -->
     <link rel="stylesheet" href="/css/materialize.min.css">
     <link rel="stylesheet" href="/css/style.min.css">
 
@@ -41,9 +46,6 @@
         <meta name="twitter:site" content="@maxisme">
         <meta name="twitter:creator" content="@maxisme">
     {{ end }}
-
-    <!-- FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="preload stylesheet">
 </head>
 
 <body>
@@ -51,7 +53,8 @@
     <div id='newim' class='full-image'></div>
 </div>
 <div class="row all-content">
-    <div id="slide-out" class="col sidenav-fixed sidebar {{ if $isHome }}l4 m5 s12{{else}}slide-in-on-mobile sidenav l4 s8{{end}}">
+    <div id="slide-out"
+         class="col {{ if $isHome }} l4 m5 s12 {{else}} slide-in-on-mobile sidenav l4 s8{{end}} sidenav-fixed sidebar">
         <div align="center">
             <h1><a href="/">Maximilian<br>Mitchell </a></h1>
         </div>
@@ -171,10 +174,11 @@
             <p>&nbsp;</p>
         {{ end }}
     </div>
+    {{ if not $isHome }}
     <!--- blog post -->
     <div id="post" class="col l8 offset-l4 m12">
-        {{ if not $isHome }}
-            <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only">
-                <i class="material-icons">menu</i>
-            </a>
-        {{end}}
+
+        <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+{{end}}

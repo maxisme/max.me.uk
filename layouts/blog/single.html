@@ -35,15 +35,17 @@
         <p>
             {{ $url := htmlEscape .Permalink | absURL }}
             {{ $title := htmlEscape .Title }}
-            <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ $url }}&p[title]={{ $title }}">
-                <img src="/images/social/fb.svg"/>
-            </a>
-            <a target="_blank" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}">
-                <img src="/images/social/tw.svg"/>
-            </a>
-            <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url }}">
-                <img src="/images/social/li.svg"/>
-            </a>
+            <div align="center">
+                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ $url }}&p[title]={{ $title }}">
+                    <img src="/images/social/fb.svg"/>
+                </a>
+                <a target="_blank" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}">
+                    <img src="/images/social/tw.svg"/>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url }}">
+                    <img src="/images/social/li.svg"/>
+                </a>
+            </div>
         </p>
     </div>
 </div>
