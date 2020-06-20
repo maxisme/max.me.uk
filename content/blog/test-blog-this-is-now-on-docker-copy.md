@@ -6,6 +6,6 @@ draft = true
 image = "/uploads/nasa-q1p7bh3shj8-unsplash.jpg"
 meta_description = "Some description of this post."
 tags = ["IoT", "Raspberry Pi"]
-title = "Test Blog This is now on docker 🤞-(copy)"
+title = "🤷‍♂️"
 
 +++
