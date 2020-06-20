@@ -4,7 +4,7 @@ content = "# Game 1\n\nI came across these cool japanese emojis in Tokyo as a st
 datestamp = 2020-06-20T14:37:13Z
 draft = true
 meta_description = "Find all 8 emojis."
-tags = []
+tags = ["game"]
 title = "8 emojis"
 
 +++
