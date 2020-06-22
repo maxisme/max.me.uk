@@ -143,6 +143,8 @@ a
   border: $border
 
 .sidebar
+  position: fixed
+  z-index: 1
   min-height: 100% !important
   padding-left: 2.5em !important
   padding-right: 1em !important
@@ -198,11 +200,16 @@ a
 .posts:hover::after
   width: 100%
 
-
 @media only screen and (max-width: 992px)
-  #slide-out, .slide-in-on-mobile
+  .slide-in-on-mobile-blog
     -webkit-transform: translateX(-105%)
     transform: translateX(-105%)
+
+@media only screen and (min-width: 992px)
+  .slide-in-on-mobile-blog
+    -webkit-transform: translateX(0%)
+    transform: translateX(0%)
+
 
 #post
   box-shadow: 5px 5px 40px rgba(0, 0, 0, .3)

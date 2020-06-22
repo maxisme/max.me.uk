@@ -55,8 +55,7 @@
     <div id='newim' class='full-image'></div>
 </div>
 <div class="row all-content">
-    <div id="slide-out"
-         class="col {{ if $isHome }} l4 m5 s12 {{else}} slide-in-on-mobile sidenav l4 s8{{end}} sidenav-fixed sidebar">
+    <div class="col {{ if $isHome }} l4 m7 s12 {{else}} slide-in-on-mobile-blog l4 s8{{end}} sidebar">
         <div align="center">
             <h1><a href="/">Maximilian<br>Mitchell </a></h1>
         </div>
@@ -181,10 +180,10 @@
         {{ end }}
     </div>
     {{ if not $isHome }}
-        <!--- blog post -->
-        <div id="post" class="col l8 offset-l4 m12">
+    <!--- blog post -->
+    <div id="post" class="col l8 offset-l4 m12 s12">
 
-            <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only">
-                <i class="material-icons">menu</i>
-            </a>
-    {{end}}
+        <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+{{end}}

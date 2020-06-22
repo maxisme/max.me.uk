@@ -1,5 +1,22 @@
 $(document).ready(function () {
-    $('.sidenav').sidenav();
+    $('.sidenav-trigger').click(function(){
+        if (!$(this).attr("open") || $(this).attr("open").length > 1) {
+            $(this).attr("open", "1");
+            $(".sidebar").css("-webkit-transform", "translateX(0%)");
+            $(".sidebar").css("transform", "translateX(0%)");
+        }else{
+            $(this).attr("open", "");
+            $(".sidebar").css("-webkit-transform", "translateX(-105%)");
+            $(".sidebar").css("transform", "translateX(-105%)");
+        }
+    });
+
+    $(document).on('click', function(e) {
+        if (e.target.id === "post") {
+            $(".sidebar").css("-webkit-transform", "translateX(-105%)");
+            $(".sidebar").css("transform", "translateX(-105%)");
+        }
+    });
 
     // only load high quality image if root
     if (location.pathname === "/") {
@@ -17,7 +34,4 @@ $(document).ready(function () {
             }
         }, 500);
     }
-    // $("h1, h2, h3, h4, h5").click(function () {
-    //     window.location.href = location.protocol + '//' + location.host + location.pathname + "#" + $(this).attr("id")
-    // })
 });
