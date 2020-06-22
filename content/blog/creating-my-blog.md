@@ -5,7 +5,7 @@ date = 2020-06-14T23:00:00Z
 draft = true
 image = "/uploads/nasa-q1p7bh3shj8-unsplash.jpg"
 meta-description = "How to create a blog with Hugo and Forestry"
-meta_description = "Building a blog with Hugo and Forestry"
+meta_description = "Building a blog with Hugo and Forestry."
 tags = ["Hugo", "Forestry", "NGINX", "Docker", "Actions"]
 title = "Creating My Blog"
 
