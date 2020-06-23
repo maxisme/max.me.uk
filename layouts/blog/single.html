@@ -10,6 +10,10 @@
         {{ .Params.title }}
     </title>
 
+    <div class="banner">
+        <img alt="banner image" src="{{.Params.banner}}">
+    </div>
+
     <div class="date">
         {{ dateFormat "Monday, Jan 2, 2006" .Params.date }}
     </div>
@@ -18,10 +22,6 @@
         {{ range .Params.tags }}
             <div class="tag"><a href="/tags/{{ . | urlize }}/">{{.}}</a></div>
         {{ end }}
-    </div>
-
-    <div class="banner">
-        <img alt="banner image" src="{{.Params.banner}}">
     </div>
 </div>
 

@@ -1,17 +1,17 @@
 version: '3.2'
 services:
-#  latest:
-#    image: maxisme/max.me.uk:latest
-#    deploy:
-#      mode: global
-#      labels:
-#        - "traefik.enable=true"
-#        - "traefik.http.routers.maxmeuk.rule=Host(`max.me.uk`)"
-#        - "traefik.http.routers.maxmeuk.entrypoints=web-secure"
-#        - "traefik.http.routers.maxmeuk.tls.certresolver=letsencrypt"
-#        - "traefik.http.services.maxmeuk.loadbalancer.server.port=8080"
-#    networks:
-#      - traefik
+  latest:
+    image: maxisme/max.me.uk:latest
+    deploy:
+      mode: global
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.maxmeuk.rule=Host(`max.me.uk`)"
+        - "traefik.http.routers.maxmeuk.entrypoints=web-secure"
+        - "traefik.http.routers.maxmeuk.tls.certresolver=letsencrypt"
+        - "traefik.http.services.maxmeuk.loadbalancer.server.port=8080"
+    networks:
+      - traefik
 
   draft:
     image: maxisme/max.me.uk:drafts

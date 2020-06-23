@@ -18,7 +18,7 @@ $(document).ready(function () {
         }
     });
 
-    // only load high quality image if root
+    // only load high quality background image if root
     if (location.pathname === "/") {
         setTimeout(function () {
             if ($(".sidebar").css("padding-left") != "14px") {
