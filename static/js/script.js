@@ -1,20 +1,20 @@
 $(document).ready(function () {
-    $('.sidenav-trigger').click(function(){
-        if (!$(this).attr("open") || $(this).attr("open").length > 1) {
-            $(this).attr("open", "1");
-            $(".sidebar").css("-webkit-transform", "translateX(0%)");
-            $(".sidebar").css("transform", "translateX(0%)");
-        }else{
-            $(this).attr("open", "");
-            $(".sidebar").css("-webkit-transform", "translateX(-105%)");
-            $(".sidebar").css("transform", "translateX(-105%)");
-        }
+    $('.sidenav-trigger').click(function(e){
+        $(this).attr("data-open", "1");
+        $(".sidebar").css("-webkit-transform", "translateX(0%)");
+        $(".sidebar").css("transform", "translateX(0%)");
+        e.preventDefault();
+        return false;
     });
 
     $(document).on('click', function(e) {
-        if (e.target.id === "post") {
-            $(".sidebar").css("-webkit-transform", "translateX(-105%)");
-            $(".sidebar").css("transform", "translateX(-105%)");
+        var dataOpen = $('.sidenav-trigger').attr("data-open");
+        if (dataOpen && dataOpen.length > 0){
+            if(!$(e.target).hasClass("sidebar") && $(e.target).parents('.sidebar').length === 0) {
+                $('.sidenav-trigger').attr("data-open", "");
+                $(".sidebar").css("-webkit-transform", "translateX(-105%)");
+                $(".sidebar").css("transform", "translateX(-105%)");
+            }
         }
     });
 
