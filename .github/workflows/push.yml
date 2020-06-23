@@ -23,6 +23,15 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           tag_with_ref: true
           tag_with_sha: true
+      - name: Update Swarm
+        if: github.ref == 'refs/heads/master'
+        run: |
+          curl -fs -X POST ${{ secrets.SWARM_HOOK }} \
+          -H 'Content-Type: application/x-www-form-urlencoded' \
+          -d 'service=maxmeuk_latest' \
+          -d "tag=latest" \
+          -d "image=${{ github.repository }}" \
+          -d "token=${{ secrets.HOOK_TOKEN }}"
 
   deploy-drafts:
     name: "Deploy with drafts"
@@ -49,6 +58,3 @@ jobs:
           -d "tag=drafts" \
           -d "image=${{ github.repository }}" \
           -d "token=${{ secrets.HOOK_TOKEN }}"
-
-      # TODO tweet if a new file is added to the `/content/blog/` directory
-
