@@ -1,7 +1,7 @@
 FROM woahbase/alpine-hugo AS builder
 COPY . /
 ARG HUGOFLAGS
-RUN hugo $HUGOFLAGS
+RUN hugo --minify $HUGOFLAGS
 
 FROM nginx:alpine
 
