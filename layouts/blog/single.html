@@ -10,9 +10,11 @@
         {{ .Params.title }}
     </title>
 
-    <div class="banner">
-        <img alt="banner image" src="{{.Params.banner}}">
-    </div>
+    {{ if .Params.banner }}
+        <div class="banner">
+            <img alt="banner image" src="{{.Params.banner}}">
+        </div>
+    {{ end }}
 
     <div class="date">
         {{ dateFormat "Monday, Jan 2, 2006" .Params.date }}
