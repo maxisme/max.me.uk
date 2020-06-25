@@ -4,7 +4,7 @@ content = "# Intro\n\nThere are two different places a 404 page is likely to com
 date = 2020-06-25T00:00:00Z
 draft = true
 meta_description = "Setting up a custom 404 page in Traefik."
-tags = ["Traefik", "404"]
+tags = ["Traefik", "404", "Docker", "Swarm"]
 title = "Custom 404 Page in Traefik"
 
 +++
