@@ -4,7 +4,7 @@ content = "# Intro\n\nOften find yourself typing `https://github.com/yourusernam
 date = 2020-06-25T00:00:00Z
 draft = true
 meta_description = "Create a custom GitHub URL with Traefik."
-tags = ["GitHub", "Traefik", "notes"]
+tags = ["GitHub", "Traefik"]
 title = "Custom GitHub URL"
 
 +++
