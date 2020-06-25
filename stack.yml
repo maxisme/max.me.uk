@@ -10,6 +10,7 @@ services:
         - "traefik.http.routers.maxmeuk.entrypoints=web-secure"
         - "traefik.http.routers.maxmeuk.tls.certresolver=letsencrypt"
         - "traefik.http.services.maxmeuk.loadbalancer.server.port=8080"
+        - "traefik.http.routers.maxmeuk.middlewares=404"
     networks:
       - traefik
 
