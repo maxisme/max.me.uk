@@ -4,7 +4,7 @@
 <div class="post-list">
     {{ range where .Site.RegularPages "Section" .Section }}
         <li>
-            <a href="{{ .Permalink }}">{{ .Params.title | humanize | title }}</a>
+            <a href="{{ .Permalink }}">{{ .Params.title | title }}</a>
             <br>{{ dateFormat "Monday, Jan 2, 2006" .Params.date }}
         </li>
     {{ end }}

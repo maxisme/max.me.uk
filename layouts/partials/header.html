@@ -89,7 +89,7 @@
         {{ range where .Site.RegularPages "Section" "blog" }}
             {{ $cnt = add $cnt 1}}
             {{ if lt $cnt 4 }}
-                <li><a href="{{ .Permalink }}">{{ .Params.title | humanize | title }}</a></li>
+                <li><a href="{{ .Permalink }}">{{ .Params.title | title }}</a></li>
             {{ end}}
         {{ end }}
 
