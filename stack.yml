@@ -24,6 +24,7 @@ services:
         - "traefik.http.routers.draft-maxmeuk.entrypoints=web-secure"
         - "traefik.http.routers.draft-maxmeuk.tls.certresolver=letsencrypt"
         - "traefik.http.services.draft-maxmeuk.loadbalancer.server.port=8080"
+        - "traefik.http.routers.draft-maxmeuk.middlewares=404"
     networks:
       - traefik
 
