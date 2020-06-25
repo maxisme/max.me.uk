@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.sidenav-trigger').click(function(e){
+    $('.sidenav-trigger').click(function (e) {
         $(this).attr("data-open", "1");
         $(".sidebar").css("-webkit-transform", "translateX(0%)");
         $(".sidebar").css("transform", "translateX(0%)");
@@ -7,10 +7,17 @@ $(document).ready(function () {
         return false;
     });
 
-    $(document).on('click', function(e) {
+    $('a').each(function() {
+        var a = new RegExp('/' + window.location.host + '/');
+        if (!a.test(this.href)) {
+            $(this).attr("target", "_blank");
+        }
+    });
+
+    $(document).on('click', function (e) {
         var dataOpen = $('.sidenav-trigger').attr("data-open");
-        if (dataOpen && dataOpen.length > 0){
-            if(!$(e.target).hasClass("sidebar") && $(e.target).parents('.sidebar').length === 0) {
+        if (dataOpen && dataOpen.length > 0) {
+            if (!$(e.target).hasClass("sidebar") && $(e.target).parents('.sidebar').length === 0) {
                 $('.sidenav-trigger').attr("data-open", "");
                 $(".sidebar").css("-webkit-transform", "translateX(-105%)");
                 $(".sidebar").css("transform", "translateX(-105%)");
