@@ -14,20 +14,6 @@ services:
     networks:
       - traefik
 
-  draft:
-    image: maxisme/max.me.uk:drafts
-    deploy:
-      mode: global
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.draft-maxmeuk.rule=Host(`draft.max.me.uk`)"
-        - "traefik.http.routers.draft-maxmeuk.entrypoints=web-secure"
-        - "traefik.http.routers.draft-maxmeuk.tls.certresolver=letsencrypt"
-        - "traefik.http.services.draft-maxmeuk.loadbalancer.server.port=8080"
-        - "traefik.http.routers.draft-maxmeuk.middlewares=404"
-    networks:
-      - traefik
-
 networks:
   traefik:
     external: true
