@@ -5,6 +5,6 @@ date = 2020-07-11T00:00:00Z
 draft = true
 meta_description = "Deploying a time machine server with docker."
 tags = ["docker", "time machine", "samba", "macos"]
-title = "Time Machine Docker container"
+title = "Time Machine in a Docker container"
 
 +++
