@@ -4,6 +4,6 @@ content = "Thanks to a mix of [this](https://kirb.me/2018/03/24/using-samba-as-a
 date = 2020-07-11T00:00:00Z
 meta_description = "Deploying a time machine server with Docker."
 tags = ["Docker", "Mac OS", "Samba", "Time Machine"]
-title = "Time Machine in a Docker container"
+title = "Time Machine Docker server"
 
 +++
