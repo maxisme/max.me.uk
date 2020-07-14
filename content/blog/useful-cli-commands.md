@@ -4,7 +4,7 @@ content = "I have decided to put some commands that I often need to lookup thank
 date = 2020-07-14T00:00:00Z
 draft = true
 meta_description = "A set of command line commands that I need to remember."
-tags = []
+tags = ["cli", "git", "ssh"]
 title = "Useful CLI commands"
 
 +++
