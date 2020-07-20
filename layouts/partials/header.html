@@ -104,6 +104,7 @@
         <h2><a href="/blog/">Blog Posts</a></h2>
 
         {{ if .Params.projects }}
+            <!-- only show 3 latest blogs -->
             {{ $cnt := 0 }}
             {{ range where .Site.RegularPages "Section" "blog" }}
                 {{ $cnt = add $cnt 1}}
@@ -115,6 +116,7 @@
                 <li><a href="/blog/">More...</a></li>
             {{ end }}
         {{ else }}
+            <!-- show all pages -->
             {{ range where .Site.RegularPages "Section" "blog" }}
                 <li><a href="{{ .Permalink }}">{{ .Params.title | title }}</a></li>
             {{ end }}
