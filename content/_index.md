@@ -90,7 +90,7 @@ devicon = "devicon-docker-plain"
 languages_or_tool = "K8s"
 template = "tools"
 [[learning_tools]]
-devicon = "devicon"
+devicon = "devicon-devicon-plain"
 languages_or_tool = "Flutter/Dart"
 template = "tools"
 [[projects]]
