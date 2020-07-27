@@ -91,7 +91,7 @@
             {{ range .Params.projects }}
                 <div class="row valign-wrapper">
                     <div class="col s2 valign">
-                        <a target="_blank" href="<?php echo $url?>"><img class="ico"
+                        <a target="_blank" href="{{ .url }}"><img class="ico"
                                                                          src="{{ .url }}/images/icon.ico"></a>
                     </div>
                     <div class="col s10 valign">
