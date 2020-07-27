@@ -92,7 +92,8 @@
                 <div class="row valign-wrapper">
                     <div class="col s2 valign">
                         <a target="_blank" href="{{ .url }}"><img class="ico"
-                                                                         src="{{ .url }}/images/icon.ico"></a>
+                                                                  src="{{ .url }}/images/icon.ico"
+                                                                  onerror="if (this.src != '{{ .url }}/static/images/icon.ico') this.src = '{{ .url }}/static/images/icon.ico';"></a>
                     </div>
                     <div class="col s10 valign">
                         <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
