@@ -89,6 +89,10 @@ template = "tools"
 devicon = "devicon-docker-plain"
 languages_or_tool = "K8s"
 template = "tools"
+[[learning_tools]]
+devicon = "devicon-devicon-plain"
+languages_or_tool = "Flutter/Dart"
+template = "tools"
 [[projects]]
 name = "notifi"
 url = "https://notifi.it"
@@ -101,6 +105,9 @@ url = "https://crypter.co.uk"
 [[projects]]
 name = "Pass For It"
 url = "https://passfor.it"
+[[projects]]
+name = "ID My Team"
+url = "https://idmy.team"
 [[projects]]
 name = "iPee"
 url = "https://ipee.it"
