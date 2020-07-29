@@ -5,6 +5,6 @@ date = 2020-07-29T00:00:00Z
 draft = true
 meta_description = "How to trace a Django application with OpenTelemetry and Jaeger."
 tags = ["Django", "OpenTelemetry", "Traefik", "Tracing", "Jaeger"]
-title = "Tracing Django applications."
+title = "Tracing Django applications"
 
 +++
