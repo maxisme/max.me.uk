@@ -55,4 +55,5 @@ pages:
 - content/blog/test-blog2.md
 - content/blog/test-blog2.md
 - content/blog/time-machine-docker-container.md
+- content/blog/tracing-django-applications-with-opentelemetry.md
 - content/blog/useful-cli-commands.md
