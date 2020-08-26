@@ -90,12 +90,12 @@
             <!--- projects -->
             {{ range .Params.projects }}
                 <div class="row valign-wrapper">
-                    <div class="col s2 valign">
+                    <div class="col valign">
                         <a target="_blank" href="{{ .url }}"><img class="ico"
                                                                   src="{{ .url }}/images/icon.ico"
                                                                   onerror="if (this.src != '{{ .url }}/static/images/icon.ico') this.src = '{{ .url }}/static/images/icon.ico';"></a>
                     </div>
-                    <div class="col s10 valign">
+                    <div class="col valign">
                         <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
                     </div>
                 </div>
@@ -137,10 +137,10 @@
             <div class="good">
                 {{ range .Params.good_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s2">
+                        <div class="col">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s10 valign">
+                        <div class="col valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -151,10 +151,10 @@
             <div class="average">
                 {{ range .Params.know_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s2">
+                        <div class="col">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s10 valign">
+                        <div class="col valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -165,10 +165,10 @@
             <div class="learning">
                 {{ range .Params.learning_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s2">
+                        <div class="col">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s10 valign">
+                        <div class="col valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
@@ -179,10 +179,10 @@
             <div>
                 {{ range .Params.bad_tools }}
                     <div class="row valign-wrapper">
-                        <div class="col s2">
+                        <div class="col">
                             <i class="ico {{ .devicon }}"></i>
                         </div>
-                        <div class="col s10 valign">
+                        <div class="col valign">
                             {{ .languages_or_tool }}
                         </div>
                     </div>
