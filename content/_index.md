@@ -94,21 +94,27 @@ devicon = "devicon-devicon-plain"
 languages_or_tool = "Flutter/Dart"
 template = "tools"
 [[projects]]
+ico_url = ""
 name = "notifi"
 url = "https://notifi.it"
 [[projects]]
+ico_url = ""
 name = "Transfer Me It"
 url = "https://transferme.it"
 [[projects]]
+ico_url = ""
 name = "Crypter"
 url = "https://crypter.co.uk"
 [[projects]]
+ico_url = ""
 name = "Pass For It"
 url = "https://passfor.it"
 [[projects]]
+ico_url = "https://idmy.team/static/images/icon_red.svg"
 name = "ID My Team"
 url = "https://idmy.team"
 [[projects]]
+ico_url = ""
 name = "iPee"
 url = "https://ipee.it"
 
