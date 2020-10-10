@@ -17,13 +17,19 @@ fields:
   - name: url
     type: text
     config:
-      required: false
+      required: true
     label: url
     description: Project URL (e.g <strong>https://notifi.it</strong>)
-  - name: name
+  - name: ico_url
     type: text
     config:
       required: false
+    label: ICO url
+    description: The location of the tab-icon/favicon/ico.
+  - name: name
+    type: text
+    config:
+      required: true
     label: name
     description: Project name (e.g <strong>notifi</strong>)
   config:
