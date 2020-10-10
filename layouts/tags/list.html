@@ -1,10 +1,12 @@
 {{ partial "header.html" . }}
 
-<h1 class="list-header">{{.Title}}</h1>
+<div align="center">
+    <h1 class="list-header">{{.Title}}</h1>
     <sub>
         Blog posts tagged with "{{.Title}}"
     </sub>
-    <p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <div class="post-list">
     {{ range .Site.RegularPages.RelatedTo (keyVals "tags" .Title) }}
         <li>
