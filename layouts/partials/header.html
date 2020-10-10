@@ -89,11 +89,16 @@
 
             <!--- projects -->
             {{ range .Params.projects }}
+                {{ $favicon := (printf "%s/images/icon.ico" .url) }}
+                {{ if .ico_url }}
+                    {{ $favicon = .ico_url }}
+                {{ end }}
+
                 <div class="row valign-wrapper">
                     <div class="col valign">
-                        <a target="_blank" href="{{ .url }}"><img class="ico"
-                                                                  src="{{ .url }}/images/icon.ico"
-                                                                  onerror="if (this.src != '{{ .url }}/static/images/icon.ico') this.src = '{{ .url }}/static/images/icon.ico';"></a>
+                        <a target="_blank" href="{{ .url }}">
+                            <img class="ico" src="{{ $favicon }}">
+                        </a>
                     </div>
                     <div class="col valign">
                         <a class="valign" target="_blank" href="{{ .url }}">{{ .name }}</a>
@@ -105,7 +110,7 @@
         <h2><a href="/blog/">Blog Posts</a></h2>
 
         {{ if .Params.projects }}
-            <!-- only show 3 latest blogs -->
+            <!-- only show 3 newest blog posts -->
             {{ $cnt := 0 }}
             {{ range where .Site.RegularPages "Section" "blog" }}
                 {{ $cnt = add $cnt 1}}
@@ -117,7 +122,7 @@
                 <li><a href="/blog/">More...</a></li>
             {{ end }}
         {{ else }}
-            <!-- show all pages -->
+            <!-- show all blog posts -->
             {{ range where .Site.RegularPages "Section" "blog" }}
                 <li><a href="{{ .Permalink }}">{{ .Params.title | title }}</a></li>
             {{ end }}
