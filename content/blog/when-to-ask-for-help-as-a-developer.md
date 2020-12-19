@@ -4,7 +4,7 @@ content = "I have just started a new software engineering role and I am really e
 date = 2020-12-19T00:00:00Z
 draft = true
 meta_description = "When to ask for help as a developer vs finding out the answer yourself."
-tags = ["programming", "learning"]
+tags = ["Programming", "Learning"]
 title = "When to ask for help as a developer"
 
 +++
