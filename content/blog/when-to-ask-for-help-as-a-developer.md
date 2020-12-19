@@ -5,6 +5,6 @@ date = 2020-12-19T00:00:00Z
 draft = true
 meta_description = "When to ask for help as a developer vs finding out the answer yourself."
 tags = ["Programming", "Learning"]
-title = "Learning by doing vs learning by listening as a developer"
+title = "Learning by doing vs learning by listening as a software engineer at a new place"
 
 +++
