@@ -102,7 +102,7 @@ ico_url = ""
 name = "Transfer Me It"
 url = "https://transferme.it"
 [[projects]]
-ico_url = "https://crypter.co.uk/images/icon.svg"
+ico_url = "https://crypter.co.uk/red_icon.svg"
 name = "Crypter"
 url = "https://crypter.co.uk"
 [[projects]]
