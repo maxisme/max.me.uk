@@ -83,6 +83,13 @@ fields:
   config:
     min: 
     max: 
+- name: domains
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: Domains
 - name: blurb
   type: textarea
   default: ''
