@@ -83,7 +83,7 @@ fields:
   config:
     min: 
     max: 
-- name: domains
+- name: maxdomains
   type: list
   config:
     use_select: false
