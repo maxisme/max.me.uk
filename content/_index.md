@@ -5,7 +5,7 @@ content = ""
 description = "Software Engineer @ Lyst. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. Passionate about developing technology, Juventus, traveling and my bike."
 domains = ["eees.me", "wickprojects.co.uk", "juliemitchell.co", "taskermaritime.co.uk"]
 extra_areas_of_interest = "Security, Finance, Hardware, AI, UI and UX."
-maxdomains = ["mitchell.sh", "måx.com", "m4x.co", "maxis.me"]
+maxdomains = ["mitchell.sh", "måx.com", "m4x.uk", "m4x.co", "maxis.me"]
 tags = []
 title = ""
 [meta]
