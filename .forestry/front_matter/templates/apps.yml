@@ -89,7 +89,15 @@ fields:
     use_select: false
     min: 
     max: 
+  label: max.me.uk Domains
+- name: domains
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
   label: Domains
+  description: other domains like esmecharteris.co.uk
 - name: blurb
   type: textarea
   default: ''
