@@ -48,7 +48,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/style.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
     <div id='newim' class='full-image'></div>
 </div>
 <div class="row all-content">
-    <div id="sidebar" class="col {{ if $isHome }} l4 m7 s12 {{else}} slide-in-on-mobile-blog l4 s8{{end}} sidebar">
+    <div id="sidebar" class="col {{ if .Params.projects }} l4 m7 s12 {{else}} slide-in-on-mobile-blog l4 s8{{end}} sidebar">
         <div align="center">
             <h1><a href="/">Maximilian<br>Mitchell </a></h1>
         </div>
@@ -193,6 +193,19 @@
                     </div>
                 {{ end }}
             </div>
+            <h2>Other ways to come here</h2>
+            <div class="domains">
+                {{ range .Params.maxdomains }}
+                    <a target="_blank" href="https://{{ . }}/">{{ . }}</a>
+                {{ end }}
+            </div>
+            <h2>More domains</h2>
+            <div class="domains">
+                {{ range .Params.domains }}
+                    <a target="_blank" href="https://{{ . }}/">{{ . }}</a>
+                {{ end }}
+            </div>
+
 
             <hr>
             {{ safeHTML .Params.blurb }}
