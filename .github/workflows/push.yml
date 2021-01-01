@@ -26,9 +26,10 @@ jobs:
       - name: Update Swarm
         if: github.ref == 'refs/heads/master'
         run: |
+          export sha="${{ github.sha }}"
           curl -fs -X POST ${{ secrets.SWARM_HOOK }} \
           -H 'Content-Type: application/x-www-form-urlencoded' \
-          -d 'service=maxmeuk_latest' \
-          -d "tag=latest" \
+          -d 'service=maxmeuk_web' \
+          -d "tag=sha-${sha:0:7}" \
           -d "image=${{ github.repository }}" \
           -d "token=${{ secrets.HOOK_TOKEN }}"

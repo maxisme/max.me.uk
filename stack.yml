@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  latest:
+  web:
     image: maxisme/max.me.uk:latest
     deploy:
       mode: global
