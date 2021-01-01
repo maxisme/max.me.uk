@@ -1,7 +1,7 @@
 baseURL = "https://max.me.uk/"
 disqusShortname = "max-me-uk"
 languageCode = "en-gb"
-title = "My New Hugo Site"
+title = "Maximilian Mitchell"
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 [sitemap]
