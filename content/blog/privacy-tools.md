@@ -4,7 +4,7 @@ content = "## Browser\n\n[Firefox](https://www.mozilla.org/en-US/firefox/new/)\n
 date = 2021-01-07T00:00:00Z
 draft = true
 meta_description = "Which software and tools I use to improve my privacy"
-tags = ["Privacy", "Wireguard", "Mullvad", "Firefox", "Signal"]
+tags = ["Privacy", "Mullvad", "Firefox", "Signal", "Startpage"]
 title = "Privacy tools"
 
 +++
