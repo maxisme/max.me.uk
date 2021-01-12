@@ -75,6 +75,10 @@ template = "tools"
 devicon = "devicon-google-plain"
 languages_or_tool = "GCP"
 template = "tools"
+[[know_tools]]
+devicon = "devicon-docker-plain"
+languages_or_tool = "k8s/k3s"
+template = "tools"
 [[learning_tools]]
 devicon = "devicon-c-plain"
 languages_or_tool = "C"
@@ -86,10 +90,6 @@ template = "tools"
 [[learning_tools]]
 devicon = "devicon-amazonwebservices-plain"
 languages_or_tool = "AWS"
-template = "tools"
-[[learning_tools]]
-devicon = "devicon-docker-plain"
-languages_or_tool = "K8s"
 template = "tools"
 [[learning_tools]]
 devicon = "devicon-devicon-plain"
