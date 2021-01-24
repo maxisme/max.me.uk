@@ -39,5 +39,5 @@ jobs:
           helm repo update
           echo "${{ secrets.B64_KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
           export sha="${{ github.sha }}"
-          helm upgrade maxmeuk maxisme/web -f helm-values.yml --set="image.tag=sha-${sha:0:7}" --wait --timeout 60s
+          helm upgrade maxmeuk maxisme/web -f helm-values.yml --set="image.tag=sha-${sha:0:7}" --atomic --timeout 120s
           rm ~/.kube/config
