@@ -1,4 +1,3 @@
-
 name: Deploy
 on:
   push:
@@ -23,8 +22,7 @@ jobs:
           tag_with_ref: true
           tag_with_sha: true
   deploy:
-    needs:
-      - build
+    needs: build
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +36,7 @@ jobs:
           helm repo add maxisme https://${{ secrets.GH_PA_TOKEN }}@raw.githubusercontent.com/maxisme/infra/master/k8s/charts/
           helm repo update
           echo "${{ secrets.B64_KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
-          export sha="${{ github.sha }}"
-          helm upgrade maxmeuk maxisme/web -f helm-values.yml --set="image.tag=sha-${sha:0:7}" --atomic --timeout 120s
+          sha="${{ github.sha }}"
+          repo="${{ github.repository }}"
+          helm upgrade "${repo//./}" maxisme/web -f helm-values.yml --set="image.tag=sha-${sha:0:7}" --atomic --timeout 120s
           rm ~/.kube/config
