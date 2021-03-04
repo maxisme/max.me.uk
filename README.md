@@ -1,2 +1,2 @@
 # max.me.uk
-hugo serve
+$ hugo serve
