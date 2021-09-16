@@ -63,6 +63,10 @@ template = "tools"
 devicon = "devicon-git-plain"
 languages_or_tool = "Git"
 template = "tools"
+[[good_tools]]
+devicon = "devicon-devicon-plain"
+languages_or_tool = "Flutter/Dart"
+template = "tools"
 [[know_tools]]
 devicon = "devicon-php-plain"
 languages_or_tool = "PHP"
@@ -90,10 +94,6 @@ template = "tools"
 [[learning_tools]]
 devicon = "devicon-cplusplus-plain"
 languages_or_tool = "C++"
-template = "tools"
-[[learning_tools]]
-devicon = "devicon-devicon-plain"
-languages_or_tool = "Flutter/Dart"
 template = "tools"
 [[projects]]
 ico_url = ""
