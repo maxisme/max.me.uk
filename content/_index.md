@@ -13,7 +13,7 @@ description = "Maximilian Mitchell - Software Engineer."
 keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex", "software", "engineer", "software engineer", "england"]
 [[bad_tools]]
 devicon = "devicon-windows8-plain"
-languages_or_tool = "Windows 😴 ... 😉"
+languages_or_tool = "Windows"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-python-plain"
