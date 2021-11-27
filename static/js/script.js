@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    $(".info").scramble(5000, 1);
+
     $('.sidenav-trigger').click(function (e) {
         $(this).attr("data-open", "1");
         $(".sidebar").css("-webkit-transform", "translateX(0%)");
