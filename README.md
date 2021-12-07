@@ -5,5 +5,5 @@ $ hugo serve
 
 ### sass
 ```
-$ sass static/css/style.sass static/css/style.css --watch
+$ sass --watch static/css/style.sass:static/css/style.css 
 ```

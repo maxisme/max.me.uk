@@ -77,10 +77,14 @@
             return scrambledArray.splice(0, replacement.length, replacement);
         };
 
-        var scrambler = function(lengthOfArray) {
+        var scrambler = function(word) {
             var scrambledArray = [];
-            for (var i = 0; i < lengthOfArray; i++) {
-                scrambledArray.push(random(charset));
+            for (var i = 0; i < word.length; i++) {
+                if(word[i] !== " "){
+                    scrambledArray.push(random(charset));
+                }else{
+                    scrambledArray.push(" ");
+                }
             }
             return scrambledArray;
         };
@@ -90,7 +94,6 @@
             this.iteration = 0;
             this.spliceIteration = 0;
             this.$element = $element;
-            this.word = word;
             this.len = word.length;
             this.arr = word.split("");
             this.terminated = false;
@@ -108,13 +111,13 @@
                 }
                 this.iteration += 1;
                 // Get an array of random characters the same length as the text of the element on which the method is called.
-                var scrambledArray = scrambler(this.len);
+                var scrambledArray = scrambler(word);
 
                 if (this.iteration % magicNumber === 0) {
                     this.spliceIteration += 1;
                 }
                 replacer(scrambledArray, this.arr, this.spliceIteration);
-                // }
+
                 // Join the array of characters in scrambledArray (once modified by replacer function).
                 var scrambledWord = scrambledArray.join("");
                 // Replace the text of the element on which the method was called with that string.

@@ -1,3 +1,5 @@
 public
 /banners/
 .idea
+/.hugo_build.lock
+/.sass-cache/67cc3ed7dedf5623e68331c97dfe6e4790ffdb43/style.sassc
