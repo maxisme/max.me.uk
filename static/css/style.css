@@ -437,4 +437,18 @@ i {
   width: 50%;
 }
 
+#nfc {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+#nfc .nfc-image {
+  padding: 50px;
+  margin: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */

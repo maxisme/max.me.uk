@@ -1,6 +1,23 @@
 $(document).ready(function () {
 
-    $(".info").scramble(5000, 1);
+    // animate logo out
+    if (window.location.href.endsWith('?nfc')) {
+        window.history.pushState({}, document.title, window.location.pathname);
+
+        const imageWrapper = document.querySelector('#nfc');
+        imageWrapper.style.zIndex = 100;
+
+        const imageElement = document.querySelector('.nfc-image');
+        setTimeout(function () {
+            imageElement.style.setProperty('--animate-duration', '4s');
+            imageElement.classList.add('animate__animated', 'animate__slideOutUp');
+            imageElement.addEventListener('animationend', () => {
+                imageWrapper.style.zIndex = -1;
+            });
+        }, 1000)
+    } else {
+        $(".info").scramble(5000, 1);
+    }
 
     $('.sidenav-trigger').click(function (e) {
         $(this).attr("data-open", "1");
@@ -10,7 +27,7 @@ $(document).ready(function () {
         return false;
     });
 
-    $('a').each(function() {
+    $('a').each(function () {
         var a = new RegExp('/' + window.location.host + '/');
         if (!a.test(this.href)) {
             $(this).attr("target", "_blank");
