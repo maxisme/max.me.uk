@@ -1,21 +1,36 @@
 $(document).ready(function () {
-
-    // animate logo out
     if (window.location.href.endsWith('?nfc')) {
         window.history.pushState({}, document.title, window.location.pathname);
 
         const imageWrapper = document.querySelector('#nfc');
         imageWrapper.style.zIndex = 100;
 
-        const imageElement = document.querySelector('.nfc-image');
-        setTimeout(function () {
-            imageElement.style.setProperty('--animate-duration', '4s');
-            imageElement.classList.add('animate__animated', 'animate__slideOutUp');
-            imageElement.addEventListener('animationend', () => {
-                imageWrapper.style.zIndex = -1;
-            });
-        }, 1000)
-    } else {
+        anime({
+            targets: '#nfc',
+            translateY: [-300, 0],
+            easing: 'easeOutBack',
+            duration: 1500,
+            complete: function() {
+                anime({
+                    scale: {
+                        value: 0,
+                    },
+                    delay: 300,
+                    targets: '#nfc',
+                    duration: 1500,
+                    easing: 'easeInQuart',
+                    complete: function() {
+                        imageWrapper.remove();
+                    }
+                });
+            }
+        });
+    }else if (!$.cookie('should-animate')) {
+        //set expiry to current time plus 1 minutes in milliseconds
+        var expire = new Date();
+        expire.setTime(expire.getTime() + (1 * 60 * 1000));
+        $.cookie('should-animate', true, {expires: expire});
+
         $(".info").scramble(5000, 1);
     }
 
