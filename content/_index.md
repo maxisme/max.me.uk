@@ -1,5 +1,5 @@
 +++
-areas_of_expertise = "App Development, Web Development, Networks, Computer Vision and Machine Learning."
+areas_of_expertise = "App Development, Web Development, Networks and Computer Vision."
 blurb = "<p class=\"subinfo\">I have experience with many frameworks and tools which I have shared on <a href=\"https://stackshare.io/maxisme/my-stack\" target=\"_blank\">Stachshare</a>.</p><p class=\"subinfo\">My Development Dock: PyCharm, GoLand, PhpStorm, Sequel Pro, Xcode, Terminal, SourceTree, Photoshop and Sketch.</p><p class=\"subinfo hide-on-small-and-down\"><em>Image taken on my way to Machu Picchu</em></p>"
 content = ""
 description = "Senior Software Engineer @ Lyst. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. \nPassionate about developing technology, Juventus, food, traveling and my Colnago bike."
