@@ -4,7 +4,7 @@ blurb = "<p class=\"subinfo\">I have experience with many frameworks and tools w
 content = ""
 description = "Senior Software Engineer @ Lyst. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. \nPassionate about developing technology, Juventus, food, traveling and my Colnago bike."
 domains = ["versi.onl", "eees.me", "esmecharteris.co.uk", "wickprojects.co.uk", "juliemitchell.co", "taskermaritime.co.uk"]
-extra_areas_of_interest = "Security, Finance, Hardware, AI, UI and UX."
+extra_areas_of_interest = "Security, Hardware, AI, UI and UX."
 maxdomains = ["mitchell.sh", "måx.com", "m4x.uk", "m4x.co", "maxis.me"]
 tags = []
 title = ""
