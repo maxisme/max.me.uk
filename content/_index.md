@@ -1,6 +1,6 @@
 +++
 areas_of_expertise = "App Development, Web Development, Networks and Computer Vision."
-blurb = "<p class=\"subinfo\">I have experience with many frameworks and tools which I have shared on <a href=\"https://stackshare.io/maxisme/my-stack\">Stachshare</a>.</p><p class=\"subinfo\">My Development Dock: PyCharm, GoLand, Xcode, Terminal, Photoshop and Sketch.</p><p class=\"subinfo hide-on-small-and-down\"><em>Image taken on the way to Machu Picchu</em></p>"
+blurb = "<p class=\"subinfo\">I have experience with many frameworks and tools which I have shared on <a href=\"https://stackshare.io/maxisme/my-stack\">Stackshare</a>.</p><p class=\"subinfo\">My Development Dock: PyCharm, GoLand, Xcode, Terminal, Photoshop and Sketch.</p><p class=\"subinfo hide-on-small-and-down\"><em>Image taken on the way to Machu Picchu</em></p>"
 content = ""
 description = "Senior Software Engineer @ Lyst. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. \nPassionate about developing technology, Juventus, food, traveling and my Colnago bike."
 domains = ["versi.onl", "eees.me", "esmecharteris.co.uk", "wickprojects.co.uk", "juliemitchell.co", "taskermaritime.co.uk"]
