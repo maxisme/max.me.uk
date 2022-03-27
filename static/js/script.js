@@ -4,13 +4,14 @@ $(document).ready(function () {
 
         const imageWrapper = document.querySelector('#nfc');
         imageWrapper.style.zIndex = 100;
+        $('.nfc-image').css("display", "block");
 
         anime({
             targets: '#nfc',
             translateY: [-300, 0],
             easing: 'easeOutBack',
             duration: 1500,
-            complete: function() {
+            complete: function () {
                 anime({
                     scale: {
                         value: 0,
@@ -19,13 +20,13 @@ $(document).ready(function () {
                     targets: '#nfc',
                     duration: 1500,
                     easing: 'easeInQuart',
-                    complete: function() {
+                    complete: function () {
                         imageWrapper.remove();
                     }
                 });
             }
         });
-    }else if (!$.cookie('should-animate')) {
+    } else if (!$.cookie('should-animate')) {
         //set expiry to current time plus 1 minutes in milliseconds
         var expire = new Date();
         expire.setTime(expire.getTime() + (1 * 60 * 1000));

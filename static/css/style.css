@@ -447,6 +447,7 @@ i {
   z-index: -1;
 }
 #nfc .nfc-image {
+  display: none;
   padding: 50px;
   margin: auto;
   height: 100%;
