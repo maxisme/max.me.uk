@@ -123,6 +123,10 @@ template = "tools"
 devicon = "devicon-argocd-plain"
 languages_or_tool = "ArgoCD"
 template = "tools"
+[[learning_tools]]
+devicon = "devicon-grpc-plain"
+languages_or_tool = "gRPC"
+template = "tools"
 [[projects]]
 ico_url = ""
 name = "notifi"
