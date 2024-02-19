@@ -92,10 +92,6 @@ devicon = "devicon-google-plain"
 languages_or_tool = "GCP"
 template = "tools"
 [[know_tools]]
-devicon = "devicon-c-plain"
-languages_or_tool = "Objective-C"
-template = "tools"
-[[know_tools]]
 devicon = "devicon-javascript-plain"
 languages_or_tool = "Javascript"
 template = "tools"
