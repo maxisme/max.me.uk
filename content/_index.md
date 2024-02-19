@@ -24,12 +24,20 @@ devicon = "devicon-go-plain"
 languages_or_tool = "Go"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-c-plain"
-languages_or_tool = "Objective-C"
+devicon = "devicon-kubernetes-plain"
+languages_or_tool = "kubernetes"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-mysql-plain"
+devicon = "devicon-amazonwebservices-plain"
+languages_or_tool = "AWS"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-postgres-plain"
 languages_or_tool = "SQL"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-terraform-plain"
+languages_or_tool = "Terraform"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-javascript-plain"
@@ -40,12 +48,24 @@ devicon = "devicon-jquery-plain"
 languages_or_tool = "jQuery"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-linux-plain"
+devicon = "devicon-bash-plain"
 languages_or_tool = "Bash/Shell - .*n[u,i]x"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-nginx-plain"
 languages_or_tool = "NGINX"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-github-plain"
+languages_or_tool = "GitHub Actions"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-prometheus-plain"
+languages_or_tool = "Prometheus"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-grafana-plain"
+languages_or_tool = "Grafana"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-html5-plain"
@@ -64,7 +84,15 @@ devicon = "devicon-git-plain"
 languages_or_tool = "Git"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-devicon-plain"
+devicon = "devicon-helm-plain"
+languages_or_tool = "Helm"
+template = "tools"
+[[good_tools]]
+devicon = "devicon-graphql-plain"
+languages_or_tool = "GraphQL"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-flutter-plain"
 languages_or_tool = "Flutter/Dart"
 template = "tools"
 [[know_tools]]
@@ -72,20 +100,28 @@ devicon = "devicon-google-plain"
 languages_or_tool = "GCP"
 template = "tools"
 [[know_tools]]
-devicon = "devicon-docker-plain"
-languages_or_tool = "k8s/k3s"
+devicon = "devicon-c-plain"
+languages_or_tool = "Objective-C"
 template = "tools"
 [[know_tools]]
-devicon = "devicon-amazonwebservices-plain"
-languages_or_tool = "AWS"
+devicon = "devicon-flask-plain"
+languages_or_tool = "Flask"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-vault-plain"
+languages_or_tool = "Vault"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-jaegertracing-plain"
+languages_or_tool = "Jaeger"
 template = "tools"
 [[learning_tools]]
-devicon = "devicon-c-plain"
-languages_or_tool = "C"
+devicon = "devicon-react-plain"
+languages_or_tool = "React"
 template = "tools"
 [[learning_tools]]
-devicon = "devicon-cplusplus-plain"
-languages_or_tool = "C++"
+devicon = "devicon-argocd-plain"
+languages_or_tool = "ArgoCD"
 template = "tools"
 [[projects]]
 ico_url = ""
