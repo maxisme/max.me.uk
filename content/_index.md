@@ -32,7 +32,7 @@ devicon = "devicon-amazonwebservices-plain"
 languages_or_tool = "AWS"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-postgres-plain"
+devicon = "devicon-postgresql-plain"
 languages_or_tool = "SQL"
 template = "tools"
 [[good_tools]]
