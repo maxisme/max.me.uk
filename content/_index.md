@@ -40,14 +40,6 @@ devicon = "devicon-terraform-plain"
 languages_or_tool = "Terraform"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-javascript-plain"
-languages_or_tool = "Javascript"
-template = "tools"
-[[good_tools]]
-devicon = "devicon-jquery-plain"
-languages_or_tool = "jQuery"
-template = "tools"
-[[good_tools]]
 devicon = "devicon-bash-plain"
 languages_or_tool = "Bash/Shell - .*n[u,i]x"
 template = "tools"
@@ -104,6 +96,10 @@ devicon = "devicon-c-plain"
 languages_or_tool = "Objective-C"
 template = "tools"
 [[know_tools]]
+devicon = "devicon-javascript-plain"
+languages_or_tool = "Javascript"
+template = "tools"
+[[know_tools]]
 devicon = "devicon-flask-plain"
 languages_or_tool = "Flask"
 template = "tools"
@@ -114,6 +110,10 @@ template = "tools"
 [[know_tools]]
 devicon = "devicon-jaegertracing-plain"
 languages_or_tool = "Jaeger"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-jquery-plain"
+languages_or_tool = "jQuery"
 template = "tools"
 [[learning_tools]]
 devicon = "devicon-react-plain"
