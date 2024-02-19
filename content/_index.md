@@ -59,17 +59,17 @@ template = "tools"
 devicon = "devicon-grafana-plain"
 languages_or_tool = "Grafana"
 template = "tools"
-[[good_tools]]
+[[know_tools]]
 devicon = "devicon-html5-plain"
 languages_or_tool = "HTML"
 template = "tools"
-[[good_tools]]
+[[know_tools]]
 devicon = "devicon-css3-plain"
 languages_or_tool = "CSS"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-docker-plain"
-languages_or_tool = "Docker & Swarm"
+languages_or_tool = "Docker"
 template = "tools"
 [[good_tools]]
 devicon = "devicon-git-plain"
