@@ -108,6 +108,10 @@ devicon = "devicon-jquery-plain"
 languages_or_tool = "jQuery"
 template = "tools"
 [[know_tools]]
+devicon = "devicon-redis-plain"
+languages_or_tool = "Redis"
+template = "tools"
+[[know_tools]]
 devicon = "devicon-html5-plain"
 languages_or_tool = "HTML"
 template = "tools"
