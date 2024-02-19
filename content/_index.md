@@ -112,8 +112,8 @@ devicon = "devicon-vault-plain"
 languages_or_tool = "Vault"
 template = "tools"
 [[know_tools]]
-devicon = "devicon-jaegertracing-plain"
-languages_or_tool = "Jaeger"
+devicon = "devicon-opentelemetry-plain"
+languages_or_tool = "Tracing"
 template = "tools"
 [[know_tools]]
 devicon = "devicon-jquery-plain"
