@@ -103,13 +103,5 @@ url = "https://crypter.co.uk"
 ico_url = ""
 name = "Pass For It"
 url = "https://passfor.it"
-[[projects]]
-ico_url = "https://idmy.team/static/images/icon_red.svg"
-name = "ID My Team"
-url = "https://idmy.team"
-[[projects]]
-ico_url = ""
-name = "iPee"
-url = "https://ipee.it"
 
 +++
