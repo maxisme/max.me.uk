@@ -104,6 +104,10 @@ devicon = "devicon-flask-plain"
 languages_or_tool = "Flask"
 template = "tools"
 [[know_tools]]
+devicon = "devicon-django-plain"
+languages_or_tool = "Django"
+template = "tools"
+[[know_tools]]
 devicon = "devicon-vault-plain"
 languages_or_tool = "Vault"
 template = "tools"
