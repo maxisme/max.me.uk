@@ -48,7 +48,7 @@ devicon = "devicon-nginx-plain"
 languages_or_tool = "NGINX"
 template = "tools"
 [[good_tools]]
-devicon = "devicon-github-plain"
+devicon = "devicon-githubactions-plain"
 languages_or_tool = "GitHub Actions"
 template = "tools"
 [[good_tools]]
