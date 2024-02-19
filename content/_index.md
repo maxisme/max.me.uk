@@ -84,6 +84,14 @@ devicon = "devicon-graphql-plain"
 languages_or_tool = "GraphQL"
 template = "tools"
 [[know_tools]]
+devicon = "devicon-flask-plain"
+languages_or_tool = "Flask"
+template = "tools"
+[[know_tools]]
+devicon = "devicon-django-plain"
+languages_or_tool = "Django"
+template = "tools"
+[[know_tools]]
 devicon = "devicon-flutter-plain"
 languages_or_tool = "Flutter/Dart"
 template = "tools"
@@ -94,14 +102,6 @@ template = "tools"
 [[know_tools]]
 devicon = "devicon-javascript-plain"
 languages_or_tool = "Javascript"
-template = "tools"
-[[know_tools]]
-devicon = "devicon-flask-plain"
-languages_or_tool = "Flask"
-template = "tools"
-[[know_tools]]
-devicon = "devicon-django-plain"
-languages_or_tool = "Django"
 template = "tools"
 [[know_tools]]
 devicon = "devicon-vault-plain"
