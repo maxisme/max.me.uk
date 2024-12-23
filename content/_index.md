@@ -2,7 +2,7 @@
 areas_of_expertise = "App Development, Web Development, Networks and Computer Vision."
 blurb = "<p class=\"subinfo\">I have experience with many frameworks and tools which I have shared on <a href=\"https://stackshare.io/maxisme/my-stack\" title=\"\">Stackshare</a>.</p><p class=\"subinfo\">My Development Dock: PyCharm, GoLand, Xcode, Terminal, Photoshop and Sketch.</p><p class=\"subinfo hide-on-small-and-down\"><em>Image taken on the way to Machu Picchu</em></p>"
 content = ""
-description = "Senior Software Engineer @ Paradime. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. \nPassionate about developing technology, Juventus, food, traveling and my Colnago bike."
+description = "Senior Software Engineer @ Lottie. Graduate from Sussex University where I studied Computer Science with Artificial Intelligence. \nPassionate about developing technology, Juventus, food, traveling and my Colnago bike."
 domains = ["wickprojects.co.uk", "taskermaritime.co.uk"]
 extra_areas_of_interest = "Security, Hardware, AI, UI and UX."
 maxdomains = ["måx.com", "m4x.co", "maxis.me"]
