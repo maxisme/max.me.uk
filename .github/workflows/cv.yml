@@ -1,0 +1,55 @@
+name: Build CV
+
+on:
+  push:
+    paths:
+      - "cv/**"
+      - "static/cv/**"
+      - ".github/workflows/cv.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XeLaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex texlive-fonts-recommended texlive-latex-extra \
+            poppler-utils
+
+      - name: Compile
+        working-directory: cv
+        run: |
+          # Inconsolata is vendored in cv/fonts, so there is no system font to install
+          xelatex -interaction=nonstopmode -halt-on-error cv.tex
+          xelatex -interaction=nonstopmode -halt-on-error cv.tex
+
+      - name: Fail if it spills past one page
+        working-directory: cv
+        run: |
+          pages=$(pdfinfo cv.pdf | awk '/^Pages:/ {print $2}')
+          echo "pages: $pages"
+          [ "$pages" = "1" ] || { echo "CV must fit on one page"; exit 1; }
+
+      - name: Fail if the published PDF is stale
+        run: |
+          # compare text, not bytes - each build stamps a fresh timestamp
+          pdftotext -layout cv/cv.pdf - > /tmp/built.txt
+          pdftotext -layout static/cv/max-mitchell-cv.pdf - > /tmp/published.txt
+          diff -u /tmp/published.txt /tmp/built.txt || {
+            echo "static/cv/max-mitchell-cv.pdf is out of date."
+            echo "Run 'xelatex cv.tex' in cv/ and copy cv.pdf to static/cv/max-mitchell-cv.pdf."
+            exit 1
+          }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cv
+          path: cv/cv.pdf
