@@ -393,8 +393,7 @@ a img:hover, a img:focus, a img:active {
 
 .full-image {
   position: absolute;
-  background: url("/images/bg3_blur.jpg") no-repeat center center fixed;
-  transition: background 0.5s linear;
+  background: url("/images/bg.jpg") no-repeat center center fixed;
   min-width: 100% !important;
   min-height: 100% !important;
   -webkit-background-size: cover;
@@ -410,18 +409,18 @@ a img:hover, a img:focus, a img:active {
 
 @keyframes cloud-drift-near {
   from {
-    transform: translate3d(-12%, 0, 0);
+    transform: translate3d(-16%, 0, 0) scale(1.05);
   }
   to {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(16%, -2%, 0) scale(1.12);
   }
 }
 @keyframes cloud-drift-far {
   from {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(12%, 1%, 0) scale(1.1);
   }
   to {
-    transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-12%, 0, 0) scale(1.02);
   }
 }
 #newim::before, #newim::after {
@@ -436,13 +435,13 @@ a img:hover, a img:focus, a img:active {
   background-image: radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)), radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0)), radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
   background-size: 55% 26%, 65% 20%, 50% 24%;
   background-position: -5% 48%, 40% 60%, 85% 52%;
-  animation: cloud-drift-near 60s linear infinite;
+  animation: cloud-drift-near 28s ease-in-out infinite alternate;
 }
 #newim::after {
   background-image: radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)), radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
   background-size: 45% 18%, 55% 16%;
   background-position: 15% 68%, 70% 42%;
-  animation: cloud-drift-far 95s linear infinite;
+  animation: cloud-drift-far 44s ease-in-out infinite alternate;
 }
 
 @media (prefers-reduced-motion: reduce) {

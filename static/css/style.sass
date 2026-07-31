@@ -372,8 +372,9 @@ a
 
 .full-image
   position: absolute
-  background: url('/images/bg3_blur.jpg') no-repeat center center fixed
-  transition: background 0.5s linear
+  // full-quality photo straight away - the blurred bg3_blur.jpg placeholder and
+  // the JS that faded the sharp one in over the top have both been removed
+  background: url('/images/bg.jpg') no-repeat center center fixed
   min-width: 100% !important
   min-height: 100% !important
   -webkit-background-size: cover
@@ -393,17 +394,23 @@ a
 //
 // The puffs sit around y 45-70%, which is where the ridge line is. White mist
 // over the pale sky above that is invisible; over the dark rock it reads.
+//
+// Speed matters more than it looks. A 12% drift over 60s works out at ~2.5px
+// per second, which is real motion but far too slow for anyone to notice. These
+// run at roughly 12-18px/s. They also `alternate` rather than loop, so the mist
+// eases back and forth instead of snapping to the start every cycle - which
+// means the travel can be large without the puffs sliding off the screen.
 @keyframes cloud-drift-near
   from
-    transform: translate3d(-12%, 0, 0)
+    transform: translate3d(-16%, 0, 0) scale(1.05)
   to
-    transform: translate3d(0, 0, 0)
+    transform: translate3d(16%, -2%, 0) scale(1.12)
 
 @keyframes cloud-drift-far
   from
-    transform: translate3d(0, 0, 0)
+    transform: translate3d(12%, 1%, 0) scale(1.1)
   to
-    transform: translate3d(-10%, 0, 0)
+    transform: translate3d(-12%, 0, 0) scale(1.02)
 
 #newim
   &::before, &::after
@@ -421,14 +428,14 @@ a
     background-image: radial-gradient(closest-side ellipse, rgba(255,255,255,0.55), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.45), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.50), rgba(255,255,255,0))
     background-size: 55% 26%, 65% 20%, 50% 24%
     background-position: -5% 48%, 40% 60%, 85% 52%
-    animation: cloud-drift-near 60s linear infinite
+    animation: cloud-drift-near 28s ease-in-out infinite alternate
 
   // far layer - fainter, drifts the other way for a little parallax
   &::after
     background-image: radial-gradient(closest-side ellipse, rgba(255,255,255,0.34), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.30), rgba(255,255,255,0))
     background-size: 45% 18%, 55% 16%
     background-position: 15% 68%, 70% 42%
-    animation: cloud-drift-far 95s linear infinite
+    animation: cloud-drift-far 44s ease-in-out infinite alternate
 
 @media (prefers-reduced-motion: reduce)
   #newim
