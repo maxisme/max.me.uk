@@ -164,7 +164,7 @@ if (process.argv.includes("--serve")) {
     ".ttf": "font/ttf",
   };
 
-  createServer((req, res) => {
+  const handler = (req, res) => {
     let path = decodeURIComponent(req.url.split("?")[0]);
     if (path === "/cv" || path === "/cv/") path = "/cv/max-mitchell-cv.pdf";
     if (path.endsWith("/")) path += "index.html";
@@ -179,5 +179,18 @@ if (process.argv.includes("--serve")) {
       res.writeHead(404, { "content-type": "text/html; charset=utf-8" });
       createReadStream(join(OUT, "404.html")).pipe(res);
     });
-  }).listen(1313, () => console.log("http://localhost:1313"));
+  };
+
+  const port = Number(process.env.PORT ?? 1313);
+  const server = createServer(handler);
+  server.on("error", (err) => {
+    if (err.code === "EADDRINUSE") {
+      console.error(`port ${port} is already in use - something else is serving.\n` +
+        `  stop it:        pkill -f "build.mjs --serve"\n` +
+        `  or use another: PORT=1314 npm run serve`);
+      process.exit(1);
+    }
+    throw err;
+  });
+  server.listen(port, () => console.log(`http://localhost:${port}`));
 }
