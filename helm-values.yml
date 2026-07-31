@@ -1,6 +1,0 @@
-ingress:
-  match: "Host(`max.me.uk`)"
-
-image:
-  repository: "maxisme/max.me.uk"
-        

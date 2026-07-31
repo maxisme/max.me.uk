@@ -1,0 +1,13 @@
+{
+  "name": "max.me.uk",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs --serve"
+  },
+  "dependencies": {
+    "marked": "^15.0.7",
+    "smol-toml": "^1.3.1"
+  }
+}
