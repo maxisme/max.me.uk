@@ -385,6 +385,56 @@ a
   img
     overflow: hidden
 
+// Drifting mist over the background photo. The photo itself is flat, so this
+// is a soft white layer on top rather than the clouds in the image moving.
+//
+// It has to hang off #newim, not the outer .full-image: #newim is a real child
+// with its own full-bleed background, so it paints over the parent's ::before.
+//
+// The puffs sit around y 45-70%, which is where the ridge line is. White mist
+// over the pale sky above that is invisible; over the dark rock it reads.
+@keyframes cloud-drift-near
+  from
+    transform: translate3d(-12%, 0, 0)
+  to
+    transform: translate3d(0, 0, 0)
+
+@keyframes cloud-drift-far
+  from
+    transform: translate3d(0, 0, 0)
+  to
+    transform: translate3d(-10%, 0, 0)
+
+#newim
+  &::before, &::after
+    content: ''
+    position: absolute
+    inset: 0
+    pointer-events: none
+    background-repeat: no-repeat
+    // deliberately NOT mix-blend-mode: screen - that isolates #newim into its
+    // own blending group and composites it against black, killing the photo.
+    will-change: transform
+
+  // near layer - bigger, brighter puffs along the ridge
+  &::before
+    background-image: radial-gradient(closest-side ellipse, rgba(255,255,255,0.55), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.45), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.50), rgba(255,255,255,0))
+    background-size: 55% 26%, 65% 20%, 50% 24%
+    background-position: -5% 48%, 40% 60%, 85% 52%
+    animation: cloud-drift-near 60s linear infinite
+
+  // far layer - fainter, drifts the other way for a little parallax
+  &::after
+    background-image: radial-gradient(closest-side ellipse, rgba(255,255,255,0.34), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.30), rgba(255,255,255,0))
+    background-size: 45% 18%, 55% 16%
+    background-position: 15% 68%, 70% 42%
+    animation: cloud-drift-far 95s linear infinite
+
+@media (prefers-reduced-motion: reduce)
+  #newim
+    &::before, &::after
+      animation: none
+
 i
   font-size: 1.5em
   color: $grey
@@ -409,6 +459,10 @@ i
   //  -webkit-text-fill-color: transparent
   .full-image
     background: none
+  // no photo on small screens, so nothing for the mist to sit on
+  #newim
+    &::before, &::after
+      display: none
   .sidebar
     z-index: 4
     padding-left: 1em !important

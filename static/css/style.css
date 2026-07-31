@@ -157,7 +157,7 @@ a img:hover, a img:focus, a img:active {
   min-height: 100% !important;
   padding-left: 2.5em !important;
   padding-right: 1em !important;
-  background: white;
+  background: rgb(255, 255, 255);
   box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.3);
   width: 100%;
   overflow-x: hidden;
@@ -167,18 +167,18 @@ a img:hover, a img:focus, a img:active {
 .sidebar a:hover {
   color: #bc2122;
 }
-.sidebar li {
-  padding-left: 5px;
-  list-style-type: circle;
-  font-size: 1.1em;
-  float: none;
-}
 .sidebar li a {
   padding-left: 10px;
 }
 .sidebar li:hover {
   list-style-type: revert;
   color: #bc2122;
+}
+.sidebar li {
+  padding-left: 5px;
+  list-style-type: circle;
+  font-size: 1.1em;
+  float: none;
 }
 .sidebar li:not(:first-of-type) {
   padding-top: 5px;
@@ -408,6 +408,48 @@ a img:hover, a img:focus, a img:active {
   overflow: hidden;
 }
 
+@keyframes cloud-drift-near {
+  from {
+    transform: translate3d(-12%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes cloud-drift-far {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+#newim::before, #newim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+#newim::before {
+  background-image: radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)), radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0)), radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 55% 26%, 65% 20%, 50% 24%;
+  background-position: -5% 48%, 40% 60%, 85% 52%;
+  animation: cloud-drift-near 60s linear infinite;
+}
+#newim::after {
+  background-image: radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)), radial-gradient(closest-side ellipse, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-size: 45% 18%, 55% 16%;
+  background-position: 15% 68%, 70% 42%;
+  animation: cloud-drift-far 95s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #newim::before, #newim::after {
+    animation: none;
+  }
+}
 i {
   font-size: 1.5em;
   color: #3a3a3a;
@@ -422,7 +464,9 @@ i {
   .full-image {
     background: none;
   }
-
+  #newim::before, #newim::after {
+    display: none;
+  }
   .sidebar {
     z-index: 4;
     padding-left: 1em !important;
