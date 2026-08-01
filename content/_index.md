@@ -132,7 +132,7 @@ devicon = "devicon-grpc-plain"
 languages_or_tool = "gRPC"
 template = "tools"
 [[projects]]
-ico_url = "https://weconverse.app/favicon.ico"
+ico_url = "https://weconverse.app/apple-touch-icon.png"
 name = "We Converse"
 url = "https://weconverse.app"
 [[projects]]
