@@ -372,8 +372,9 @@ a
 
 .full-image
   position: absolute
-  background: url('/images/bg3_blur.jpg') no-repeat center center fixed
-  transition: background 0.5s linear
+  // full-quality photo straight away - the blurred bg3_blur.jpg placeholder and
+  // the JS that faded the sharp one in over the top have both been removed
+  background: url('/images/bg.jpg') no-repeat center center fixed
   min-width: 100% !important
   min-height: 100% !important
   -webkit-background-size: cover
@@ -384,6 +385,68 @@ a
   z-index: 0
   img
     overflow: hidden
+
+// Drifting mist over the background photo. The photo itself is flat, so this
+// is a soft white layer on top rather than the clouds in the image moving.
+//
+// It has to hang off #newim, not the outer .full-image: #newim is a real child
+// with its own full-bleed background, so it paints over the parent's ::before.
+//
+// The puffs sit around y 36-62%, across the ridge line and the fog bank.
+//
+// Two things had to be got right before this was actually visible:
+//
+// 1. Contrast. White-only mist over a photo that is already pale fog is nearly
+//    invisible no matter how bright it is. Each layer now mixes white puffs
+//    with darker blue-grey ones - the dark reads strongly against the light fog
+//    and is what makes the movement legible.
+// 2. Speed. An earlier version drifted 12% over 60s, about 2.5px/s: real motion,
+//    far below what anyone notices. These cover 40% and 36% in 18s and 26s,
+//    roughly 28px/s and 17px/s.
+//
+// Both `alternate` rather than loop, so the fog eases back and forth instead of
+// snapping to the start each cycle, which lets the travel be this large.
+@keyframes cloud-drift-near
+  from
+    transform: translate3d(-20%, 2%, 0) scale(1.15)
+  to
+    transform: translate3d(20%, -2%, 0) scale(1.3)
+
+@keyframes cloud-drift-far
+  from
+    transform: translate3d(18%, -1%, 0) scale(1.25)
+  to
+    transform: translate3d(-18%, 2%, 0) scale(1.1)
+
+#newim
+  &::before, &::after
+    content: ''
+    position: absolute
+    inset: 0
+    pointer-events: none
+    background-repeat: no-repeat
+    // deliberately NOT mix-blend-mode: screen - that isolates #newim into its
+    // own blending group and composites it against black, killing the photo.
+    will-change: transform
+
+  // near layer - bright fog bank either side of a darker bank in the middle
+  &::before
+    background-image: radial-gradient(closest-side ellipse, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(closest-side ellipse, rgba(90,100,120,0.45), rgba(90,100,120,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.85), rgba(255,255,255,0))
+    background-size: 60% 30%, 50% 26%, 45% 22%
+    background-position: 0% 44%, 45% 56%, 85% 40%
+    animation: cloud-drift-near 18s ease-in-out infinite alternate
+
+  // far layer - drifts the other way, slower, for parallax
+  &::after
+    background-image: radial-gradient(closest-side ellipse, rgba(70,80,100,0.40), rgba(70,80,100,0)), radial-gradient(closest-side ellipse, rgba(255,255,255,0.80), rgba(255,255,255,0))
+    background-size: 55% 24%, 50% 20%
+    background-position: 20% 62%, 70% 36%
+    animation: cloud-drift-far 26s ease-in-out infinite alternate
+
+@media (prefers-reduced-motion: reduce)
+  #newim
+    &::before, &::after
+      animation: none
 
 i
   font-size: 1.5em
@@ -409,6 +472,10 @@ i
   //  -webkit-text-fill-color: transparent
   .full-image
     background: none
+  // no photo on small screens, so nothing for the mist to sit on
+  #newim
+    &::before, &::after
+      display: none
   .sidebar
     z-index: 4
     padding-left: 1em !important
