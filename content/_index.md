@@ -132,6 +132,10 @@ devicon = "devicon-grpc-plain"
 languages_or_tool = "gRPC"
 template = "tools"
 [[projects]]
+ico_url = "https://weconverse.app/favicon.ico"
+name = "We Converse"
+url = "https://weconverse.app"
+[[projects]]
 ico_url = ""
 name = "notifi"
 url = "https://notifi.it"
