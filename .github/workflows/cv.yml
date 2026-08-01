@@ -49,7 +49,10 @@ jobs:
             exit 1
           }
 
+      # always upload, so a failed staleness check still leaves you the freshly
+      # built pdf to download and commit rather than needing xelatex locally
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: cv
           path: cv/cv.pdf
