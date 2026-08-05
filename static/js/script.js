@@ -1,3 +1,44 @@
+var CV_URL = '/cv/max-mitchell-cv.pdf';
+
+// Safari won't print a PDF loaded in an offscreen iframe, so it gets a tab instead.
+var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
+
+function printCV() {
+    if (isSafari) {
+        window.open(CV_URL, '_blank');
+        return;
+    }
+
+    var existing = document.getElementById('cv-print-frame');
+    if (existing) {
+        existing.parentNode.removeChild(existing);
+    }
+
+    var frame = document.createElement('iframe');
+    frame.id = 'cv-print-frame';
+    frame.src = CV_URL;
+    frame.setAttribute('aria-hidden', 'true');
+    frame.style.cssText = 'position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0;';
+    frame.onload = function () {
+        try {
+            frame.contentWindow.focus();
+            frame.contentWindow.print();
+        } catch (err) {
+            window.open(CV_URL, '_blank');
+        }
+    };
+    document.body.appendChild(frame);
+}
+
+// ⌘P / Ctrl+P prints the CV rather than the page
+$(document).on('keydown', function (e) {
+    var key = e.key || '';
+    if (key.toLowerCase() === 'p' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey) {
+        e.preventDefault();
+        printCV();
+    }
+});
+
 $(document).ready(function () {
     if (window.location.href.endsWith('?nfc')) {
         window.history.pushState({}, document.title, window.location.pathname);
