@@ -17,13 +17,14 @@
 \titleformat{\section}{\bfseries\color{black}\normalsize}{}{0em}{\MakeUppercase}[\vspace{-0.9em}\textcolor{grey}{\rule{\textwidth}{0.5pt}}]
 \titlespacing{\section}{0pt}{7pt}{3pt}
 
-\setlist[itemize]{leftmargin=1.1em,itemsep=1pt,topsep=1.2pt,parsep=0pt,label=\textperiodcentered}
+\setlist[itemize]{leftmargin=1.1em,itemsep=0.4pt,topsep=1.2pt,parsep=0pt,label=\textperiodcentered}
 
 \newcommand{\role}[3]{%
   \vspace{4pt}\noindent\begin{tabularx}{\textwidth}{@{}Xr@{}}
   \textbf{#1} - \textbf{#2} & \textcolor{grey}{\small #3}
   \end{tabularx}\par}
 \newcommand{\stack}[1]{{\footnotesize\color{accent}#1}\par\vspace{1pt}}
+\newcommand{\progression}[1]{{\footnotesize\color{grey}#1}\par\vspace{1pt}}
 
 \begin{document}
 \raggedbottom\enlargethispage{2\baselineskip}
@@ -40,6 +41,7 @@ Most of my time goes into building; the rest into leading a team of four. That w
 \section{Work Experience}
 
 \role{Senior Engineering Manager}{Lottie, London}{Nov 2024 - Present}
+\progression{Promoted from Senior Software Engineer to Engineering Manager to Senior Engineering Manager.}
 \stack{Claude Code \textcolor{black}{\textbar{}} TypeScript \textcolor{black}{\textbar{}} React \textcolor{black}{\textbar{}} Postgres \textcolor{black}{\textbar{}} AWS \textcolor{black}{\textbar{}} Inngest \textcolor{black}{\textbar{}} LiveKit \textcolor{black}{\textbar{}} ElevenLabs \textcolor{black}{\textbar{}} Twilio \textcolor{black}{\textbar{}} AI SDK \textcolor{black}{\textbar{}} BigQuery \textcolor{black}{\textbar{}} PostHog}
 \begin{itemize}
 \item Built the AI chat (web and WhatsApp) and voice agents that route care seekers to partners - over 150 live-chat sessions and 700+ AI-handled calls a day, with evals gating every prompt and model change.
