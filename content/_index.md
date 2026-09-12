@@ -139,7 +139,7 @@ url = "https://typeme.it"
 [[projects]]
 ico_url = "/images/projects/weconverse.svg"
 name = "We Converse"
-tldr = "Records and transcribes real conversations, and keeps every word private until you share it."
+tldr = "Records and transcribes prompt-driven conversations, and keeps every word private until you share it."
 url = "https://weconverse.app"
 [[projects]]
 ico_url = "/images/projects/notifi.svg"
