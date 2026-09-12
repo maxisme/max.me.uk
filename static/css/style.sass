@@ -90,6 +90,13 @@ hr
   width: 1em
   font-size: 2em
 
+// img only: the tool list uses .ico on <i> devicon glyphs. Pinning the
+// height keeps the row square whatever a vendored favicon's ratio is,
+// and contain means an odd one letterboxes instead of stretching.
+img.ico
+  height: 1em
+  object-fit: contain
+
 .info
   color: $grey
   margin-bottom: 2.5em
