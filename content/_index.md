@@ -132,27 +132,27 @@ devicon = "devicon-grpc-plain"
 languages_or_tool = "gRPC"
 template = "tools"
 [[projects]]
-ico_url = "https://typeme.it/apple-touch-icon.png"
+ico_url = "/images/projects/typemeit.png"
 name = "type me it"
 url = "https://typeme.it"
 [[projects]]
-ico_url = "https://weconverse.app/apple-touch-icon.png"
+ico_url = "/images/projects/weconverse.png"
 name = "We Converse"
 url = "https://weconverse.app"
 [[projects]]
-ico_url = ""
+ico_url = "/images/projects/notifi.svg"
 name = "notifi"
 url = "https://notifi.it"
 [[projects]]
-ico_url = ""
+ico_url = "/images/projects/transferme.png"
 name = "Transfer Me It"
 url = "https://transferme.it"
 [[projects]]
-ico_url = "https://crypter.co.uk/images/red_icon.svg"
+ico_url = "/images/projects/crypter.svg"
 name = "Crypter"
 url = "https://crypter.co.uk"
 [[projects]]
-ico_url = ""
+ico_url = "/images/projects/passforit.png"
 name = "Pass For It"
 url = "https://passfor.it"
 
