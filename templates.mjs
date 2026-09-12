@@ -108,7 +108,10 @@ ${(home.projects ?? [])
     const favicon = p.ico_url || "/images/ico.svg";
     return `        <div class="row valign-wrapper">
             <div class="col valign"><a target="_blank" href="${esc(p.url)}"><img class="ico" src="${esc(favicon)}" alt="${esc(p.name)}" loading="lazy"></a></div>
-            <div class="col valign"><a class="valign" target="_blank" href="${esc(p.url)}">${esc(p.name)}</a></div>
+            <div class="col valign project-text">
+                <a target="_blank" href="${esc(p.url)}">${esc(p.name)}</a>
+                ${p.tldr ? `<span class="tldr">${esc(p.tldr)}</span>` : ""}
+            </div>
         </div>`;
   })
   .join("\n")}`;

@@ -1,0 +1,15 @@
+<svg width="101" height="54" viewBox="24.5 48 101 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vendored from https://weconverse.app/favicon/favicon.svg. The opaque
+       white plate is dropped so it sits on the page like the other marks, and
+       the viewBox is cropped to the waveform: upstream centres a 101x54 mark
+       in a 150 square, which drew it small and soft once scaled to 28px. -->
+<path d="M27 66.83V83.17" stroke="#1B2430" stroke-width="5" stroke-linecap="round"/>
+<path d="M39 58.67V91.33" stroke="#1B2430" stroke-width="5" stroke-linecap="round"/>
+<path d="M51 50.5V99.5" stroke="#1B2430" stroke-width="5" stroke-linecap="round"/>
+<path d="M63 58.67V91.33" stroke="#1B2430" stroke-width="5" stroke-linecap="round"/>
+<path d="M75 66.83V83.17" stroke="#1B2430" stroke-width="5" stroke-linecap="round"/>
+<path d="M87 66.83V83.17" stroke="#2F62C4" stroke-width="5" stroke-linecap="round"/>
+<path d="M99 58.67V91.33" stroke="#2F62C4" stroke-width="5" stroke-linecap="round"/>
+<path d="M111 50.5V99.5" stroke="#2F62C4" stroke-width="5" stroke-linecap="round"/>
+<path d="M123 58.67V91.33" stroke="#2F62C4" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -134,26 +134,27 @@ template = "tools"
 [[projects]]
 ico_url = "/images/projects/typemeit.svg"
 name = "type me it"
+tldr = "Push-to-talk dictation for the Mac. Hold fn, speak, and it types where the cursor is."
 url = "https://typeme.it"
 [[projects]]
-ico_url = "/images/projects/weconverse.png"
+ico_url = "/images/projects/weconverse.svg"
 name = "We Converse"
+tldr = "Records and transcribes real conversations, and keeps every word private until you share it."
 url = "https://weconverse.app"
 [[projects]]
 ico_url = "/images/projects/notifi.svg"
 name = "notifi"
+tldr = "One HTTP request from any script and a notification lands on your iPhone, iPad or Mac."
 url = "https://notifi.it"
 [[projects]]
 ico_url = "/images/projects/transferme.png"
 name = "Transfer Me It"
+tldr = "Menu bar app that sends a file from one Mac to another, encrypted before it leaves."
 url = "https://transferme.it"
 [[projects]]
 ico_url = "/images/projects/crypter.svg"
 name = "Crypter"
+tldr = "Browser extension that encrypts your Facebook chat messages."
 url = "https://crypter.co.uk"
-[[projects]]
-ico_url = "/images/projects/passforit.png"
-name = "Pass For It"
-url = "https://passfor.it"
 
 +++
