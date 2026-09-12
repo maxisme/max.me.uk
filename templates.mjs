@@ -103,9 +103,11 @@ function sidebar({ page, home, posts }) {
         <h2>Selected Projects</h2>
 ${(home.projects ?? [])
   .map((p) => {
-    const favicon = p.ico_url || `${p.url}/images/icon.ico`;
+    // vendored under /images/projects: hotlinked project favicons 404 as soon
+    // as the other site reshuffles its assets, which is how these last broke
+    const favicon = p.ico_url || "/images/ico.svg";
     return `        <div class="row valign-wrapper">
-            <div class="col valign"><a target="_blank" href="${esc(p.url)}"><img class="ico" src="${esc(favicon)}"></a></div>
+            <div class="col valign"><a target="_blank" href="${esc(p.url)}"><img class="ico" src="${esc(favicon)}" alt="${esc(p.name)}" width="32" height="32" loading="lazy"></a></div>
             <div class="col valign"><a class="valign" target="_blank" href="${esc(p.url)}">${esc(p.name)}</a></div>
         </div>`;
   })
