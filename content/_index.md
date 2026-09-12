@@ -132,7 +132,7 @@ devicon = "devicon-grpc-plain"
 languages_or_tool = "gRPC"
 template = "tools"
 [[projects]]
-ico_url = "/images/projects/typemeit.png"
+ico_url = "/images/projects/typemeit.svg"
 name = "type me it"
 url = "https://typeme.it"
 [[projects]]
