@@ -87,6 +87,11 @@ hr {
   font-size: 2em;
 }
 
+img.ico {
+  height: 1em;
+  object-fit: contain;
+}
+
 .info {
   color: #3a3a3a;
   margin-bottom: 2.5em;
