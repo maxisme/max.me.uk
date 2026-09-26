@@ -79,9 +79,7 @@ async function build() {
   // blog list
   await emit(
     "blog/index.html",
-    // content/blog/_index.md is empty, so Hugo gave this page no title and the
-    // <title> fell through to the site name. Kept as-is.
-    T.listPage(ctx({ isHome: false, title: "", url: "/blog/", permalink: `${config.baseURL}/blog/` }), {
+    T.listPage(ctx({ isHome: false, title: "Blog", url: "/blog/", permalink: `${config.baseURL}/blog/` }), {
       heading: "Blog Posts",
       items: posts,
     })
@@ -132,7 +130,19 @@ async function build() {
 
   await emit("404.html", T.notFoundPage(ctx({ isHome: false, title: "404", url: "/404.html", permalink: `${config.baseURL}/404.html` })));
   await emit("index.xml", T.rss({ posts }));
-  await emit("sitemap.xml", T.sitemap({ urls: ["/", "/blog/", ...posts.map((p) => p.url), "/tags/", ...tagUrls] }));
+  const newest = posts[0]?.date;
+  await emit(
+    "sitemap.xml",
+    T.sitemap({
+      urls: [
+        { url: "/" },
+        { url: "/blog/", lastmod: newest },
+        ...posts.map((p) => ({ url: p.url, lastmod: p.lastmod ?? p.date })),
+        ...tagUrls.map((url) => ({ url })),
+      ],
+    })
+  );
+  await emit("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${config.baseURL}/sitemap.xml\n`);
 
   // /cv and /cv/ render the CV pdf inline (this used to live in nginx.conf,
   // which Cloudflare Pages never reads).
