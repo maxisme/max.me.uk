@@ -9,7 +9,7 @@ maxdomains = ["måx.com", "m4x.co", "maxis.me"]
 tags = []
 title = ""
 [meta]
-description = "Maximilian Mitchell - Software Engineer."
+description = "Maximilian (Max) Mitchell is a Lead Software Engineer in London, and a University of Sussex Computer Science & AI graduate. Projects, blog posts and CV."
 keywords = ["max mitchell", "maximilian mitchell", " max", "mitchell", "maximilian", "mitchell", "york", "london", "brighton", "sussex", "software", "engineer", "software engineer", "england"]
 [[bad_tools]]
 devicon = "devicon-windows8-plain"

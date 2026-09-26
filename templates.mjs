@@ -39,37 +39,122 @@ export const formatDate = (d) => {
 
 // ---------------------------------------------------------------- head/header
 
+// Who the site is about. Written out as schema.org JSON-LD so search engines
+// tie "Max Mitchell" and "Maximilian Mitchell" to the same person, and to the
+// profiles linked from the sidebar.
+const PERSON_ID = `${config.baseURL}/#person`;
+
+function person(home) {
+  return {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: config.author.name,
+    alternateName: config.author.alternateNames,
+    givenName: "Maximilian",
+    familyName: "Mitchell",
+    url: `${config.baseURL}/`,
+    email: `mailto:${config.author.email}`,
+    jobTitle: config.author.jobTitle,
+    description: home.meta?.description,
+    alumniOf: { "@type": "CollegeOrUniversity", name: "University of Sussex" },
+    knowsAbout: String(home.areas_of_expertise ?? "")
+      .replace(/\.$/, "")
+      .split(/,\s*|\s+and\s+/)
+      .filter(Boolean),
+    sameAs: config.author.sameAs,
+  };
+}
+
+function jsonLd({ page, home }) {
+  const graph = [
+    {
+      "@type": "WebSite",
+      "@id": `${config.baseURL}/#website`,
+      url: `${config.baseURL}/`,
+      name: config.title,
+      alternateName: config.author.alternateNames,
+      inLanguage: config.languageCode,
+      author: { "@id": PERSON_ID },
+    },
+    person(home),
+  ];
+
+  if (page.isHome) {
+    graph.push({
+      "@type": "ProfilePage",
+      "@id": `${config.baseURL}/#profile`,
+      url: `${config.baseURL}/`,
+      name: homeTitle,
+      isPartOf: { "@id": `${config.baseURL}/#website` },
+      mainEntity: { "@id": PERSON_ID },
+    });
+  } else if (page.date) {
+    graph.push({
+      "@type": "BlogPosting",
+      "@id": `${page.permalink}#post`,
+      headline: page.title,
+      description: page.meta_description || undefined,
+      url: page.permalink,
+      mainEntityOfPage: page.permalink,
+      datePublished: page.date,
+      dateModified: page.lastmod ?? page.date,
+      keywords: page.tags?.length ? page.tags.join(", ") : undefined,
+      image: page.image || page.banner ? `${config.baseURL}${page.image || page.banner}` : undefined,
+      author: { "@id": PERSON_ID },
+      publisher: { "@id": PERSON_ID },
+      isPartOf: { "@id": `${config.baseURL}/#website` },
+      inLanguage: config.languageCode,
+    });
+  }
+
+  // "</" can't appear inside a <script>, so escape it
+  const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+  return `<script type="application/ld+json">${json}</script>`;
+}
+
+// Both names up front: people search for either.
+const homeTitle = "Maximilian (Max) Mitchell | Software Engineer";
+
 function head({ page, home }) {
   const isHome = page.isHome;
   const desc = page.meta_description || home.meta?.description || "";
-  const title = page.title ? `${esc(page.title)} | Max Mitchell` : "Maximilian Mitchell";
+  const title = isHome ? homeTitle : page.title ? `${page.title} | Max Mitchell` : "Max Mitchell";
+  const canonical = isHome ? `${config.baseURL}/` : page.permalink;
+  const image = page.image || page.banner;
 
-  const social = isHome ? "" : `
+  const social = `
     <!-- Open Graph data -->
-    <meta property="og:title" content="${esc(page.title)}"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:article:published_time" content="${esc(page.date ?? "")}"/>
-    <meta property="og:article:section" content="Technology"/>
-    <meta property="og:url" content="${esc(page.permalink)}"/>
-${(page.tags ?? []).map((t) => `    <meta property="og:article:tag" content="${esc(t)}"/>`).join("\n")}
-${page.image ? `    <meta property="og:image" content="${esc(config.baseURL)}${esc(page.image)}"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="627"/>` : ""}
-    <meta property="og:description" content="${esc(page.meta_description ?? "")}"/>
-    <meta property="og:site_name" content="max.me.uk"/>
+    <meta property="og:title" content="${esc(isHome ? homeTitle : page.title || title)}"/>
+    <meta property="og:type" content="${isHome ? "profile" : page.date ? "article" : "website"}"/>
+    <meta property="og:url" content="${esc(canonical)}"/>
+    <meta property="og:description" content="${esc(desc)}"/>
+    <meta property="og:site_name" content="${esc(config.title)}"/>
     <meta property="og:locale" content="en_GB"/>
+${isHome ? `    <meta property="profile:first_name" content="Maximilian"/>
+    <meta property="profile:last_name" content="Mitchell"/>
+    <meta property="profile:username" content="maxisme"/>` : ""}
+${page.date ? `    <meta property="article:published_time" content="${esc(page.date)}"/>
+    <meta property="article:author" content="${esc(config.baseURL)}/"/>
+    <meta property="article:section" content="Technology"/>
+${(page.tags ?? []).map((t) => `    <meta property="article:tag" content="${esc(t)}"/>`).join("\n")}` : ""}
+${image ? `    <meta property="og:image" content="${esc(config.baseURL)}${esc(image)}"/>` : ""}
 
     <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@maxisme">
     <meta name="twitter:creator" content="@maxisme">`;
 
   return `<!DOCTYPE html>
 <html lang="en-gb">
 <head>
-    <meta name="description" content="${esc(desc)}">
-    <title>${title}</title>
     <meta charset="UTF-8">
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(desc)}">
+    <meta name="author" content="${esc(config.author.name)}">
+    <link rel="canonical" href="${esc(canonical)}">
+    <link rel="alternate" type="application/rss+xml" title="${esc(config.title)}" href="${config.baseURL}/index.xml">
 ${social}
+    ${jsonLd({ page, home })}
 
     <!-- mobile meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -177,16 +262,16 @@ ${(home.domains ?? []).map((d) => `            <a target="_blank" href="https://
 <div class="row all-content">
     <div id="sidebar" class="col ${showFull ? "l4 m7 s12" : "slide-in-on-mobile-blog l4 s8"} sidebar">
         <div align="center">
-            <h1><a href="/">Maximilian<br>Mitchell </a></h1>
+            <h1><a href="/" title="Maximilian (Max) Mitchell">Maximilian<br>Mitchell </a></h1>
         </div>
         <p class="info">${esc(home.description)}</p>
         <div class="row">
-            <a class="col s6" href="mailto:max@max.me.uk"><img class="ico" src="/images/mail_animated.svg"><br>Email</a>
-            <a class="col s6" target="_blank" href="https://github.com/maxisme"><img class="ico" src="/images/github_animated.svg"><br>GitHub</a>
+            <a class="col s6" href="mailto:max@max.me.uk"><img class="ico" src="/images/mail_animated.svg" alt=""><br>Email</a>
+            <a class="col s6" target="_blank" href="https://github.com/maxisme" rel="me"><img class="ico" src="/images/github_animated.svg" alt=""><br>GitHub</a>
         </div>
         <div class="row">
-            <a class="col s6" target="_blank" href="https://www.linkedin.com/in/maxisme"><img class="ico" src="/images/linkedin_animated.svg"><br>Linked In</a>
-            <a class="col s6" target="_blank" href="https://stackoverflow.com/story/maxisme"><img class="ico" src="/images/stackoverflow_animated.svg"><br>StackOverflow</a>
+            <a class="col s6" target="_blank" href="https://www.linkedin.com/in/maxisme" rel="me"><img class="ico" src="/images/linkedin_animated.svg" alt=""><br>Linked In</a>
+            <a class="col s6" target="_blank" href="https://stackoverflow.com/story/maxisme" rel="me"><img class="ico" src="/images/stackoverflow_animated.svg" alt=""><br>StackOverflow</a>
         </div>
 ${projects}
 
@@ -233,7 +318,7 @@ export function homePage(ctx) {
 <!-- NFC animation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <div id="nfc">
-    <img class="nfc-image" src="/images/RED.svg">
+    <img class="nfc-image" src="/images/RED.svg" alt="">
 </div>`);
 }
 
@@ -265,7 +350,7 @@ export function postPage(ctx) {
 <script>hljs.initHighlightingOnLoad();</script>
 
 <div class="center">
-    <title class="center">${esc(page.title)}</title>
+    <h1 class="post-title">${esc(page.title)}</h1>
 ${page.banner ? `    <div class="banner"><img alt="banner image" src="${esc(page.banner)}"></div>` : ""}
     <div class="date">${formatDate(page.date)}</div>
     <div class="tags">
@@ -346,8 +431,8 @@ export function sitemap({ urls }) {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map(
-    (u) => `  <url>
-    <loc>${config.baseURL}${u}</loc>
+    ({ url: u, lastmod }) => `  <url>
+    <loc>${config.baseURL}${u}</loc>${lastmod ? `\n    <lastmod>${new Date(lastmod).toISOString()}</lastmod>` : ""}
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>`
