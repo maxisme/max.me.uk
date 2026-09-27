@@ -82,6 +82,7 @@ async function build() {
     T.listPage(ctx({ isHome: false, title: "Blog", url: "/blog/", permalink: `${config.baseURL}/blog/` }), {
       heading: "Blog Posts",
       items: posts,
+      withRecentTracks: true,
     })
   );
 

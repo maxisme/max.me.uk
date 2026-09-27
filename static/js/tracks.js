@@ -1,9 +1,6 @@
-// Renders /music/ from /api/tracks. See functions/api/tracks.js.
+// Renders my Liked Songs: all of them on /music/ from /api/tracks, and the
+// newest few on /blog/ from /api/tracks/recent. See functions/api/.
 (function () {
-  var status = document.getElementById("tracks-status");
-  var list = document.getElementById("tracks-list");
-  var filter = document.getElementById("tracks-filter");
-
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function day(iso) {
     var d = new Date(iso);
@@ -34,27 +31,48 @@
     return li;
   }
 
-  fetch("/api/tracks")
-    .then(function (res) {
+  function load(url) {
+    return fetch(url).then(function (res) {
       if (!res.ok) throw new Error(res.status);
       return res.json();
-    })
-    .then(function (data) {
-      var frag = document.createDocumentFragment();
-      data.tracks.forEach(function (t) { frag.appendChild(row(t)); });
-      list.appendChild(frag);
-
-      status.textContent = data.total + " songs, newest first · updated " + day(data.updated_at);
-      filter.hidden = false;
-      filter.addEventListener("input", function () {
-        var q = filter.value.trim().toLowerCase();
-        for (var i = 0; i < list.children.length; i++) {
-          var li = list.children[i];
-          li.hidden = q && li.dataset.search.indexOf(q) === -1;
-        }
-      });
-    })
-    .catch(function () {
-      status.textContent = "Couldn't load the songs right now.";
     });
+  }
+
+  function fill(list, tracks) {
+    var frag = document.createDocumentFragment();
+    tracks.forEach(function (t) { frag.appendChild(row(t)); });
+    list.appendChild(frag);
+  }
+
+  var list = document.getElementById("tracks-list");
+  if (list) {
+    var status = document.getElementById("tracks-status");
+    var filter = document.getElementById("tracks-filter");
+    load("/api/tracks")
+      .then(function (data) {
+        fill(list, data.tracks);
+        status.textContent = data.total + " songs, newest first · updated " + day(data.updated_at);
+        filter.hidden = false;
+        filter.addEventListener("input", function () {
+          var q = filter.value.trim().toLowerCase();
+          for (var i = 0; i < list.children.length; i++) {
+            var li = list.children[i];
+            li.hidden = q && li.dataset.search.indexOf(q) === -1;
+          }
+        });
+      })
+      .catch(function () {
+        status.textContent = "Couldn't load the songs right now.";
+      });
+  }
+
+  // stays hidden if there's nothing to show - it's an extra on the blog page
+  var recent = document.getElementById("recent-tracks");
+  if (recent) {
+    load("/api/tracks/recent").then(function (data) {
+      if (!data.tracks.length) return;
+      fill(recent.querySelector("ol"), data.tracks);
+      recent.hidden = false;
+    }).catch(function () {});
+  }
 })();

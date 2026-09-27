@@ -324,12 +324,20 @@ export function homePage(ctx) {
 </div>`);
 }
 
-export function listPage(ctx, { heading, sub, items }) {
+// Filled in by static/js/tracks.js from /api/tracks/recent.
+const recentTracks = `
+<div id="recent-tracks" class="tracks recent-tracks" hidden>
+    <h2><a href="/music/">Recently liked</a></h2>
+    <ol></ol>
+</div>
+<script src="/js/tracks.js" defer></script>`;
+
+export function listPage(ctx, { heading, sub, items, withRecentTracks = false }) {
   return shell(ctx, `
 <div align="center">
     <h1 class="list-header">${esc(heading)}</h1>
     ${sub ? `<sub>${esc(sub)}</sub>` : "<p>&nbsp;</p>"}
-</div>
+</div>${withRecentTracks ? recentTracks : ""}
 <div class="post-list">
 ${items
   .map(
