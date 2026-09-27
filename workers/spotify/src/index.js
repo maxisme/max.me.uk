@@ -5,15 +5,20 @@
 //   state.json  - private: the refresh token (put there by functions/spotify.js
 //                 when I log in at /spotify) and any half-done rescan
 //
-// Free Workers get 50 subrequests per run, which is ~2,400 tracks at 50 a
-// page. So instead of re-reading the whole library every day:
+// Free Workers get 50 subrequests and 10ms of CPU per run, and parsing
+// Spotify's pages is what eats the CPU. So instead of re-reading the whole
+// library every day:
 //   1. read from the newest end until we hit a track we already have
 //   2. if the count then matches Spotify's total, that's it (the normal case)
 //   3. otherwise something was un-liked, so rescan everything - resuming on
 //      the next run if the library is too big to read in one go
 
-const LIKED = "https://api.spotify.com/v1/me/tracks?limit=50";
-const MAX_PAGES = 45; // leaves headroom under 50 for the token refresh
+// market= swaps each track's and album's ~185-country available_markets list
+// for one is_playable flag, which cuts a page from ~160KB to ~65KB
+const LIKED = "https://api.spotify.com/v1/me/tracks?limit=50&market=from_token";
+// 1,000 tracks a run: ~3ms of JSON.parse on an M-series Mac, so room to spare
+// under 10ms on Cloudflare's slower cores. Bigger rescans carry on next run.
+const MAX_PAGES = 20;
 
 export default {
   async scheduled(_event, env) {
