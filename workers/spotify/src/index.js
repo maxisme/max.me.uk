@@ -2,7 +2,8 @@
 //
 // Writes two objects to the SPOTIFY bucket:
 //   tracks.json - public, served by functions/api/tracks.js
-//   state.json  - private: the current refresh token and any half-done rescan
+//   state.json  - private: the refresh token (put there by functions/spotify.js
+//                 when I log in at /spotify) and any half-done rescan
 //
 // Free Workers get 50 subrequests per run, which is ~2,400 tracks at 50 a
 // page. So instead of re-reading the whole library every day:
@@ -94,13 +95,8 @@ export async function sync(env) {
 // ------------------------------------------------------------------ spotify
 
 async function accessToken(env, state) {
-  // a changed secret means I've re-run auth.mjs, so it beats the saved one
-  if (env.SPOTIFY_REFRESH_TOKEN && env.SPOTIFY_REFRESH_TOKEN !== state.seed) {
-    state.seed = env.SPOTIFY_REFRESH_TOKEN;
-    state.refresh_token = env.SPOTIFY_REFRESH_TOKEN;
-  }
   const refresh = state.refresh_token;
-  if (!refresh) throw new Error("no refresh token - run auth.mjs and set SPOTIFY_REFRESH_TOKEN");
+  if (!refresh) throw new Error("no refresh token - log in at https://max.me.uk/spotify");
 
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",

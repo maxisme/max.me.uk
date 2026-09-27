@@ -18,7 +18,7 @@ npm run build   # build only, into dist/
 | `build.mjs`        | Turns one into the other                          |
 | `site.config.mjs`  | Title, base URL, Disqus shortname                 |
 | `static/`          | CSS, JS, images, the CV pdf — copied as-is        |
-| `functions/`       | Cloudflare Pages Functions (just `/api/tracks`)   |
+| `functions/`       | Pages Functions: `/api/tracks`, `/spotify` login  |
 | `workers/spotify/` | Daily Spotify Liked Songs scraper                 |
 
 Posts with `draft = true` are skipped.
@@ -45,34 +45,28 @@ and a write a day, it sits well inside the free tier anyway.
 One-time setup:
 
 1. Create a Spotify app at <https://developer.spotify.com/dashboard> with
-   redirect URI `http://127.0.0.1:8888/callback`.
-2. Get a refresh token:
+   redirect URI `https://max.me.uk/spotify`.
+2. Create the bucket, set the worker's secrets and deploy it:
    ```bash
    cd workers/spotify
-   SPOTIFY_CLIENT_ID=... SPOTIFY_CLIENT_SECRET=... node auth.mjs
-   ```
-3. Create the bucket, set the secrets and deploy:
-   ```bash
    npx wrangler r2 bucket create spotify-tracks
    npx wrangler secret put SPOTIFY_CLIENT_ID
    npx wrangler secret put SPOTIFY_CLIENT_SECRET
-   npx wrangler secret put SPOTIFY_REFRESH_TOKEN
    npx wrangler deploy
    ```
-4. In the Pages project: **Settings → Bindings → Add → R2 bucket**, variable
-   name `SPOTIFY`, bucket `spotify-tracks`. Redeploy the site.
+3. In the Pages project:
+   - **Settings → Bindings → Add → R2 bucket**: variable `SPOTIFY`, bucket
+     `spotify-tracks`.
+   - **Settings → Variables and Secrets**: `SPOTIFY_CLIENT_ID` and
+     `SPOTIFY_CLIENT_SECRET` (as secrets), and `SPOTIFY_USER_ID` - your
+     Spotify username. Don't know it? Leave it out, and step 4 will tell you.
+   - Redeploy the site.
+4. Open <https://max.me.uk/spotify> and log in. That saves the refresh token
+   to the bucket, runs the first scrape and drops you on `/music/`. Do the
+   same if the token ever stops working.
 
-The first scrape happens on the next cron (04:17 UTC). To run it now against
-the real bucket, put the three secrets in `workers/spotify/.dev.vars`
-(`KEY=value` lines, gitignored), then:
-
-```bash
-npx wrangler dev --remote --test-scheduled
-curl localhost:8787/__scheduled
-```
-
-Re-running `auth.mjs` and updating `SPOTIFY_REFRESH_TOKEN` replaces the
-token the worker has saved.
+`/spotify` only keeps the token for `SPOTIFY_USER_ID`, so nobody else can
+swap their library in.
 
 `npm run serve` has no `/api/tracks`; to see the page with data locally use
 `npx wrangler pages dev dist --r2 SPOTIFY=spotify-tracks`.
