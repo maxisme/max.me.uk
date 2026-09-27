@@ -277,6 +277,8 @@ ${projects}
 
         <h2><a href="/blog/">Blog Posts</a></h2>
 ${postLinks}
+
+        <h2><a href="/music/">Liked Songs</a></h2>
 ${details}
     </div>${postPaneOpen}`;
 }
@@ -391,6 +393,20 @@ ${page.html}
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>`);
+}
+
+// Filled in by static/js/tracks.js from /api/tracks (functions/api/tracks.js).
+export function tracksPage(ctx) {
+  return shell(ctx, `
+<div align="center">
+    <h1 class="list-header">Liked Songs</h1>
+    <sub id="tracks-status">Loading from Spotify...</sub>
+</div>
+<div class="tracks">
+    <input id="tracks-filter" type="search" placeholder="Filter by song, artist or album" autocomplete="off" hidden>
+    <ol id="tracks-list"></ol>
+</div>
+<script src="/js/tracks.js" defer></script>`);
 }
 
 export function notFoundPage(ctx) {
