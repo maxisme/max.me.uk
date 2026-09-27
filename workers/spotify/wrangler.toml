@@ -1,0 +1,20 @@
+# Scrapes Liked Songs from Spotify once a day into R2.
+# The site reads the result through functions/api/tracks.js.
+name = "spotify-tracks"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# no public URL: it only runs on the cron (and `wrangler dev` for testing)
+workers_dev = false
+
+[triggers]
+crons = ["17 4 * * *"] # 04:17 UTC daily
+
+[[r2_buckets]]
+binding = "SPOTIFY"
+bucket_name = "spotify-tracks"
+
+# secrets (wrangler secret put ...):
+#   SPOTIFY_CLIENT_ID
+#   SPOTIFY_CLIENT_SECRET
+# the refresh token lives in the bucket - log in at https://max.me.uk/spotify
