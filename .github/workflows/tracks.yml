@@ -1,0 +1,56 @@
+name: Snapshot Liked Songs
+
+# Copies https://max.me.uk/api/tracks into data/tracks.json and merges it
+# through a PR whenever it has changed, so the library has a history in git.
+on:
+  schedule:
+    # hourly, so it doesn't need to know when the scrape runs - it only
+    # commits when tracks.json has changed
+    - cron: "15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download
+        id: download
+        run: |
+          status=$(curl -sS -o /tmp/tracks.json -w '%{http_code}' https://max.me.uk/api/tracks)
+          # 404 until the first scrape has written tracks.json
+          if [ "$status" = 404 ]; then
+            echo "nothing scraped yet"
+            exit 0
+          fi
+          [ "$status" = 200 ] || { echo "/api/tracks returned $status"; exit 1; }
+          mkdir -p data
+          # one field per line, so the diffs show which songs changed
+          jq . /tmp/tracks.json > data/tracks.json
+          git add data/tracks.json
+          if git diff --cached --quiet; then
+            echo "no change"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Merge through a PR
+        if: steps.download.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          day=$(date -u +%F)
+          branch="tracks-$day"
+          total=$(jq .total data/tracks.json)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git commit -m "Snapshot Liked Songs for $day ($total songs)"
+          git push origin "$branch"
+          gh pr create --title "Snapshot Liked Songs for $day" --body "$total songs, from https://max.me.uk/api/tracks."
+          gh pr merge "$branch" --squash --delete-branch
