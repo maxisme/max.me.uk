@@ -576,12 +576,8 @@ i
     color: $lgrey
     font-size: 0.8em
 
-// the "My Likes" post's text, lined up with the list below it
-.tracks-intro
-  max-width: 700px
-  margin: 0 auto
-
-// likes-per-day heatmap on /music/, shaded l0 (none) to l4 (most)
+// likes heatmap on /music/: a row per year, a square per week, shaded l0
+// (none) to l4 (most). The columns stretch to fit, so it works on phones too.
 .likes-graph
   margin: 0 0 1.5em
   text-align: left
@@ -590,24 +586,27 @@ i
     color: $lgrey
     margin: 0 0 0.5em
 
+  // grid-template-columns is set by tracks.js: the year, then one per week
   .likes-grid
-    display: flex
-    flex-direction: row-reverse // newest week on the right; overflow clips the oldest
-    justify-content: flex-start
-    gap: 3px
-    overflow: hidden
+    display: grid
+    gap: 2px
+    align-items: center
 
-  .likes-week
-    display: flex
-    flex-direction: column
-    gap: 3px
+  .likes-year
+    color: $lgrey
+    font-size: 0.7em
+    padding-right: 6px
 
   i
     display: block
+    border-radius: 2px
+
+  .likes-grid i
+    aspect-ratio: 1
+
+  .likes-legend i
     width: 11px
     height: 11px
-    flex-shrink: 0
-    border-radius: 2px
 
   .future
     visibility: hidden

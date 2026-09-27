@@ -1,4 +1,4 @@
-// Renders /music/ from /api/tracks: a likes-per-day heatmap and every song.
+// Renders /music/ from /api/tracks: a likes heatmap and every song.
 // See functions/api/tracks.js.
 (function () {
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -44,14 +44,21 @@
     list.appendChild(frag);
   }
 
-  // --------------------------------------------- likes-per-day heatmap
+  // ---------------------------------------------------- likes heatmap
 
-  var WEEKS = 53; // a year, ending this week; narrow screens clip the oldest
+  var YEARS = 10;
   var DAY_MS = 24 * 60 * 60 * 1000;
+  // week w of a year starts on day 7w, so Dec 31 (day 364, or 365 in a leap
+  // year) lands in week 52
+  var WEEKS = Math.floor(365 / 7) + 1;
 
   // UTC days, the same as the "liked" dates in the list
   function dayKey(date) {
     return date.toISOString().split("T")[0];
+  }
+
+  function weekOfYear(date) {
+    return Math.floor((date - Date.UTC(date.getUTCFullYear(), 0, 1)) / DAY_MS / 7);
   }
 
   function plural(n, word) {
@@ -85,47 +92,50 @@
     var grid = box.querySelector(".likes-grid");
     var top = box.querySelectorAll(".likes-legend i").length - 1;
 
-    var counts = {};
-    tracks.forEach(function (t) {
-      var k = dayKey(new Date(t.added_at));
-      counts[k] = (counts[k] || 0) + 1;
-    });
-
     var now = new Date();
     var today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-    var firstSunday = new Date(today - (today.getUTCDay() + (WEEKS - 1) * 7) * DAY_MS);
+    var thisYear = today.getUTCFullYear();
+    var firstYear = thisYear - YEARS + 1;
 
-    // shade by where a day sits among the days with likes, like GitHub does,
-    // so one huge day doesn't wash out the rest
-    var shown = [];
-    for (var d = firstSunday; d <= today; d = new Date(+d + DAY_MS)) {
-      if (counts[dayKey(d)]) shown.push(counts[dayKey(d)]);
-    }
-    shown.sort(function (a, b) { return a - b; });
+    var days = {};
+    var weeks = {};
+    tracks.forEach(function (t) {
+      var d = new Date(t.added_at);
+      var k = dayKey(d);
+      days[k] = (days[k] || 0) + 1;
+      if (d.getUTCFullYear() < firstYear) return;
+      var w = d.getUTCFullYear() + "-" + weekOfYear(d);
+      weeks[w] = (weeks[w] || 0) + 1;
+    });
+
+    // shade by where a week sits among the weeks with likes, like GitHub
+    // does, so one huge week doesn't wash out the rest
+    var shown = Object.keys(weeks).map(function (w) { return weeks[w]; });
     function level(n) {
       if (!n) return 0;
       var atOrBelow = shown.filter(function (m) { return m <= n; }).length;
       return Math.ceil((top * atOrBelow) / shown.length);
     }
 
-    // newest week first: the CSS lays them out right to left
-    for (var w = WEEKS - 1; w >= 0; w--) {
-      var col = el("div", { class: "likes-week" });
-      for (var i = 0; i < 7; i++) {
-        var date = new Date(+firstSunday + (w * 7 + i) * DAY_MS);
-        if (date > today) {
-          col.appendChild(el("i", { class: "future" }));
+    grid.style.gridTemplateColumns = "auto repeat(" + WEEKS + ", 1fr)";
+    for (var y = thisYear; y >= firstYear; y--) {
+      grid.appendChild(el("span", { class: "likes-year" }, String(y)));
+      for (var w = 0; w < WEEKS; w++) {
+        var start = new Date(Date.UTC(y, 0, 1 + 7 * w));
+        if (start > today) {
+          grid.appendChild(el("i", { class: "future" }));
           continue;
         }
-        var n = counts[dayKey(date)] || 0;
-        col.appendChild(el("i", { class: "l" + level(n), title: plural(n, "like") + " on " + day(date.toISOString()) }));
+        var end = new Date(Math.min(+start + 6 * DAY_MS, Date.UTC(y, 11, 31)));
+        var n = weeks[y + "-" + w] || 0;
+        var when = +end === +start ? day(start) : day(start) + " – " + day(end);
+        grid.appendChild(el("i", { class: "l" + level(n), title: plural(n, "like") + ", " + when }));
       }
-      grid.appendChild(col);
     }
 
-    var s = streaks(counts, today);
-    var year = shown.reduce(function (a, b) { return a + b; }, 0);
-    var summary = plural(year, "like") + " in the last year · " + s.current + " day streak · longest " + s.longest;
+    var s = streaks(days, today);
+    var total = shown.reduce(function (a, b) { return a + b; }, 0);
+    var summary = plural(total, "like") + " since " + firstYear + " · " + s.current + " day streak · longest " + s.longest;
     box.querySelector(".likes-summary").textContent = summary;
     grid.setAttribute("aria-label", summary);
     box.hidden = false;
