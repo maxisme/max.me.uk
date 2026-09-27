@@ -576,9 +576,10 @@ i
     color: $lgrey
     font-size: 0.8em
 
-// likes heatmap on /music/: a row per year, a square per week, shaded l0
-// (none) to l4 (most). The columns stretch to fit, so it works on phones too.
+// likes heatmap on /music/: a row per year, a square per week, coloured by
+// static/js/heatmap.js. The columns stretch to fit, so it works on phones too.
 .likes-graph
+  position: relative // for .likes-tip
   margin: 0 0 1.5em
   text-align: left
 
@@ -591,6 +592,12 @@ i
     display: grid
     gap: 2px
     align-items: center
+
+    i
+      cursor: pointer
+
+      &:hover, &.picked
+        outline: 1px solid $grey
 
   .likes-year
     color: $lgrey
@@ -611,16 +618,15 @@ i
   .future
     visibility: hidden
 
-  .l0
-    background: rgba(58, 58, 58, .08)
-  .l1
-    background: rgba($red, .3)
-  .l2
-    background: rgba($red, .55)
-  .l3
-    background: rgba($red, .8)
-  .l4
-    background: $red
+  .likes-tip
+    position: absolute
+    pointer-events: none
+    white-space: nowrap
+    padding: 2px 6px
+    border-radius: 3px
+    background: $grey
+    color: $white
+    font-size: 0.8em
 
   .likes-legend
     display: flex
@@ -630,3 +636,14 @@ i
     margin-top: 0.5em
     color: $lgrey
     font-size: 0.8em
+
+  .likes-picked
+    margin: 0.5em 0 0
+
+    button
+      border: 0
+      padding: 0
+      background: none
+      color: $red
+      font: inherit
+      cursor: pointer

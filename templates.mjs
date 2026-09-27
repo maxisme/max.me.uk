@@ -406,12 +406,14 @@ export function tracksPage(ctx) {
     <div id="likes-graph" class="likes-graph" hidden>
         <p class="likes-summary"></p>
         <div class="likes-grid" role="img"></div>
-        <div class="likes-legend">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</div>
+        <div class="likes-tip" hidden></div>
+        <div class="likes-legend">Less <span>More</span></div>
+        <p class="likes-picked" hidden><span></span><button type="button">show all</button></p>
     </div>
     <input id="tracks-filter" type="search" placeholder="Filter by song, artist or album" autocomplete="off" hidden>
     <ol id="tracks-list"></ol>
 </div>
-<script src="/js/tracks.js" defer></script>`);
+<script type="module" src="/js/tracks.js"></script>`);
 }
 
 export function notFoundPage(ctx) {

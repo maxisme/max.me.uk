@@ -567,6 +567,7 @@ i {
 }
 
 .likes-graph {
+  position: relative;
   margin: 0 0 1.5em;
   text-align: left;
 }
@@ -578,6 +579,12 @@ i {
   display: grid;
   gap: 2px;
   align-items: center;
+}
+.likes-graph .likes-grid i {
+  cursor: pointer;
+}
+.likes-graph .likes-grid i:hover, .likes-graph .likes-grid i.picked {
+  outline: 1px solid #3a3a3a;
 }
 .likes-graph .likes-year {
   color: #636363;
@@ -598,20 +605,15 @@ i {
 .likes-graph .future {
   visibility: hidden;
 }
-.likes-graph .l0 {
-  background: rgba(58, 58, 58, 0.08);
-}
-.likes-graph .l1 {
-  background: rgba(188, 33, 34, 0.3);
-}
-.likes-graph .l2 {
-  background: rgba(188, 33, 34, 0.55);
-}
-.likes-graph .l3 {
-  background: rgba(188, 33, 34, 0.8);
-}
-.likes-graph .l4 {
-  background: #bc2122;
+.likes-graph .likes-tip {
+  position: absolute;
+  pointer-events: none;
+  white-space: nowrap;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #3a3a3a;
+  color: #e3e3e3;
+  font-size: 0.8em;
 }
 .likes-graph .likes-legend {
   display: flex;
@@ -621,6 +623,17 @@ i {
   margin-top: 0.5em;
   color: #636363;
   font-size: 0.8em;
+}
+.likes-graph .likes-picked {
+  margin: 0.5em 0 0;
+}
+.likes-graph .likes-picked button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #bc2122;
+  font: inherit;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,168 +1,130 @@
 // Renders /music/ from /api/tracks: a likes heatmap and every song.
 // See functions/api/tracks.js.
-(function () {
-  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  function day(iso) {
-    var d = new Date(iso);
-    return d.getUTCDate() + " " + MONTHS[d.getUTCMonth()] + " " + d.getUTCFullYear();
+import { heatmap, day, dayKey, SHADES, WEEKS } from "/js/heatmap.js";
+
+const status = document.getElementById("tracks-status");
+const list = document.getElementById("tracks-list");
+const filter = document.getElementById("tracks-filter");
+const box = document.getElementById("likes-graph");
+const grid = box.querySelector(".likes-grid");
+const tip = box.querySelector(".likes-tip");
+const picked = box.querySelector(".likes-picked");
+
+function el(tag, attrs, text) {
+  const e = document.createElement(tag);
+  for (const k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+function row(t) {
+  const li = el("li");
+  li.appendChild(el("img", { src: t.image || "/images/ico.svg", alt: "", loading: "lazy", width: 64, height: 64 }));
+
+  const text = el("div", { class: "track-text" });
+  const name = t.url
+    ? el("a", { href: t.url, target: "_blank", rel: "noopener" }, t.name)
+    : el("span", { class: "track-name" }, t.name);
+  text.appendChild(name);
+  text.appendChild(el("span", { class: "track-by" }, t.artists.join(", ") + (t.album ? " — " + t.album : "")));
+  text.appendChild(el("span", { class: "track-added" }, "liked " + day(t.added_at)));
+  li.appendChild(text);
+
+  li.dataset.search = [t.name, t.artists.join(" "), t.album].join(" ").toLowerCase();
+  li.dataset.day = dayKey(t.added_at);
+  return li;
+}
+
+// ------------------------------------------------------------ filtering
+
+let week = null; // the heatmap square clicked, if any
+
+function applyFilter() {
+  const q = filter.value.trim().toLowerCase();
+  let shown = 0;
+  for (const li of list.children) {
+    const inWeek = !week || (li.dataset.day >= week.dataset.from && li.dataset.day <= week.dataset.to);
+    li.hidden = !inWeek || (q && !li.dataset.search.includes(q));
+    if (!li.hidden) shown++;
   }
+  if (week) picked.firstChild.textContent = `${week.dataset.title} · showing ${shown} · `;
+  picked.hidden = !week;
+}
 
-  function el(tag, attrs, text) {
-    var e = document.createElement(tag);
-    for (var k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
-    if (text != null) e.textContent = text;
-    return e;
-  }
+// clicking the picked square again clears it
+function pick(cell) {
+  week?.classList.remove("picked");
+  week = cell === week ? null : cell;
+  week?.classList.add("picked");
+  applyFilter();
+}
 
-  function row(t) {
-    var li = el("li");
-    li.appendChild(el("img", { src: t.image || "/images/ico.svg", alt: "", loading: "lazy", width: 64, height: 64 }));
+// -------------------------------------------------------------- heatmap
 
-    var text = el("div", { class: "track-text" });
-    var name = t.url
-      ? el("a", { href: t.url, target: "_blank", rel: "noopener" }, t.name)
-      : el("span", { class: "track-name" }, t.name);
-    text.appendChild(name);
-    text.appendChild(el("span", { class: "track-by" }, t.artists.join(", ") + (t.album ? " — " + t.album : "")));
-    text.appendChild(el("span", { class: "track-added" }, "liked " + day(t.added_at)));
-    li.appendChild(text);
+function graph(tracks) {
+  const h = heatmap(tracks.map((t) => t.added_at));
 
-    li.dataset.search = [t.name, t.artists.join(" "), t.album].join(" ").toLowerCase();
-    return li;
-  }
-
-  function load(url) {
-    return fetch(url).then(function (res) {
-      if (!res.ok) throw new Error(res.status);
-      return res.json();
-    });
-  }
-
-  function fill(list, tracks) {
-    var frag = document.createDocumentFragment();
-    tracks.forEach(function (t) { frag.appendChild(row(t)); });
-    list.appendChild(frag);
-  }
-
-  // ---------------------------------------------------- likes heatmap
-
-  var YEARS = 10; // at most
-  var DAY_MS = 24 * 60 * 60 * 1000;
-  // week w of a year starts on day 7w, so Dec 31 (day 364, or 365 in a leap
-  // year) lands in week 52
-  var WEEKS = Math.floor(365 / 7) + 1;
-
-  // UTC days, the same as the "liked" dates in the list
-  function dayKey(date) {
-    return date.toISOString().split("T")[0];
-  }
-
-  function weekOfYear(date) {
-    return Math.floor((date - Date.UTC(date.getUTCFullYear(), 0, 1)) / DAY_MS / 7);
-  }
-
-  function plural(n, word) {
-    return n + " " + word + (n === 1 ? "" : "s");
-  }
-
-  function streaks(counts, today) {
-    var days = Object.keys(counts).sort();
-    var longest = 0;
-    var run = 0;
-    var prev = null;
-    days.forEach(function (k) {
-      var t = Date.parse(k);
-      run = prev !== null && t - prev === DAY_MS ? run + 1 : 1;
-      longest = Math.max(longest, run);
-      prev = t;
-    });
-
-    // a streak isn't broken until today ends without a like
-    var d = counts[dayKey(today)] ? today : new Date(today - DAY_MS);
-    var current = 0;
-    while (counts[dayKey(d)]) {
-      current++;
-      d = new Date(d - DAY_MS);
-    }
-    return { current: current, longest: longest };
-  }
-
-  function graph(tracks) {
-    var box = document.getElementById("likes-graph");
-    var grid = box.querySelector(".likes-grid");
-    var top = box.querySelectorAll(".likes-legend i").length - 1;
-
-    var now = new Date();
-    var today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-    var thisYear = today.getUTCFullYear();
-    // no rows for the years before my first like
-    var oldest = tracks.reduce(function (min, t) { return t.added_at < min ? t.added_at : min; }, today.toISOString());
-    var firstYear = Math.max(thisYear - YEARS + 1, new Date(oldest).getUTCFullYear());
-
-    var days = {};
-    var weeks = {};
-    tracks.forEach(function (t) {
-      var d = new Date(t.added_at);
-      var k = dayKey(d);
-      days[k] = (days[k] || 0) + 1;
-      if (d.getUTCFullYear() < firstYear) return;
-      var w = d.getUTCFullYear() + "-" + weekOfYear(d);
-      weeks[w] = (weeks[w] || 0) + 1;
-    });
-
-    // shade by where a week sits among the weeks with likes, like GitHub
-    // does, so one huge week doesn't wash out the rest
-    var shown = Object.keys(weeks).map(function (w) { return weeks[w]; });
-    function level(n) {
-      if (!n) return 0;
-      var atOrBelow = shown.filter(function (m) { return m <= n; }).length;
-      return Math.ceil((top * atOrBelow) / shown.length);
-    }
-
-    grid.style.gridTemplateColumns = "auto repeat(" + WEEKS + ", 1fr)";
-    for (var y = thisYear; y >= firstYear; y--) {
-      grid.appendChild(el("span", { class: "likes-year" }, String(y)));
-      for (var w = 0; w < WEEKS; w++) {
-        var start = new Date(Date.UTC(y, 0, 1 + 7 * w));
-        if (start > today) {
-          grid.appendChild(el("i", { class: "future" }));
-          continue;
-        }
-        var end = new Date(Math.min(+start + 6 * DAY_MS, Date.UTC(y, 11, 31)));
-        var n = weeks[y + "-" + w] || 0;
-        var when = +end === +start ? day(start) : day(start) + " – " + day(end);
-        grid.appendChild(el("i", { class: "l" + level(n), title: plural(n, "like") + ", " + when }));
+  grid.style.gridTemplateColumns = `auto repeat(${WEEKS}, 1fr)`;
+  for (const { year, cells } of h.years) {
+    grid.appendChild(el("span", { class: "likes-year" }, String(year)));
+    for (const c of cells) {
+      if (!c) {
+        grid.appendChild(el("i", { class: "future" }));
+        continue;
       }
+      const i = el("i", { "data-title": c.title, "data-from": c.from, "data-to": c.to });
+      i.style.background = SHADES[c.shade];
+      grid.appendChild(i);
     }
-
-    var s = streaks(days, today);
-    var total = shown.reduce(function (a, b) { return a + b; }, 0);
-    var summary = plural(total, "like") + " since " + firstYear + " · " + s.current + " day streak · longest " + s.longest;
-    box.querySelector(".likes-summary").textContent = summary;
-    grid.setAttribute("aria-label", summary);
-    box.hidden = false;
   }
 
-  var list = document.getElementById("tracks-list");
-  if (list) {
-    var status = document.getElementById("tracks-status");
-    var filter = document.getElementById("tracks-filter");
-    load("/api/tracks")
-      .then(function (data) {
-        fill(list, data.tracks);
-        graph(data.tracks);
-        status.textContent = data.total + " songs, newest first · updated " + day(data.updated_at);
-        filter.hidden = false;
-        filter.addEventListener("input", function () {
-          var q = filter.value.trim().toLowerCase();
-          for (var i = 0; i < list.children.length; i++) {
-            var li = list.children[i];
-            li.hidden = q && li.dataset.search.indexOf(q) === -1;
-          }
-        });
-      })
-      .catch(function () {
-        status.textContent = "Couldn't load the songs right now.";
-      });
+  const legend = box.querySelector(".likes-legend");
+  for (const fill of SHADES) {
+    const i = el("i");
+    i.style.background = fill;
+    legend.insertBefore(i, legend.lastElementChild);
   }
-})();
+
+  // shows straight away, unlike a title attribute
+  grid.addEventListener("mouseover", (e) => {
+    const cell = e.target.closest("i[data-title]");
+    if (!cell) return;
+    tip.textContent = cell.dataset.title;
+    tip.hidden = false;
+    const b = box.getBoundingClientRect();
+    const c = cell.getBoundingClientRect();
+    // centred over the square, but kept inside the heatmap
+    const left = c.left - b.left + c.width / 2 - tip.offsetWidth / 2;
+    tip.style.left = `${Math.max(0, Math.min(left, b.width - tip.offsetWidth))}px`;
+    tip.style.top = `${c.top - b.top - tip.offsetHeight - 4}px`;
+  });
+  grid.addEventListener("mouseleave", () => (tip.hidden = true));
+  grid.addEventListener("click", (e) => {
+    const cell = e.target.closest("i[data-title]");
+    if (cell) pick(cell);
+  });
+  picked.querySelector("button").addEventListener("click", () => pick(week));
+
+  box.querySelector(".likes-summary").textContent = h.summary;
+  grid.setAttribute("aria-label", h.summary);
+  box.hidden = false;
+}
+
+fetch("/api/tracks")
+  .then((res) => {
+    if (!res.ok) throw new Error(res.status);
+    return res.json();
+  })
+  .then((data) => {
+    const frag = document.createDocumentFragment();
+    data.tracks.forEach((t) => frag.appendChild(row(t)));
+    list.appendChild(frag);
+    graph(data.tracks);
+
+    status.textContent = `${data.total} songs, newest first · updated ${day(data.updated_at)}`;
+    filter.hidden = false;
+    filter.addEventListener("input", applyFilter);
+  })
+  .catch(() => {
+    status.textContent = "Couldn't load the songs right now.";
+  });
