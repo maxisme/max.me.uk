@@ -43,9 +43,7 @@ async function loadPosts() {
     const slug = file.replace(/\.md$/, "");
     const data = await readContent(join("content/blog", file));
     if (data.draft) continue; // Hugo excluded drafts from production builds
-    // `redirect = "/music/"` lists a post with the others but forwards it to
-    // that page, which shows the post's text instead of it getting its own
-    const url = data.redirect ?? `/blog/${slug}/`;
+    const url = `/blog/${slug}/`;
     posts.push({
       ...data,
       slug,
@@ -88,8 +86,7 @@ async function build() {
   );
 
   // posts
-  const articles = posts.filter((p) => !p.redirect);
-  for (const post of articles) {
+  for (const post of posts) {
     await emit(`blog/${post.slug}/index.html`, T.postPage(ctx({ ...post, isHome: false })));
   }
 
@@ -139,11 +136,11 @@ async function build() {
       url: "/music/",
       permalink: `${config.baseURL}/music/`,
       meta_description: "Every song Max Mitchell has liked on Spotify, newest first. Updated daily.",
-    }), { intro: posts.find((p) => p.redirect === "/music/")?.html })
+    }))
   );
 
   await emit("404.html", T.notFoundPage(ctx({ isHome: false, title: "404", url: "/404.html", permalink: `${config.baseURL}/404.html` })));
-  await emit("index.xml", T.rss({ posts: articles }));
+  await emit("index.xml", T.rss({ posts }));
   const newest = posts[0]?.date;
   await emit(
     "sitemap.xml",
@@ -152,7 +149,7 @@ async function build() {
         { url: "/" },
         { url: "/blog/", lastmod: newest },
         { url: "/music/" },
-        ...articles.map((p) => ({ url: p.url, lastmod: p.lastmod ?? p.date })),
+        ...posts.map((p) => ({ url: p.url, lastmod: p.lastmod ?? p.date })),
         ...tagUrls.map((url) => ({ url })),
       ],
     })
@@ -160,12 +157,8 @@ async function build() {
   await emit("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${config.baseURL}/sitemap.xml\n`);
 
   // /cv and /cv/ render the CV pdf inline (this used to live in nginx.conf,
-  // which Cloudflare Pages never reads). Forwarded posts redirect from the
-  // URL they'd otherwise have, with and without the trailing slash.
-  const forwards = posts
-    .filter((p) => p.redirect)
-    .flatMap((p) => [`/blog/${p.slug}`, `/blog/${p.slug}/`].map((from) => `${from}    ${p.redirect}    301\n`));
-  await emit("_redirects", ["/cv    /cv/max-mitchell-cv.pdf    200\n", ...forwards].join(""));
+  // which Cloudflare Pages never reads).
+  await emit("_redirects", "/cv    /cv/max-mitchell-cv.pdf    200\n");
 
   // static assets last so they win any name clash
   await cp("static", OUT, { recursive: true });

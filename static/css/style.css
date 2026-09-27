@@ -566,11 +566,6 @@ i {
   font-size: 0.8em;
 }
 
-.tracks-intro {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
 .likes-graph {
   margin: 0 0 1.5em;
   text-align: left;
@@ -580,23 +575,25 @@ i {
   margin: 0 0 0.5em;
 }
 .likes-graph .likes-grid {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-  gap: 3px;
-  overflow: hidden;
+  display: grid;
+  gap: 2px;
+  align-items: center;
 }
-.likes-graph .likes-week {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+.likes-graph .likes-year {
+  color: #636363;
+  font-size: 0.7em;
+  padding-right: 6px;
 }
 .likes-graph i {
   display: block;
+  border-radius: 2px;
+}
+.likes-graph .likes-grid i {
+  aspect-ratio: 1;
+}
+.likes-graph .likes-legend i {
   width: 11px;
   height: 11px;
-  flex-shrink: 0;
-  border-radius: 2px;
 }
 .likes-graph .future {
   visibility: hidden;
