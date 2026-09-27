@@ -576,10 +576,58 @@ i
     color: $lgrey
     font-size: 0.8em
 
-// the newest few, above the post list on /blog/ - lined up with that list
-.recent-tracks
-  margin: 1em 0 2em
+// the "My Likes" post's text, lined up with the list below it
+.tracks-intro
+  max-width: 700px
+  margin: 0 auto
 
-  h2
-    font-size: 1.1em
+// likes-per-day heatmap on /music/, shaded l0 (none) to l4 (most)
+.likes-graph
+  margin: 0 0 1.5em
+  text-align: left
+
+  .likes-summary
+    color: $lgrey
     margin: 0 0 0.5em
+
+  .likes-grid
+    display: flex
+    flex-direction: row-reverse // newest week on the right; overflow clips the oldest
+    justify-content: flex-start
+    gap: 3px
+    overflow: hidden
+
+  .likes-week
+    display: flex
+    flex-direction: column
+    gap: 3px
+
+  i
+    display: block
+    width: 11px
+    height: 11px
+    flex-shrink: 0
+    border-radius: 2px
+
+  .future
+    visibility: hidden
+
+  .l0
+    background: rgba(58, 58, 58, .08)
+  .l1
+    background: rgba($red, .3)
+  .l2
+    background: rgba($red, .55)
+  .l3
+    background: rgba($red, .8)
+  .l4
+    background: $red
+
+  .likes-legend
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    gap: 3px
+    margin-top: 0.5em
+    color: $lgrey
+    font-size: 0.8em

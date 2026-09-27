@@ -324,20 +324,12 @@ export function homePage(ctx) {
 </div>`);
 }
 
-// Filled in by static/js/tracks.js from /api/tracks/recent.
-const recentTracks = `
-<div id="recent-tracks" class="tracks recent-tracks" hidden>
-    <h2><a href="/music/">Recently liked</a></h2>
-    <ol></ol>
-</div>
-<script src="/js/tracks.js" defer></script>`;
-
-export function listPage(ctx, { heading, sub, items, withRecentTracks = false }) {
+export function listPage(ctx, { heading, sub, items }) {
   return shell(ctx, `
 <div align="center">
     <h1 class="list-header">${esc(heading)}</h1>
     ${sub ? `<sub>${esc(sub)}</sub>` : "<p>&nbsp;</p>"}
-</div>${withRecentTracks ? recentTracks : ""}
+</div>
 <div class="post-list">
 ${items
   .map(
@@ -404,13 +396,21 @@ ${page.html}
 }
 
 // Filled in by static/js/tracks.js from /api/tracks (functions/api/tracks.js).
-export function tracksPage(ctx) {
+export function tracksPage(ctx, { intro } = {}) {
   return shell(ctx, `
 <div align="center">
     <h1 class="list-header">Liked Songs</h1>
     <sub id="tracks-status">Loading from Spotify...</sub>
-</div>
+</div>${intro ? `
+<div class="content tracks-intro">
+${intro}
+</div>` : ""}
 <div class="tracks">
+    <div id="likes-graph" class="likes-graph" hidden>
+        <p class="likes-summary"></p>
+        <div class="likes-grid" role="img"></div>
+        <div class="likes-legend">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</div>
+    </div>
     <input id="tracks-filter" type="search" placeholder="Filter by song, artist or album" autocomplete="off" hidden>
     <ol id="tracks-list"></ol>
 </div>

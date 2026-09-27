@@ -566,12 +566,64 @@ i {
   font-size: 0.8em;
 }
 
-.recent-tracks {
-  margin: 1em 0 2em;
+.tracks-intro {
+  max-width: 700px;
+  margin: 0 auto;
 }
-.recent-tracks h2 {
-  font-size: 1.1em;
+
+.likes-graph {
+  margin: 0 0 1.5em;
+  text-align: left;
+}
+.likes-graph .likes-summary {
+  color: #636363;
   margin: 0 0 0.5em;
+}
+.likes-graph .likes-grid {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 3px;
+  overflow: hidden;
+}
+.likes-graph .likes-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.likes-graph i {
+  display: block;
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.likes-graph .future {
+  visibility: hidden;
+}
+.likes-graph .l0 {
+  background: rgba(58, 58, 58, 0.08);
+}
+.likes-graph .l1 {
+  background: rgba(188, 33, 34, 0.3);
+}
+.likes-graph .l2 {
+  background: rgba(188, 33, 34, 0.55);
+}
+.likes-graph .l3 {
+  background: rgba(188, 33, 34, 0.8);
+}
+.likes-graph .l4 {
+  background: #bc2122;
+}
+.likes-graph .likes-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  margin-top: 0.5em;
+  color: #636363;
+  font-size: 0.8em;
 }
 
 /*# sourceMappingURL=style.css.map */
