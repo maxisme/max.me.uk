@@ -46,7 +46,7 @@
 
   // ---------------------------------------------------- likes heatmap
 
-  var YEARS = 10;
+  var YEARS = 10; // at most
   var DAY_MS = 24 * 60 * 60 * 1000;
   // week w of a year starts on day 7w, so Dec 31 (day 364, or 365 in a leap
   // year) lands in week 52
@@ -95,7 +95,9 @@
     var now = new Date();
     var today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
     var thisYear = today.getUTCFullYear();
-    var firstYear = thisYear - YEARS + 1;
+    // no rows for the years before my first like
+    var oldest = tracks.reduce(function (min, t) { return t.added_at < min ? t.added_at : min; }, today.toISOString());
+    var firstYear = Math.max(thisYear - YEARS + 1, new Date(oldest).getUTCFullYear());
 
     var days = {};
     var weeks = {};

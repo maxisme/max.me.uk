@@ -5,7 +5,7 @@ tags = ["Cloudflare", "Spotify"]
 title = "My Likes"
 
 +++
-Every song I have liked on Spotify is now on [/music](/music/) - newest first, with a heatmap of how many I have liked each week over the last 10 years. It updates once a day.
+Every song I have liked on Spotify is now on [/music](/music/) - newest first, with a heatmap of how many I have liked each week. It updates once a day.
 
 ## How it works (tldr)
 
