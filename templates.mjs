@@ -396,13 +396,21 @@ ${page.html}
 }
 
 // Filled in by static/js/tracks.js from /api/tracks (functions/api/tracks.js).
-export function tracksPage(ctx) {
+export function tracksPage(ctx, { intro } = {}) {
   return shell(ctx, `
 <div align="center">
     <h1 class="list-header">Liked Songs</h1>
     <sub id="tracks-status">Loading from Spotify...</sub>
-</div>
+</div>${intro ? `
+<div class="content tracks-intro">
+${intro}
+</div>` : ""}
 <div class="tracks">
+    <div id="likes-graph" class="likes-graph" hidden>
+        <p class="likes-summary"></p>
+        <div class="likes-grid" role="img"></div>
+        <div class="likes-legend">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</div>
+    </div>
     <input id="tracks-filter" type="search" placeholder="Filter by song, artist or album" autocomplete="off" hidden>
     <ol id="tracks-list"></ol>
 </div>
