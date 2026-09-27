@@ -17,4 +17,4 @@ bucket_name = "spotify-tracks"
 # secrets (wrangler secret put ...):
 #   SPOTIFY_CLIENT_ID
 #   SPOTIFY_CLIENT_SECRET
-#   SPOTIFY_REFRESH_TOKEN  - from `node auth.mjs`, only needed for the first run
+# the refresh token lives in the bucket - log in at https://max.me.uk/spotify
