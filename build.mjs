@@ -128,6 +128,17 @@ async function build() {
     })
   );
 
+  await emit(
+    "music/index.html",
+    T.tracksPage(ctx({
+      isHome: false,
+      title: "Liked Songs",
+      url: "/music/",
+      permalink: `${config.baseURL}/music/`,
+      meta_description: "Every song Max Mitchell has liked on Spotify, newest first. Updated daily.",
+    }))
+  );
+
   await emit("404.html", T.notFoundPage(ctx({ isHome: false, title: "404", url: "/404.html", permalink: `${config.baseURL}/404.html` })));
   await emit("index.xml", T.rss({ posts }));
   const newest = posts[0]?.date;
@@ -137,6 +148,7 @@ async function build() {
       urls: [
         { url: "/" },
         { url: "/blog/", lastmod: newest },
+        { url: "/music/" },
         ...posts.map((p) => ({ url: p.url, lastmod: p.lastmod ?? p.date })),
         ...tagUrls.map((url) => ({ url })),
       ],

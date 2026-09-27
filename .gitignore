@@ -9,3 +9,7 @@ dist
 /cv/*.log
 /cv/*.out
 node_modules
+
+# wrangler
+.wrangler
+.dev.vars

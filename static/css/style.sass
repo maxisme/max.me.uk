@@ -525,3 +525,53 @@ i
     margin: auto
     height: 100%
     max-width: 100%
+.tracks
+  max-width: 700px
+  margin: 1em auto 3em
+
+  // the filter hides rows with the attribute; display: flex would win
+  [hidden]
+    display: none !important
+
+  input[type=search]
+    margin-bottom: 1em
+
+  ol
+    padding: 0
+    margin: 0
+
+  li
+    display: flex
+    align-items: center
+    list-style-type: none
+    padding: 8px 0
+    border-bottom: 1px solid rgba(58, 58, 58, .1)
+
+    img
+      width: 48px
+      height: 48px
+      flex-shrink: 0
+      margin-right: 12px
+
+  .track-text
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    text-align: left
+    min-width: 0
+
+    a, .track-name
+      font-weight: 800
+
+    a, span
+      max-width: 100%
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+
+  .track-by
+    color: $lgrey
+
+  .track-added
+    color: $lgrey
+    font-size: 0.8em
