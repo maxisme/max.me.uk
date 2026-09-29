@@ -2,8 +2,9 @@
 // who logs in at /spotify for a heatmap.
 //
 // Each account has three objects in the SPOTIFY bucket (see files()):
-//   tracks.json - the songs. Mine are served whole by functions/api/tracks.js;
-//                 everyone else's only keep when and what they liked.
+//   tracks.json - the songs, newest like first. Mine are served whole by
+//                 functions/api/tracks.js; everyone else's only keep when and
+//                 what they liked. Songs since un-liked stay, with unliked_at.
 //   likes.json  - just the added_at dates, for functions/api/heatmap/[id].js
 //   state.json  - private: the refresh token (put there by functions/spotify.js
 //                 at login), any half-done rescan, and when it last synced
@@ -14,7 +15,8 @@
 //   1. read from the newest end until we hit a track we already have
 //   2. if the count then matches Spotify's total, that's it (the normal case)
 //   3. otherwise something was un-liked, so rescan everything - resuming on
-//      the next run if the library is too big to read in one go
+//      the next run if the library is too big to read in one go - and mark
+//      what's gone with unliked_at
 
 // market= swaps each track's and album's ~185-country available_markets list
 // for one is_playable flag, which cuts a page from ~160KB to ~65KB
@@ -96,7 +98,8 @@ export async function sync(env, acct, budget = { pages: MAX_PAGES }) {
     };
 
     if (!state.rescan && current) {
-      const known = new Set(current.tracks.map(key));
+      const liked = current.tracks.filter((t) => !t.unliked_at);
+      const known = new Set(liked.map(key));
       const fresh = [];
       let url = LIKED;
       let total;
@@ -116,14 +119,13 @@ export async function sync(env, acct, budget = { pages: MAX_PAGES }) {
         url = res.next;
       }
 
-      const merged = [...fresh, ...current.tracks];
-      if ((caughtUp || !url) && merged.length === total) {
+      if ((caughtUp || !url) && fresh.length + liked.length === total) {
         // likes.json is newer than some tracks.json, so write it if missing
-        if (fresh.length || !(await env.SPOTIFY.head(f.likes))) await save(merged);
+        if (fresh.length || !(await env.SPOTIFY.head(f.likes))) await save([...fresh, ...current.tracks]);
         console.log(`${fresh.length} new, ${total} total`);
         return;
       }
-      console.log(`have ${merged.length}, spotify says ${total} - rescanning`);
+      console.log(`have ${fresh.length + liked.length}, spotify says ${total} - rescanning`);
     }
 
     state.rescan ??= { next: LIKED, tracks: [] };
@@ -139,9 +141,18 @@ export async function sync(env, acct, budget = { pages: MAX_PAGES }) {
       // items shift if I like/unlike mid-rescan, which can repeat one
       const seen = new Set();
       const tracks = state.rescan.tracks.filter((t) => !seen.has(key(t)) && seen.add(key(t)));
-      await save(tracks);
+      // unliked_at is when a rescan first found it gone, not when I un-liked
+      // it. A song that rescan skipped (items shifting again) is marked too,
+      // but then the counts are off, the next run rescans, and finding it
+      // there drops the marked copy.
+      const now = new Date().toISOString();
+      const unliked = (current?.tracks ?? [])
+        .filter((t) => !seen.has(key(t)))
+        .map((t) => (t.unliked_at ? t : { ...t, unliked_at: now }));
+      const all = [...tracks, ...unliked].sort((a, b) => b.added_at.localeCompare(a.added_at));
+      await save(all);
       delete state.rescan;
-      console.log(`rescanned ${tracks.length} tracks`);
+      console.log(`rescanned ${tracks.length} tracks, ${unliked.length} unliked`);
     }
   } finally {
     // keep the (possibly rotated) refresh token and rescan progress even if
@@ -213,7 +224,9 @@ export async function getJSON(env, name) {
 }
 
 async function saveTracks(env, f, tracks) {
-  const body = { updated_at: new Date().toISOString(), total: tracks.length, tracks };
+  // total is what's still liked, to match Spotify's count
+  const total = tracks.filter((t) => !t.unliked_at).length;
+  const body = { updated_at: new Date().toISOString(), total, tracks };
   const json = { httpMetadata: { contentType: "application/json" } };
   await env.SPOTIFY.put(f.tracks, JSON.stringify(body), json);
   await env.SPOTIFY.put(f.likes, JSON.stringify(tracks.map((t) => t.added_at)), json);
