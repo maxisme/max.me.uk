@@ -27,7 +27,8 @@ function row(t) {
     : el("span", { class: "track-name" }, t.name);
   text.appendChild(name);
   text.appendChild(el("span", { class: "track-by" }, t.artists.join(", ") + (t.album ? " — " + t.album : "")));
-  text.appendChild(el("span", { class: "track-added" }, "liked " + day(t.added_at)));
+  const added = "liked " + day(t.added_at) + (t.unliked_at ? " · unliked " + day(t.unliked_at) : "");
+  text.appendChild(el("span", { class: "track-added" }, added));
   li.appendChild(text);
 
   li.dataset.search = [t.name, t.artists.join(" "), t.album].join(" ").toLowerCase();
