@@ -1,7 +1,20 @@
 {
-  "updated_at": "2026-09-29T21:00:16.408Z",
-  "total": 2162,
+  "updated_at": "2026-10-05T09:01:32.512Z",
+  "total": 2163,
   "tracks": [
+    {
+      "added_at": "2026-10-04T17:26:34Z",
+      "id": "2XGRM9Z3mg71Gsq5saAtbP",
+      "uri": "spotify:track:2XGRM9Z3mg71Gsq5saAtbP",
+      "name": "Come And See",
+      "url": "https://open.spotify.com/track/2XGRM9Z3mg71Gsq5saAtbP",
+      "artists": [
+        "Gurriers"
+      ],
+      "album": "Come And See",
+      "image": "https://i.scdn.co/image/ab67616d00004851f2592e0cb937e06cb87aee6b",
+      "duration_ms": 327266
+    },
     {
       "added_at": "2026-09-29T19:24:34Z",
       "id": "0Wgjuj7ZgodP2eLzzjLSAc",
