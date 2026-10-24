@@ -1,7 +1,20 @@
 {
-  "updated_at": "2026-10-22T09:00:43.600Z",
-  "total": 2167,
+  "updated_at": "2026-10-24T09:00:41.576Z",
+  "total": 2168,
   "tracks": [
+    {
+      "added_at": "2026-10-23T18:32:37Z",
+      "id": "1Dcfp94Bmjnih9IYD6qV6K",
+      "uri": "spotify:track:1Dcfp94Bmjnih9IYD6qV6K",
+      "name": "Real Life",
+      "url": "https://open.spotify.com/track/1Dcfp94Bmjnih9IYD6qV6K",
+      "artists": [
+        "ear"
+      ],
+      "album": "The Most Dear and The Future",
+      "image": "https://i.scdn.co/image/ab67616d00004851468315210da62a4ffda72430",
+      "duration_ms": 139584
+    },
     {
       "added_at": "2026-10-21T17:18:30Z",
       "id": "270Qc1RLxvJa3YQExUkDu4",
