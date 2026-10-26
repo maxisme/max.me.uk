@@ -1,7 +1,33 @@
 {
-  "updated_at": "2026-10-24T09:00:41.576Z",
-  "total": 2168,
+  "updated_at": "2026-10-26T11:00:38.941Z",
+  "total": 2169,
   "tracks": [
+    {
+      "added_at": "2026-10-25T21:13:56Z",
+      "id": "0P8uRIC4D6fa7LI5x3lJ8X",
+      "uri": "spotify:track:0P8uRIC4D6fa7LI5x3lJ8X",
+      "name": "Palomino",
+      "url": "https://open.spotify.com/track/0P8uRIC4D6fa7LI5x3lJ8X",
+      "artists": [
+        "Gemma Hayes"
+      ],
+      "album": "Bones + Longing",
+      "image": "https://i.scdn.co/image/ab67616d00004851076b1585fc57e75a7193b240",
+      "duration_ms": 222826
+    },
+    {
+      "added_at": "2026-10-25T18:27:42Z",
+      "id": "15J6PrzKaLtvw0dBr9sq72",
+      "uri": "spotify:track:15J6PrzKaLtvw0dBr9sq72",
+      "name": "Slowly",
+      "url": "https://open.spotify.com/track/15J6PrzKaLtvw0dBr9sq72",
+      "artists": [
+        "Amon Tobin"
+      ],
+      "album": "Supermodified",
+      "image": "https://i.scdn.co/image/ab67616d0000485114b74358028a458cc883b8ef",
+      "duration_ms": 337506
+    },
     {
       "added_at": "2026-10-23T18:32:37Z",
       "id": "1Dcfp94Bmjnih9IYD6qV6K",
@@ -1505,7 +1531,7 @@
       "added_at": "2025-12-25T10:49:25Z",
       "id": "69hH2X1SjculOZEOahrWQQ",
       "uri": "spotify:track:69hH2X1SjculOZEOahrWQQ",
-      "name": "Christmas Is Coming",
+      "name": "Christmas Is Coming - Remastered 2012",
       "url": "https://open.spotify.com/track/69hH2X1SjculOZEOahrWQQ",
       "artists": [
         "Vince Guaraldi Trio"
@@ -3407,7 +3433,8 @@
       ],
       "album": "Supermodified",
       "image": "https://i.scdn.co/image/ab67616d0000485114b74358028a458cc883b8ef",
-      "duration_ms": 337506
+      "duration_ms": 337506,
+      "unliked_at": "2026-10-26T11:00:38.941Z"
     },
     {
       "added_at": "2025-03-24T12:47:55Z",
@@ -4237,8 +4264,7 @@
       "name": "E.V.A.",
       "url": "https://open.spotify.com/track/4nQNNwnIUUmFzVOcVVJCk1",
       "artists": [
-        "Jean-Jacques Perrey",
-        "Fatboy Slim"
+        "Jean-Jacques Perrey"
       ],
       "album": "Moog Indigo",
       "image": "https://i.scdn.co/image/ab67616d000048511ec80750e21e23a99dae1aaa",
@@ -5010,7 +5036,7 @@
         "Gabriels"
       ],
       "album": "Bloodline",
-      "image": "https://i.scdn.co/image/ab67616d00004851ff8ac016f78407cfce10ee7f",
+      "image": "https://i.scdn.co/image/ab67616d0000485148820ec0ed88a9e4ce05f95f",
       "duration_ms": 170453
     },
     {
@@ -6446,7 +6472,7 @@
         "Girls in Airports"
       ],
       "album": "Kaikoura",
-      "image": "https://i.scdn.co/image/ab67616d000048510d5a92bd6792ecbfd9efcc4c",
+      "image": "https://i.scdn.co/image/ab67616d00004851745ef646ec40b5ba89b719f9",
       "duration_ms": 154426
     },
     {
@@ -6499,7 +6525,7 @@
         "Girls in Airports"
       ],
       "album": "Migration",
-      "image": "https://i.scdn.co/image/ab67616d000048512fdf48995511badcb8d604aa",
+      "image": "https://i.scdn.co/image/ab67616d00004851aff25ba735b97813400901ac",
       "duration_ms": 218720
     },
     {
@@ -6721,7 +6747,7 @@
       "artists": [
         "The Beatles"
       ],
-      "album": "The Beatles (Remastered)",
+      "album": "The Beatles (Remastered 2009)",
       "image": "https://i.scdn.co/image/ab67616d000048514ce8b4e42588bf18182a1ad2",
       "duration_ms": 235773
     },
@@ -7368,7 +7394,7 @@
       "artists": [
         "The Beatles"
       ],
-      "album": "With The Beatles (Remastered)",
+      "album": "With The Beatles (Remastered 2009)",
       "image": "https://i.scdn.co/image/ab67616d00004851608a63ad5b18e99da94a3f73",
       "duration_ms": 148253
     },
@@ -9228,7 +9254,7 @@
         "Wayne Smith"
       ],
       "album": "Under Me Sleng Teng",
-      "image": "https://i.scdn.co/image/ab67616d00004851a9da04b4fbc1317f61b76ea4",
+      "image": "https://i.scdn.co/image/ab67616d000048514c7ced7c63e6fa6e17005cf6",
       "duration_ms": 250666
     },
     {
@@ -9643,7 +9669,7 @@
       "artists": [
         "The Beatles"
       ],
-      "album": "Sgt. Pepper's Lonely Hearts Club Band (Remastered)",
+      "album": "Sgt. Pepper's Lonely Hearts Club Band (Remastered 2009)",
       "image": "https://i.scdn.co/image/ab67616d0000485134ef8f7d06cf2fc2146f420a",
       "duration_ms": 337413
     },
@@ -11128,7 +11154,7 @@
       "artists": [
         "The Beatles"
       ],
-      "album": "Let It Be (Remastered)",
+      "album": "Let It Be (Remastered 2009)",
       "image": "https://i.scdn.co/image/ab67616d0000485184243a01af3c77b56fe01ab1",
       "duration_ms": 145586
     },
@@ -14179,8 +14205,8 @@
         "Lone"
       ],
       "album": "A Simple Beautiful Truth",
-      "image": "https://i.scdn.co/image/ab67616d0000485165c428775e7c4acc75eabd19",
-      "duration_ms": 270923
+      "image": "https://i.scdn.co/image/ab67616d000048510733fa432a9781d7561a4c45",
+      "duration_ms": 273466
     },
     {
       "added_at": "2021-02-10T13:52:54Z",
@@ -18898,7 +18924,7 @@
         "Marcia Aitken"
       ],
       "album": "Reggae Impact",
-      "image": "https://i.scdn.co/image/ab67616d00004851da85632bf1fd007058826840",
+      "image": "https://i.scdn.co/image/ab67616d000048512e3a780843eb3bc6de4f405e",
       "duration_ms": 228360
     },
     {
@@ -18938,7 +18964,7 @@
         "Cutty Ranks"
       ],
       "album": "Reggae Anthology: Cutty Ranks - Limb By Limb",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbe77f9516b65a512f265908",
+      "image": "https://i.scdn.co/image/ab67616d000048519e6ce56f39266d24733d6ff7",
       "duration_ms": 209373
     },
     {
@@ -20106,7 +20132,7 @@
         "Ken Boothe"
       ],
       "album": "Songs For Reggae Lovers Vol. 4",
-      "image": "https://i.scdn.co/image/ab67616d000048518099a55b08e42a617d6bbef9",
+      "image": "https://i.scdn.co/image/ab67616d000048518e716bade52ad3e4997db3a8",
       "duration_ms": 229506
     },
     {
@@ -27556,7 +27582,7 @@
         "Marcia Griffiths"
       ],
       "album": "Reggae Anthology: Melody Life",
-      "image": "https://i.scdn.co/image/ab67616d0000485176d897cc7032954a8c076c12",
+      "image": "https://i.scdn.co/image/ab67616d000048516e5b9cdb071b21721a4c8c89",
       "duration_ms": 213506
     },
     {
