@@ -1,7 +1,20 @@
 {
-  "updated_at": "2026-10-26T11:00:38.941Z",
-  "total": 2169,
+  "updated_at": "2026-11-05T09:00:42.146Z",
+  "total": 2170,
   "tracks": [
+    {
+      "added_at": "2026-11-04T17:23:10Z",
+      "id": "7xJJExBSwaDZLwunMMEauF",
+      "uri": "spotify:track:7xJJExBSwaDZLwunMMEauF",
+      "name": "I'm His Girl",
+      "url": "https://open.spotify.com/track/7xJJExBSwaDZLwunMMEauF",
+      "artists": [
+        "Friends"
+      ],
+      "album": "Manifest!",
+      "image": "https://i.scdn.co/image/ab67616d00004851ea576e280ea1b89754208b5a",
+      "duration_ms": 172560
+    },
     {
       "added_at": "2026-10-25T21:13:56Z",
       "id": "0P8uRIC4D6fa7LI5x3lJ8X",
