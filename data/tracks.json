@@ -1,7 +1,20 @@
 {
-  "updated_at": "2026-11-05T09:00:42.146Z",
-  "total": 2170,
+  "updated_at": "2026-11-17T09:00:08.069Z",
+  "total": 2171,
   "tracks": [
+    {
+      "added_at": "2026-11-16T12:52:55Z",
+      "id": "4KHGdUOAMJro0uQYBHb7Ph",
+      "uri": "spotify:track:4KHGdUOAMJro0uQYBHb7Ph",
+      "name": "Jaque",
+      "url": "https://open.spotify.com/track/4KHGdUOAMJro0uQYBHb7Ph",
+      "artists": [
+        "Marina Herlop"
+      ],
+      "album": "Dja Dja",
+      "image": "https://i.scdn.co/image/ab67616d000048518c83d8f230414d764b19ac92",
+      "duration_ms": 292173
+    },
     {
       "added_at": "2026-11-04T17:23:10Z",
       "id": "7xJJExBSwaDZLwunMMEauF",
