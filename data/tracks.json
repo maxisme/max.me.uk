@@ -1,7 +1,47 @@
 {
-  "updated_at": "2026-11-17T09:00:08.069Z",
-  "total": 2171,
+  "updated_at": "2026-11-21T09:00:31.506Z",
+  "total": 2174,
   "tracks": [
+    {
+      "added_at": "2026-11-20T22:37:14Z",
+      "id": "26VUliruOm9r2zbg7uJDmY",
+      "uri": "spotify:track:26VUliruOm9r2zbg7uJDmY",
+      "name": "Ballet Flat$ On The Ga$ Pedal",
+      "url": "https://open.spotify.com/track/26VUliruOm9r2zbg7uJDmY",
+      "artists": [
+        "Cowgirl Clue"
+      ],
+      "album": "Total Freedom",
+      "image": "https://i.scdn.co/image/ab67616d00004851bd8a8d24ef027d158b7973ba",
+      "duration_ms": 147500
+    },
+    {
+      "added_at": "2026-11-20T22:35:26Z",
+      "id": "1aBI7y4ojdL48CSib7vyNr",
+      "uri": "spotify:track:1aBI7y4ojdL48CSib7vyNr",
+      "name": "Theorem",
+      "url": "https://open.spotify.com/track/1aBI7y4ojdL48CSib7vyNr",
+      "artists": [
+        "ear"
+      ],
+      "album": "The Most Dear and The Future",
+      "image": "https://i.scdn.co/image/ab67616d00004851468315210da62a4ffda72430",
+      "duration_ms": 132000
+    },
+    {
+      "added_at": "2026-11-20T22:28:44Z",
+      "id": "64yioT39hYUlNyQMqEyUE6",
+      "uri": "spotify:track:64yioT39hYUlNyQMqEyUE6",
+      "name": "Canary Wharf drift",
+      "url": "https://open.spotify.com/track/64yioT39hYUlNyQMqEyUE6",
+      "artists": [
+        "Bassvictim",
+        "Oatmilkandcodeine"
+      ],
+      "album": "Basspunk",
+      "image": "https://i.scdn.co/image/ab67616d0000485161eb816641a010b1ae297c71",
+      "duration_ms": 145459
+    },
     {
       "added_at": "2026-11-16T12:52:55Z",
       "id": "4KHGdUOAMJro0uQYBHb7Ph",
