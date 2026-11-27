@@ -1,7 +1,20 @@
 {
-  "updated_at": "2026-11-21T09:00:31.506Z",
-  "total": 2174,
+  "updated_at": "2026-11-27T09:00:07.747Z",
+  "total": 2175,
   "tracks": [
+    {
+      "added_at": "2026-11-25T20:28:22Z",
+      "id": "2IWpuw7dfOsv4wrDqxmg4U",
+      "uri": "spotify:track:2IWpuw7dfOsv4wrDqxmg4U",
+      "name": "Thought I Saw an Angel",
+      "url": "https://open.spotify.com/track/2IWpuw7dfOsv4wrDqxmg4U",
+      "artists": [
+        "Charm Pool"
+      ],
+      "album": "Thought I Saw an Angel",
+      "image": "https://i.scdn.co/image/ab67616d0000485144724c0b63d0e868ea452a0e",
+      "duration_ms": 211636
+    },
     {
       "added_at": "2026-11-20T22:37:14Z",
       "id": "26VUliruOm9r2zbg7uJDmY",
